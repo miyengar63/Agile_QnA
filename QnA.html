@@ -128,6 +128,19 @@
   .btn.p:hover {
     background: var(--accent);
   }
+  
+  .btn.agile {
+   /* background: var(--accent2);*/
+    border-color: var(--accent);
+    color: #fff;
+	margin-bottom: 26px;
+	font-size: 16px;
+	background: none;
+  }
+
+  .btn.agile:hover {
+    background: var(--accent);
+  }
 
   /* ── Search ── */
   .sw {
@@ -172,7 +185,7 @@
     color: var(--text-muted);
     font-size: 1rem;
     cursor: pointer;
-    line-height: 1;
+    line-height: 2;
     padding: 0 2px;
     display: none;
   }
@@ -470,6 +483,14 @@
     .content { padding: 20px 16px; }
     .sw input { width: 160px; }
   }
+  
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 
 </style>
 </head>
@@ -479,21 +500,253 @@
   <h1>Scrum &amp; <span>Agile</span> Interview Questions</h1>
   <p>A complete guide to Scrum framework and Agile ways of working</p>
   <div class="hm">
-    <span class="mb"><span id="totalCount">0</span> Questions</span>
-    <span class="mb">Scrum · Kanban · Waterfall</span>
-    <span class="mb">Roles · Events · Artifacts</span>
+   <!-- <span class="mb"><span id="totalCount">0</span> Questions</span> -->
+   <span class="mb">Scrum · Kanban · Waterfall</span>
+   <span class="mb">Roles · Events · Artifacts</span>
   </div>
 </div>
 
 <div class="ctrl">
   <button class="btn p" onclick="toggleAll(true)">Expand All</button>
   <button class="btn" onclick="toggleAll(false)">Collapse All</button>
+  
   <div class="sw" id="sw">
     <input id="searchBox" type="text" placeholder="Search Questions .." oninput="filterQ(this.value)">
     <button class="clr" onclick="clearSearch()" title="Clear search">✕</button>
   </div>
 </div>
 <div class="content">
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <button class="btn agile" onclick="openModal('agilePrinciple')"><b>Agile Principles</b></button>
+  <button class="btn agile" onclick="openModal('agileValue')"><b>Agile Values</b></button>
+  <button class="btn agile" onclick="openModal('scrumPrinciple')"><b>Scrum Principles</b></button>
+  <button class="btn agile" onclick="openModal('scrumValue')"><b>Scrum Values</b></button>
+</div>
+
+<!-- Modal -->
+<div id="agilePrinciple" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('agilePrinciple')">&times;</span>
+
+    <div style="text-align: center;">
+		<h2>Agile Principles</h2>
+	</div>
+
+    <table class="agile-table">
+      <tr><th>Principle</th><th>Description</th></tr>
+      <tr><td><b>Customer Satisfaction</b></td><td>Prioritize early and continuous delivery of valuable software</td></tr>
+	  <tr><td><b>Welcome Change</b></td><td>Embrace changing requirements, even late in development</td></tr>
+	  <tr><td><b>Frequent Delivery</b></td><td>Deliver working software frequently (weeks rather than months).</td></tr>
+	  <tr><td><b>Collaboration</b></td><td>Business stakeholders and developers must work together daily</td></tr>
+	  <tr><td><b>Motivated Individuals</b></td><td>Build projects around motivated individuals and trust them</td></tr>
+	  <tr><td><b>Face-to-Face Conversation</b></td><td>Use direct, in-person communication whenever possible</td></tr>
+	  <tr><td><b>Working Software</b></td><td>This is the primary measure of progress</td></tr>
+	  <tr><td><b>Sustainable Development</b></td><td>Maintain a consistent, sustainable work pace indefinitely</td></tr>
+	  <tr><td><b>Technical Excellence</b></td><td>Continuous attention to good design and quality improves agility</td></tr>
+	  <tr><td><b>Simplicity</b></td><td>Maximize the amount of work not done (focus on essential tasks)</td></tr>
+	  <tr><td><b>Self-Organizing Teams</b></td><td>The best architectures and designs emerge from self-organizing teams</td></tr>
+	  <tr><td><b>Regular Reflection</b></td><td>Teams regularly reflect on how to become more effective, then adjust accordingly</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="agileValue" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('agileValue')">&times;</span>
+
+     <div style="text-align: center;">
+	<h2>Agile Values</h2>
+	</div>
+
+    <table class="agile-table">
+      <tr><th>Vale</th><th>Description</th></tr>
+      <tr><td><b>Individuals and interactions over processes and tools</b></td><td>Focuses on people, communication, and collaboration over rigid processes or tools</td></tr>
+      <tr><td><b>Working software over comprehensive documentation</b></td><td>Prioritizes delivering usable software over excessive documentation</td></tr>
+      <tr><td><b>Customer collaboration over contract negotiation</b></td><td>Encourages continuous customer involvement instead of relying only on contracts</td></tr>
+      <tr><td><b>Responding to change over following a plan</b></td><td>Promotes adapting to change rather than strictly sticking to a fixed plan</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumPrinciple" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumPrinciple')">&times;</span>
+
+    <div style="text-align: center;">
+      <h2>Scrum Principles</h2>
+    </div>
+
+    <table class="agile-table">
+      <tr><th>Principle</th><th>Description</th></tr>
+      <tr><td><b>Empirical Process Control</b></td><td>Decisions are based on observation, experience, and experimentation</td></tr>
+      <tr><td><b>Self-Organization</b></td><td>Teams decide how best to accomplish their work</td></tr>
+	  <tr><td><b>Collaboration</b></td><td>Team works together to deliver value</td></tr>
+	  <tr><td><b>Value-based Prioritization</b></td><td>Work is prioritized based on business value</td></tr>
+	  <tr><td><b>Time-boxing</b></td><td>Events have fixed duration to maintain focus and efficiency</td></tr>
+      <tr><td><b>Iterative Development</b></td><td>Deliver work in small, incremental cycles</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumValue" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumValue')">&times;</span>
+
+    <div style="text-align: center;">
+      <h2>Scrum Values</h2>
+    </div>
+
+    <table class="agile-table">
+      <tr><th>Value</th><th>Description</th></tr>
+      <tr><td><b>Commitment</b></td><td>Team members commit to achieving the sprint goals and supporting each other</td></tr>
+      <tr><td><b>Courage</b></td><td>Team members have the courage to do the right thing and tackle tough problems</td></tr>
+      <tr><td><b>Focus</b></td><td>The team focuses on the work of the sprint and its goals to deliver value</td></tr>
+      <tr><td><b>Openness</b></td><td>Team members are open about work, feedback, and challenges, increasing transparency</td></tr>
+      <tr><td><b>Respect</b></td><td>Members respect each other as capable, independent professionals</td></tr>
+    </table>
+  </div>
+</div>
+
+<style>
+/* ONLY this question hover (prevents global issue) 
+.qh.agile-q:hover {
+  background: #f2f6ff;
+  cursor: pointer;
+} */
+
+/* Modal overlay */
+.agile-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+/* Modal box */
+.agile-modal-content {
+  background: var(--surface);
+  color: var(--text);
+  width: fit-content;
+  max-width: 92vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 5vh auto;
+  padding: 24px 28px;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.agile-modal-content h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent3);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* Close button */
+.agile-close {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.agile-close:hover {
+  color: var(--accent3);
+}
+
+/* Table */
+.agile-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: .85rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.agile-table th {
+  background: var(--hbg);
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--accent2);
+}
+
+.agile-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+  color: var(--text);
+  vertical-align: top;
+}
+
+.agile-table tr:last-child td {
+  border-bottom: none;
+}
+
+.agile-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.agile-table tr:hover td {
+  background: rgba(0, 180, 216, 0.07);
+}
+
+.agile-table td:first-child {
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  white-space: nowrap;
+  //text-align: center;
+}
+
+.agile-table td:nth-child(2) {
+  white-space: nowrap;
+}
+
+</style>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+// close when clicking outside
+window.addEventListener("click", function(event) {
+  document.querySelectorAll(".agile-modal").forEach(function(modal) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".agile-modal").forEach(function(modal) {
+      modal.style.display = "none";
+    });
+  }
+});
+</script>
 
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is Scrum, and how does it differ from other agile frameworks?</span><span class="qv">▼</span></div><div class="qb">
 <p>Scrum is a lightweight Agile framework used to develop and deliver complex products through short, time-boxed iterations called Sprints (usually 1–4 weeks). It is based on empiricism, meaning decisions are made through transparency, inspection, and adaptation. Scrum clearly defines roles (Scrum Master, Product Owner, Developers), events (Sprint Planning, Daily Scrum, Review, Retrospective), and artifacts (Product Backlog, Sprint Backlog, Increment) to help teams deliver value incrementally.</p>
@@ -1931,6 +2184,9 @@ function scrollToTop() {
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 }
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+
 </script>
 
 <button id="backToTop" onclick="scrollToTop()" title="Go to top">↑</button>
