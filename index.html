@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrum & Agile QnA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0f1923;
+    --surface: #162233;
+    --surface2: #1c2d42;
+    --border: #1e3a5f;
+    --accent: #00b4d8;
+    --accent2: #0077b6;
+    --accent3: #48cae4;
+    --text: #cdd9e8;
+    --text-muted: #7a96b5;
+    --hbg: #0a4d68;
+    --green: #52b788;
+    --div: #2a4a6b;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding: 0 0 60px;
+  }
+
+  /* ── Header ── */
+  .ph {
+    background: linear-gradient(135deg, #0a3d62 0%, #0d5c85 50%, #0a4d68 100%);
+    padding: 40px 40px 32px;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ph::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ph h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  .ph h1 span {
+    color: var(--accent3);
+  }
+
+  .ph p {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: .9rem;
+  }
+
+  .hm {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+  }
+
+  .mb {
+    background: rgba(0,180,216,0.12);
+    border: 1px solid rgba(0,180,216,0.3);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: .78rem;
+    color: var(--accent3);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ── Controls ── */
+  .ctrl {
+    padding: 16px 40px;
+    display: flex;
+    gap: 12px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn {
+    padding: 7px 18px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .83rem;
+    cursor: pointer;
+    transition: all .2s;
+  }
+
+  .btn:hover {
+    background: var(--accent2);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .btn.p {
+    background: var(--accent2);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .btn.p:hover {
+    background: var(--accent);
+  }
+  
+  .btn.agile {
+   /* background: var(--accent2);*/
+    border-color: var(--accent);
+    color: #fff;
+	margin-bottom: 26px;
+	font-size: 16px;
+	background: none;
+  }
+
+  .btn.agile:hover {
+    background: var(--accent);
+  }
+
+  /* ── Search ── */
+  .sw {
+    margin-left: auto;
+    position: relative;
+  }
+
+  .sw input {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 30px 7px 34px;
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: .83rem;
+    width: clamp(280px, 38vw, 250px);
+    outline: none;
+    transition: border-color .2s;
+  }
+
+  .sw input:focus {
+    border-color: var(--accent);
+  }
+
+  .sw::before {
+    content: '🔍';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: .75rem;
+    pointer-events: none;
+  }
+
+  .clr {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    line-height: 2;
+    padding: 0 2px;
+    display: none;
+  }
+
+  .clr:hover {
+    color: var(--accent3);
+  }
+
+  .sw.has-value .clr {
+    display: block;
+  }
+
+  /* ── Content ── */
+  .content {
+    padding: 28px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .sd {
+    margin: 36px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .sd::before,
+  .sd::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--div), transparent);
+  }
+
+  .sd span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── Q Cards ── */
+  .qc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+
+  .qc:hover {
+    border-color: var(--accent2);
+  }
+
+  .qc.open {
+    border-color: var(--accent);
+  }
+
+  .qc.hidden {
+    display: none;
+  }
+
+  .qh {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background .2s;
+  }
+
+  .qc.open .qh {
+    background: rgba(0,119,182,0.15);
+  }
+
+  .qh:hover {
+    background: rgba(0,180,216,0.08);
+  }
+
+  .qn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .72rem;
+    color: var(--accent3);
+    background: rgba(0,180,216,0.1);
+    border: 1px solid rgba(0,180,216,0.2);
+    border-radius: 4px;
+    padding: 2px 8px;
+    min-width: 44px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .qt {
+    flex: 1;
+    font-weight: 600;
+    font-size: .95rem;
+    color: #ddeeff;
+  }
+
+  .qv {
+    color: var(--text-muted);
+    font-size: .75rem;
+    transition: transform .3s;
+    flex-shrink: 0;
+  }
+
+  .qc.open .qv {
+    transform: rotate(180deg);
+    color: var(--accent3);
+  }
+
+  .qb {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .qc.open .qb {
+    display: block;
+  }
+
+  .qb p {
+    color: var(--text);
+    font-size: .9rem;
+    margin: 12px 0 8px;
+  }
+
+  .qb ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  .qb ul li {
+    font-size: .88rem;
+    color: var(--text);
+    padding: 5px 0 5px 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .qb ul li:last-child {
+    border-bottom: none;
+  }
+
+  .qb ul li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent3);
+    font-size: .75rem;
+    top: 7px;
+  }
+
+  .qb ul li strong {
+    color: var(--accent3);
+    font-weight: 600;
+  }
+
+  /* ── Sub label ── */
+  .sl {
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 14px 0 6px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ── Table ── */
+  .at {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: .85rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .at th {
+    background: var(--hbg);
+    color: var(--accent3);
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .8rem;
+    letter-spacing: .5px;
+    border-bottom: 2px solid var(--accent2);
+  }
+
+  .at td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(30,58,95,0.6);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .at tr:last-child td {
+    border-bottom: none;
+  }
+
+  .at tr:nth-child(even) td {
+    background: rgba(255,255,255,0.025);
+  }
+
+  .at tr:hover td {
+    background: rgba(0,180,216,0.05);
+  }
+
+  .at td:first-child {
+    color: var(--accent3);
+    font-weight: 500;
+  }
+
+  /* ── Outcome block ── */
+  .ob {
+    background: rgba(82,183,136,0.1);
+    border-left: 3px solid var(--green);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin-top: 12px;
+    font-size: .87rem;
+    color: var(--text);
+  }
+
+  .ob strong {
+    color: var(--green);
+  }
+
+  .cl li::before {
+    content: '✓';
+    color: var(--green);
+    font-size: .8rem;
+    top: 6px;
+  }
+
+  /* ── Back to Top / Bottom buttons ── */
+  #backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    background-color: var(--accent2);
+    color: white;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+  }
+
+  #backToTop:hover {
+    background-color: var(--accent);
+    transform: translateY(-3px);
+  }
+
+  #backToBottom {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 30px;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    background-color: var(--accent2);
+    color: white;
+    cursor: pointer;
+    padding: 10px 16px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: all 0.3s;
+  }
+
+  #backToBottom:hover {
+    background-color: var(--accent);
+    transform: translateY(3px);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .ph  { padding: 24px 20px; }
+    .ctrl { padding: 14px 20px; }
+    .content { padding: 20px 16px; }
+    .sw input { width: 160px; }
+  }
+  
+  body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <h1>Scrum &amp; <span>Agile</span> Interview Questions</h1>
+  <p>A complete guide to Scrum framework and Agile ways of working</p>
+  <div class="hm">
+   <!-- <span class="mb"><span id="totalCount">0</span> Questions</span> -->
+   <span class="mb">Scrum · Kanban · Waterfall</span>
+   <span class="mb">Roles · Events · Artifacts</span>
+  </div>
+</div>
+
+<div class="ctrl">
+  <button class="btn p" onclick="toggleAll(true)">Expand All</button>
+  <button class="btn" onclick="toggleAll(false)">Collapse All</button>
+  
+  <div class="sw" id="sw">
+    <input id="searchBox" type="text" placeholder="Search Questions .." oninput="filterQ(this.value)">
+    <button class="clr" onclick="clearSearch()" title="Clear search">✕</button>
+  </div>
+</div>
+<div class="content">
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <button class="btn agile" onclick="openModal('agilePrinciple')"><b>Agile Principles</b></button>
+  <button class="btn agile" onclick="openModal('agileValue')"><b>Agile Values</b></button>
+  <button class="btn agile" onclick="openModal('scrumPrinciple')"><b>Scrum Principles</b></button>
+  <button class="btn agile" onclick="openModal('scrumValue')"><b>Scrum Values</b></button>
+</div>
+
+<!-- Modal -->
+<div id="agilePrinciple" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('agilePrinciple')">&times;</span>
+
+    <div style="text-align: center;">
+		<h2>Agile Principles</h2>
+	</div>
+
+    <table class="agile-table">
+      <tr><th>Principle</th><th>Description</th></tr>
+      <tr><td><b>Customer Satisfaction</b></td><td>Prioritize early and continuous delivery of valuable software</td></tr>
+	  <tr><td><b>Welcome Change</b></td><td>Embrace changing requirements, even late in development</td></tr>
+	  <tr><td><b>Frequent Delivery</b></td><td>Deliver working software frequently (weeks rather than months).</td></tr>
+	  <tr><td><b>Collaboration</b></td><td>Business stakeholders and developers must work together daily</td></tr>
+	  <tr><td><b>Motivated Individuals</b></td><td>Build projects around motivated individuals and trust them</td></tr>
+	  <tr><td><b>Face-to-Face Conversation</b></td><td>Use direct, in-person communication whenever possible</td></tr>
+	  <tr><td><b>Working Software</b></td><td>This is the primary measure of progress</td></tr>
+	  <tr><td><b>Sustainable Development</b></td><td>Maintain a consistent, sustainable work pace indefinitely</td></tr>
+	  <tr><td><b>Technical Excellence</b></td><td>Continuous attention to good design and quality improves agility</td></tr>
+	  <tr><td><b>Simplicity</b></td><td>Maximize the amount of work not done (focus on essential tasks)</td></tr>
+	  <tr><td><b>Self-Organizing Teams</b></td><td>The best architectures and designs emerge from self-organizing teams</td></tr>
+	  <tr><td><b>Regular Reflection</b></td><td>Teams regularly reflect on how to become more effective, then adjust accordingly</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="agileValue" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('agileValue')">&times;</span>
+
+     <div style="text-align: center;">
+	<h2>Agile Values</h2>
+	</div>
+
+    <table class="agile-table">
+      <tr><th>Vale</th><th>Description</th></tr>
+      <tr><td><b>Individuals and interactions over processes and tools</b></td><td>Focuses on people, communication, and collaboration over rigid processes or tools</td></tr>
+      <tr><td><b>Working software over comprehensive documentation</b></td><td>Prioritizes delivering usable software over excessive documentation</td></tr>
+      <tr><td><b>Customer collaboration over contract negotiation</b></td><td>Encourages continuous customer involvement instead of relying only on contracts</td></tr>
+      <tr><td><b>Responding to change over following a plan</b></td><td>Promotes adapting to change rather than strictly sticking to a fixed plan</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumPrinciple" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumPrinciple')">&times;</span>
+
+    <div style="text-align: center;">
+      <h2>Scrum Principles</h2>
+    </div>
+
+    <table class="agile-table">
+      <tr><th>Principle</th><th>Description</th></tr>
+      <tr><td><b>Empirical Process Control</b></td><td>Decisions are based on observation, experience, and experimentation</td></tr>
+      <tr><td><b>Self-Organization</b></td><td>Teams decide how best to accomplish their work</td></tr>
+	  <tr><td><b>Collaboration</b></td><td>Team works together to deliver value</td></tr>
+	  <tr><td><b>Value-based Prioritization</b></td><td>Work is prioritized based on business value</td></tr>
+	  <tr><td><b>Time-boxing</b></td><td>Events have fixed duration to maintain focus and efficiency</td></tr>
+      <tr><td><b>Iterative Development</b></td><td>Deliver work in small, incremental cycles</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumValue" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumValue')">&times;</span>
+
+    <div style="text-align: center;">
+      <h2>Scrum Values</h2>
+    </div>
+
+    <table class="agile-table">
+      <tr><th>Value</th><th>Description</th></tr>
+      <tr><td><b>Commitment</b></td><td>Team members commit to achieving the sprint goals and supporting each other</td></tr>
+      <tr><td><b>Courage</b></td><td>Team members have the courage to do the right thing and tackle tough problems</td></tr>
+      <tr><td><b>Focus</b></td><td>The team focuses on the work of the sprint and its goals to deliver value</td></tr>
+      <tr><td><b>Openness</b></td><td>Team members are open about work, feedback, and challenges, increasing transparency</td></tr>
+      <tr><td><b>Respect</b></td><td>Members respect each other as capable, independent professionals</td></tr>
+    </table>
+  </div>
+</div>
+
+<style>
+/* ONLY this question hover (prevents global issue) 
+.qh.agile-q:hover {
+  background: #f2f6ff;
+  cursor: pointer;
+} */
+
+/* Modal overlay */
+.agile-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+/* Modal box */
+.agile-modal-content {
+  background: var(--surface);
+  color: var(--text);
+  width: fit-content;
+  max-width: 92vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  margin: 5vh auto;
+  padding: 24px 28px;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.agile-modal-content h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent3);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* Close button */
+.agile-close {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+.agile-close:hover {
+  color: var(--accent3);
+}
+
+/* Table */
+.agile-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: .85rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.agile-table th {
+  background: var(--hbg);
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--accent2);
+}
+
+.agile-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+  color: var(--text);
+  vertical-align: top;
+}
+
+.agile-table tr:last-child td {
+  border-bottom: none;
+}
+
+.agile-table tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.agile-table tr:hover td {
+  background: rgba(0, 180, 216, 0.07);
+}
+
+.agile-table td:first-child {
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+  white-space: nowrap;
+  //text-align: center;
+}
+
+.agile-table td:nth-child(2) {
+  white-space: nowrap;
+}
+
+</style>
+
+<script>
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+// close when clicking outside
+window.addEventListener("click", function(event) {
+  document.querySelectorAll(".agile-modal").forEach(function(modal) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".agile-modal").forEach(function(modal) {
+      modal.style.display = "none";
+    });
+  }
+});
+</script>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is Scrum, and how does it differ from other agile frameworks?</span><span class="qv">▼</span></div><div class="qb">
+<p>Scrum is a lightweight Agile framework used to develop and deliver complex products through short, time-boxed iterations called Sprints (usually 1–4 weeks). It is based on empiricism, meaning decisions are made through transparency, inspection, and adaptation. Scrum clearly defines roles (Scrum Master, Product Owner, Developers), events (Sprint Planning, Daily Scrum, Review, Retrospective), and artifacts (Product Backlog, Sprint Backlog, Increment) to help teams deliver value incrementally.</p>
+<table class="at"><thead><tr><th>Aspect</th><th>Scrum</th><th>Kanban</th></tr></thead><tbody>
+<tr><td>Approach</td><td>Iterative, time-boxed</td><td>Continuous flow</td></tr>
+<tr><td>Iterations</td><td>Fixed-length Sprints</td><td>No Sprints</td></tr>
+<tr><td>Roles</td><td>Defined roles (Scrum Master, Product Owner, Developers)</td><td>No mandatory roles</td></tr>
+<tr><td>Planning</td><td>Sprint Planning at start of Sprint</td><td>Planning done continuously</td></tr>
+<tr><td>Change Handling</td><td>Changes usually after Sprint ends</td><td>Changes can be made anytime</td></tr>
+<tr><td>Metrics</td><td>Velocity, Burndown/Burnup</td><td>Cycle Time, Lead Time, WIP</td></tr>
+<tr><td>Work Limits</td><td>Limited by Sprint commitment</td><td>WIP limits enforced</td></tr>
+<tr><td>Best Use Case</td><td>Evolving requirements with regular delivery</td><td>Continuous work, support, maintenance</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What are the highlights of Scrum compared to other frameworks?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Iterative and Incremental Delivery: Scrum delivers working increments every sprint</li>
+<li>Empiricism: Decisions are based on inspection, adaptation, and transparency</li>
+<li>Defined Roles: Clear responsibilities with Scrum Master, Product Owner, and Developers.</li>
+<li>Time-boxed Events: Structured ceremonies ensure focus and collaboration.</li>
+<li>Focus on Value: Prioritized backlog ensures the team works on the highest-value items first.</li>
+<li>Continuous Improvement: Retrospectives and metrics drive ongoing process and product enhancement.</li>
+<li>Self-organizing Teams: Teams decide how to do the work, improving engagement and ownership.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Waterfall Model</th><th>Agile Methodology</th></tr></thead><tbody>
+<tr><td>Requirements clarity</td><td>Stable &amp; fixed</td><td>Evolving &amp; unclear</td></tr>
+<tr><td>Change frequency</td><td>Minimal changes</td><td>Frequent changes</td></tr>
+<tr><td>Customer involvement</td><td>Limited</td><td>Continuous</td></tr>
+<tr><td>Project complexity</td><td>Predictable</td><td>Complex &amp; uncertain</td></tr>
+<tr><td>Delivery approach</td><td>One-time release</td><td>Incremental delivery</td></tr>
+<tr><td>Risk handling</td><td>Low risk</td><td>High risk, early feedback</td></tr>
+<tr><td>Team style</td><td>Siloed</td><td>Cross-functional</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the importance of Agile over the traditional Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Agile Methodology</th></tr></thead><tbody>
+<tr><td>Handles change better</td><td>Adapts quickly to requirement changes instead of fixed upfront scope</td></tr>
+<tr><td>Early value delivery</td><td>Delivers working increments instead of waiting till end</td></tr>
+<tr><td>Continuous feedback</td><td>Regular stakeholder input improves product quality early</td></tr>
+<tr><td>Risk reduction</td><td>Issues are identified and corrected in short cycles</td></tr>
+<tr><td>Better transparency</td><td>Progress is visible through frequent reviews and updates</td></tr>
+<tr><td>Higher customer focus</td><td>Builds product based on evolving customer needs and priorities</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define Agile and Scrum in the context of project management.</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Agile definition: Iterative and incremental approach to project management focused on flexibility and customer value</li>
+<li>Agile focus: Emphasizes adaptability, collaboration, and continuous delivery of value</li>
+<li>Scrum definition: A lightweight Agile framework used to manage and deliver complex work in short iterations called Sprints</li>
+<li>Scrum structure: Defines roles, events, and artifacts to ensure transparency and inspection</li>
+<li>Agile vs Scrum: Agile is the mindset | Scrum is one way to implement Agile</li>
+<li>Outcome focus: Both aim to deliver value early, improve continuously, and respond to change effectively</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the difference between Agile and Scrum?</span><span class="qv">▼</span></div><div class="qb"><p>Agile is the broad philosophy based on iterative development and the Agile Manifesto. Scrum is a specific, lightweight framework used to implement those Agile principles through defined roles, artifacts, and time-boxed events.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the role of a Scrum Master, and how does it differ from a Project Manager?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>A Scrum Master facilitates the Scrum framework, removes impediments, and supports the development team in becoming self-organizing and high-performing.</li>
+<li>A Project Manager plans, executes, and controls the project by managing scope, resources, timelines, and budgets.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What’s the difference between project monitoring and controlling?</span><span class="qv">▼</span></div><div class="qb"><p>Monitoring is the process of observing and tracking project performance against the plan (passive/informational). Controlling is taking corrective actions when deviations occur to get the project back on track (active/corrective).</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you help the development team estimate and plan their work effectively?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Facilitate Backlog Refinement to break down stories into clear tasks</li>
+<li>Guide Sprint Planning with Planning Poker</li>
+<li>Assess velocity and capacity for realistic commitments</li>
+<li>Encourage team collaboration and consensus on estimates</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you address a situation where the team is not fully following Scrum practices?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Identify missing or skipped practices (e.g., stand-ups, retrospectives)</li>
+<li>Discuss with the team to understand reasons for deviation</li>
+<li>Coach the team on the value of practices for collaboration and continuous improvement</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you promote and maintain transparency in a Scrum team?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Maintain visual dashboards (Jira, burn-down charts) for real-time visibility</li>
+<li>Keep Scrum artifacts (Product Backlog, Sprint Backlog, Increment) up to date</li>
+<li>Facilitate Sprint Planning for commitment, Sprint Reviews for feedback, and Retrospectives for process improvement</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you explain the difference between velocity and capacity in Scrum?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Velocity: past average work delivered (story points)</li>
+<li>Capacity: team availability for upcoming Sprint</li>
+<li>Key difference: Velocity forecasts delivery; capacity ensures realistic planning</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define capacity and velocity in project management, providing examples.</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Capacity: Total available work a team can take in a Sprint based on time, availability, and focus. Example: 5 members available full Sprint → 5 × 10 days = ~50 person-days available effort</li>
+<li>Velocity: Average amount of work (story points) a team completes in a Sprint. Example: Team consistently completes 28–32 story points per Sprint → velocity = ~30 points</li>
+<li>Key difference: Capacity is input (availability) | Velocity is output (historical delivery)</li>
+<li>Usage in planning: Capacity helps decide how much time is available | Velocity helps decide how much work fits</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Details about size of current team and approach to calculating capacity?</span><span class="qv">▼</span></div><div class="qb"><p>Typically calculated by taking the sum of available hours for all developers in the Sprint and subtracting time for holidays, planned time-off, and non-development tasks like Scrum events.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you manage a team that is consistently failing to meet its sprint commitments?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Identify root causes using sprint data (estimation issues, unclear requirements, dependencies, scope changes)</li>
+<li>Enforce a strong Definition of Ready (DoR) so only well-understood items enter the sprint</li>
+<li>Plan based on team capacity (holidays, leaves, availability)</li>
+<li>Use historical velocity to avoid over-commitment during sprint planning</li>
+<li>Improve estimation through regular backlog refinement and sizing</li>
+<li>Protect the team from mid-sprint scope changes and disruptions</li>
+<li>Use retrospectives to agree on small, actionable improvements and track them next sprint</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you handle a situation where the team is frequently interrupted by unplanned work?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Make interruptions visible by tracking all unplanned work</li>
+<li>Perform Root Cause Analysis (RCA) to understand why interruptions keep occurring</li>
+<li>Analyze patterns (type, source, frequency) using the data</li>
+<li>Revisit and improve upstream processes to reduce interruptions over time</li>
+<li>Reserve buffer capacity in sprint planning for predictable unplanned work</li>
+<li>Align with the Product Owner to prioritize and limit ad-hoc requests</li>
+<li>Define clear intake and escalation rules for what is truly urgent</li>
+<li>Protect the sprint goal and team focus from unnecessary disruptions</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is a Definition of Done, and how does it relate to Scrum?</span><span class="qv">▼</span></div><div class="qb">
+<p>Definition of Done (DoD) is a shared checklist that defines when a product increment is considered complete and releasable.</p>
+<ul>
+<li>It ensures quality and transparency across the team</li>
+<li>Helps the team deliver a potentially shippable increment each sprint</li>
+<li>Creates a common understanding between Developers, PO, and Scrum Master</li>
+<li>Prevents partially done or hidden work from being counted as “done”</li>
+</ul>
+<p>DoD Checklist:</p>
+<ul>
+<li>Code completed and peer-reviewed</li>
+<li>All relevant tests are passed</li>
+<li>Acceptance criteria met</li>
+<li>No critical defects open</li>
+<li>Code merged and build successful</li>
+<li>Deployed to required environment</li>
+<li>Documentation updated (if needed)</li>
+<li>Technical debt addressed or noted</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the purpose and benefits of a “Definition of Ready” for user stories.</span><span class="qv">▼</span></div><div class="qb">
+<p>Definition of Ready (DoR) is a shared checklist that defines when a Product Backlog Item or user story is considered clear, well-defined, and ready to be pulled into a sprint.</p>
+<ul>
+<li>It ensures clarity and shared understanding across the team</li>
+<li>Helps the team pull only well-defined, actionable stories into a sprint</li>
+<li>Creates a common agreement between Developers, PO, and Scrum Master on readiness</li>
+<li>Prevents unclear, ambiguous, or unready work from entering the sprint</li>
+</ul>
+<p>DoR Checklist:</p>
+<ul>
+<li>User story clearly described and understood</li>
+<li>Acceptance criteria defined and testable</li>
+<li>Dependencies identified and addressed</li>
+<li>Estimates provided (story points or time)</li>
+<li>No blocking issues or external approvals pending</li>
+<li>Design or mockups attached (if needed)</li>
+<li>Performance, security, or other non-functional requirements identified</li>
+<li>Story is small enough to be completed in a sprint</li>
+<li>Team confirms story is ready to be pulled into a sprint</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What does the Definition of Done (DoD) mean in your team?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Shared quality standard : Agreed checklist that defines when work is truly “Done”</li>
+<li>Completeness check : Ensures all coding, testing, and acceptance criteria are met</li>
+<li>Quality assurance : Confirms unit testing, reviews, and necessary validations are completed</li>
+<li>Usability readiness : Ensures item is potentially releasable at the end of sprint</li>
+<li>Transparency : Same definition applies to all team members and all work items</li>
+<li>Consistency : Prevents partial or “almost done” work from being accepted</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the difference between Definition of Done and Acceptance Criteria?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Definition of Done (DoD)</th><th>Acceptance Criteria (AC)</th></tr></thead><tbody>
+<tr><td>Scope focus</td><td>Applies to all work items</td><td>Applies to a specific user story</td></tr>
+<tr><td>Purpose</td><td>Ensures quality &amp; completeness</td><td>Defines expected behavior</td></tr>
+<tr><td>Ownership</td><td>Owned by the Scrum Team</td><td>Defined by PO (with team input)</td></tr>
+<tr><td>Usage timing</td><td>Constant across Sprints</td><td>Changes per story</td></tr>
+<tr><td>Validation level</td><td>Checks process &amp; quality readiness</td><td>Checks functional correctness</td></tr>
+<tr><td>Outcome</td><td>Ensures work is releasable</td><td>Ensures requirement is met</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Distinctions between Definition of Ready (DOR) and Definition of Done (DOD)?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Definition of Ready (DoR)</th><th>Definition of Done (DoD)</th></tr></thead><tbody>
+<tr><td>Purpose difference</td><td>Ensures work is ready to start</td><td>Ensures work is completed properly</td></tr>
+<tr><td>Timing difference</td><td>Checked before Sprint starts</td><td>Checked after completion</td></tr>
+<tr><td>Scope difference</td><td>Applies to backlog readiness</td><td>Applies to increment quality</td></tr>
+<tr><td>Focus difference</td><td>Reduces ambiguity and unknowns</td><td>Ensures quality and completeness</td></tr>
+<tr><td>Ownership</td><td>Owned by PO + team</td><td>Owned by entire Scrum Team</td></tr>
+<tr><td>Outcome impact</td><td>Improves planning efficiency</td><td>Ensures releasable increment</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Who is responsible for creating the Definition of Done (DOD)?</span><span class="qv">▼</span></div><div class="qb"><p>The entire Scrum Team (Product Owner, Scrum Master, and Developers) is responsible for defining the DoD. If the organization provides a standard DoD, the team must adopt it as a minimum.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Common impediments to success and how to address them?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Unclear requirements → Improve backlog refinement and enforce Definition of Ready</li>
+<li>Frequent scope changes → Protect the sprint goal and align closely with the Product Owner</li>
+<li>External dependencies → Make them visible, escalate early, and plan around them</li>
+<li>Low team collaboration → Encourage open communication and effective Scrum events</li>
+<li>Over-commitment → Plan using realistic capacity and historical velocity</li>
+<li>Technical debt → Make it visible and plan reduction work regularly</li>
+<li>Interruptions/unplanned work → Set clear intake rules and reserve buffer capacity</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you address the issue of technical debt?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Make technical debt visible by identifying and tracking it in the backlog</li>
+<li>Explain the impact of debt on speed, quality, and risk to the Product Owner</li>
+<li>Prioritize technical debt items along with feature work</li>
+<li>Allocate capacity each sprint for refactoring and debt reduction</li>
+<li>Enforce strong DoD and code reviews to prevent new debt</li>
+<li>Use retrospectives to inspect and improve debt-reduction practices</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Role of Scrum Master in managing technical debt?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Raise awareness: Ensure the team and Product Owner understand the impact of technical debt on delivery, quality, and velocity.</li>
+<li>Facilitate prioritization: Help the PO balance new features vs debt reduction in backlog refinement and sprint planning.</li>
+<li>Promote technical excellence: Encourage practices like code reviews, refactoring, automated testing to prevent new debt.</li>
+<li>Enforce Definition of Done (DoD): Ensure the DoD includes quality standards and debt management so work is truly complete.</li>
+<li>Track debt: Make technical debt visible in backlog or dashboards to monitor trends over time.</li>
+<li>Support sustainable pace: Prevent shortcuts that increase debt and ensure the team allocates time to address existing debt.</li>
+<li>Facilitate improvement: Use retrospectives to identify debt-related issues and plan actions to reduce them gradually.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define technical debt and spike stories in project management.</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Technical debt : Accumulated shortcuts or suboptimal code/design choices that increase future effort</li>
+<li>Cause : Happens due to time pressure, evolving requirements, or temporary fixes</li>
+<li>Impact : Slows down future development and increases maintenance cost</li>
+<li>Spike story : Time-boxed research or experimentation task to reduce uncertainty</li>
+<li>Purpose : Helps understand technical approach, estimate effort, or evaluate solutions</li>
+<li>Outcome : Produces knowledge, proof of concept, or decision rather than production code</li>
+<li>Usage : Used when requirements or technical approach are unclear</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define the concept of a "spike" within your project context.</span><span class="qv">▼</span></div><div class="qb"><p>A spike is a time-boxed investigation or research activity used to reduce technical uncertainty or gather information required to estimate a core User Story.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Major challenge faced as a Scrum Master and how resolved?</span><span class="qv">▼</span></div><div class="qb">
+<p>Example: Team was frequently missing sprint goals</p>
+<ul>
+<li>Identified root causes such as unclear requirements and regular interruptions</li>
+<li>Improved backlog refinement and enforced Definition of Ready</li>
+<li>Worked with the Product Owner to control mid-sprint scope changes</li>
+<li>Created a visible impediment tracker in Confluence and raised blockers proactively in Daily Scrum (DSU)</li>
+<li>Used retrospectives to drive corrective actions and follow through</li>
+</ul>
+<div class="ob">Outcome: Improved sprint predictability and consistent delivery</div>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you handle resistance to Agile and Scrum?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Listen first: Talk to stakeholders to understand fears like loss of control or deadlines.</li>
+<li>Explain the why: Show how Scrum improves faster delivery and transparency using real examples.</li>
+<li>Start small: Pilot Scrum with one team instead of a big-bang rollout.</li>
+<li>Show quick wins: Use early sprint results and metrics to build confidence.</li>
+<li>Coach by doing: Demonstrate Agile practices during real work, not theory sessions.</li>
+<li>Address fears: Clarify roles and accountability to reduce uncertainty.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What metrics do you use to track and improve team performance?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint Goal success rate – frequency of achieving sprint goals (Met / Total_Sprints * 100)</li>
+<li>Velocity - Team predictability over time</li>
+<li>Burndown / Burnup – progress and scope changes</li>
+<li>Cycle time &amp; lead time – measuring flow efficiency</li>
+<li>Defect trends – monitoring quality and technical health</li>
+<li>Team Happiness - Team Happiness Score (%)= Sum of all survey ratings / Maximum possible rating * 100</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the role of metrics in Scrum?</span><span class="qv">▼</span></div><div class="qb">
+<p>Motto: Enable Empiricism – use real data to inspect, adapt, and make informed decisions.</p>
+<p>Role of Metrics in Scrum:</p>
+<ul>
+<li>Measure progress: Track how much work is completed versus planned.</li>
+<li>Improve predictability: Identify trends in velocity, cycle time, and sprint goal success.</li>
+<li>Spot bottlenecks: Highlight delays in development, review, or testing.</li>
+<li>Guide improvements: Provide data for retrospectives and process adjustments.</li>
+<li>Ensure quality: Track defect trends and technical health.</li>
+<li>Monitor team well-being: Measure engagement and sustainability.</li>
+<li>Transparency: Provide clear visibility into project status, progress, and blockers for the team and stakeholders.</li>
+<li>Data-Driven Decisions: Enable smarter planning and prioritization based on actual trends, performance, and outcomes.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What metrics do you track during Sprint Retrospectives?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint predictability : Committed vs completed work → Helps improve planning accuracy</li>
+<li>Spillover items : Unfinished stories carried forward → Identifies overcommitment or hidden complexity</li>
+<li>Defect trends : Bugs raised during/after Sprint → Highlights quality gaps</li>
+<li>Cycle time : Time taken from start to completion → Shows flow efficiency</li>
+<li>Team happiness : Quick qualitative feedback → Indicates team health and morale</li>
+<li>Action completion : Retro action items closed → Ensures continuous improvement is actually happening</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Metrics presented to Team vs Management?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint metrics (team) : Velocity, sprint burndown, committed vs completed work</li>
+<li>Flow metrics (team) : Cycle time, lead time, WIP, blocked time</li>
+<li>Quality metrics (team) : Defect count, defect leakage, rework trends</li>
+<li>Predictability (team) : Spillover stories, estimation accuracy trends</li>
+<li>Delivery metrics (management): Release progress, milestone burnup, feature completion status</li>
+<li>Business metrics (business) : Value delivered, feature usage/adoption, customer impact indicators</li>
+<li>Risk visibility (leadership) : Dependencies, blockers, and high-impact risks</li>
+<li>Outcome focus (all levels) : Alignment of delivery with business goals and roadmap progress</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share the metrics employed in your project.</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint predictability : The team's ability to consistently deliver what they committed to. Percentage of planned work vs. actual work completed.</li>
+<li>Velocity : Story points delivered per sprint for capacity forecasting</li>
+<li>Burndown chart : Tracks remaining work daily to monitor sprint progress</li>
+<li>Cycle time : Time taken from start to completion of a story</li>
+<li>Lead time : Time from request to delivery to customer</li>
+<li>Defect metrics : Defect count, severity, and defect leakage to track quality</li>
+<li>WIP : Number of items in progress to manage flow efficiency</li>
+<li>Spillover : Incomplete stories carried to next sprint to identify gaps</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">List some Scrum metrics you find valuable.</span><span class="qv">▼</span></div><div class="qb"><p>Valuable metrics include Velocity (for forecasting), Cycle Time (for flow efficiency), and Defect Leakage (for quality control).</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identify various Sprint metrics used in your project.</span><span class="qv">▼</span></div><div class="qb"><p>Includes the Sprint Burndown chart, Sprint Goal Success rate, and the ratio of committed vs. completed work.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Which reports do you regularly utilize and how do they contribute?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint burndown : Tracks remaining work daily → helps monitor sprint progress and identify delays early</li>
+<li>Velocity report : Shows completed story points → supports future sprint planning and predictability</li>
+<li>Burnup chart : Displays completed work vs total scope → highlights progress and scope changes</li>
+<li>Cumulative flow diagram : Shows WIP, bottlenecks, and flow efficiency → helps improve cycle time</li>
+<li>Defect report : Tracks defect trends and leakage → improves product quality</li>
+<li>Sprint report : Committed vs completed work → helps analyze planning accuracy and spillovers</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What metrics have you found valuable in managing your projects?</span><span class="qv">▼</span></div><div class="qb"><p>Primary value is found in the Burndown chart for daily focus, and Velocity trends for release planning.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Strategies used to help a team continuously improve?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Regular Retrospectives: Use sprint retrospectives to identify what’s working and what needs improvement.</li>
+<li>Inspect &amp; Adapt: Use observations and metrics to refine processes and improve delivery.</li>
+<li>Embrace a Feedback Culture: Treat feedback from both success and failure as opportunities to learn and grow.</li>
+<li>Turn Feedback into Action: Convert improvement ideas into clear, shared action items and track their effectiveness.</li>
+<li>Metrics Review: Review velocity, cycle time, defect trends, and sprint goal success to spot bottlenecks.</li>
+<li>Refine DoD and DoR: Continuously improve Definition of Done and Definition of Ready to ensure clarity and quality.</li>
+<li>Promote Technical Excellence: Encourage code reviews, automation, refactoring, and reduction of technical debt.</li>
+<li>Encourage Knowledge Sharing: Support cross-skilling, pairing, and learning sessions.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How to handle a team that insists on overcommitting?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Use historical data: Bring velocity, past commitments vs completions, and spillover data to ground planning in facts.</li>
+<li>Plan by capacity, not optimism: Factor in team availability, holidays, support work, and interruptions before committing.</li>
+<li>Sprint Goal focus: Ensure the team commits to a realistic Sprint Goal first, not a maximum number of stories.</li>
+<li>Educate on consequences: Explain how overcommitment leads to stress, quality issues, and growing technical debt.</li>
+<li>Encourage a pull mindset: Commit conservatively based on capacity, meet the Sprint Goal first, and pull additional work only if time and capacity remain.</li>
+<li>Inspect and adapt: Use retrospectives to reflect on overcommitment patterns and adjust planning behavior.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How to manage interfering external stakeholders?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Set clear boundaries: Educate stakeholders about the sprint goal and team focus.</li>
+<li>Single point of contact: Ensure all requests go through the Product Owner to maintain prioritization.</li>
+<li>Transparent communication: Share sprint plans, progress, and impact of ad-hoc requests.</li>
+<li>Protect the team: Politely but firmly prevent mid-sprint scope changes unless critical.</li>
+<li>Escalate when needed: Raise repeated interference in retrospectives or with leadership.</li>
+<li>Engage stakeholders in planning: Involve them in backlog refinement or sprint reviews for visibility.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How to handle fluctuating velocity sprint-to-sprint?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Analyze patterns: Look for reasons like scope changes, unplanned work, or inconsistent story sizing.</li>
+<li>Refine estimation: Improve story point estimation using historical data and team discussion.</li>
+<li>Stabilize sprint planning: Commit to realistic work based on average velocity and team capacity.</li>
+<li>Limit mid-sprint changes: Protect the sprint goal and reduce unplanned interruptions.</li>
+<li>Track root causes: Identify bottlenecks, dependencies, or technical debt affecting delivery.</li>
+<li>Continuous improvement: Address process, collaboration, and technical issues in retrospectives</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain “Sprint Zero,” and when to use it?</span><span class="qv">▼</span></div><div class="qb">
+<p>Sprint Zero is a preparatory sprint before the first official development sprint. Its goal is to set up everything needed for smooth execution of future sprints.</p>
+<p>Purpose / When to use:</p>
+<ul>
+<li>Project setup: Configure tools, environments, CI/CD pipelines, and repositories.</li>
+<li>Backlog preparation: Create initial Product Backlog items and high-level architecture.</li>
+<li>Team onboarding: Introduce team members to the project, practices, and standards.</li>
+<li>Spike or research work: Explore unknowns, prototypes, or feasibility studies.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain Sprint Zero in your project context.</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint Zero concept : Initial phase before actual sprints to prepare team, environment, and backlog</li>
+<li>Purpose : Enable smooth start of development, not to deliver business features</li>
+<li>Setup activities : Environment setup, tools (Jira), CI/CD pipeline, access, basic architecture</li>
+<li>Backlog readiness : Create initial epics, high-level stories, and prioritize with Product Owner</li>
+<li>Definition setup : Establish Definition of Done, Definition of Ready, and working agreements</li>
+<li>Caution : Should be time-boxed and not treated as a long planning phase or mini-waterfall</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensure sustainable pace and avoid burnout?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Respect capacity: Plan sprints based on realistic team capacity, not ideal maximum.</li>
+<li>Track workload: Monitor story points, tasks, and unplanned work to prevent overcommitment.</li>
+<li>Encourage breaks and downtime: Promote work-life balance and avoid excessive overtime.</li>
+<li>Rotate responsibilities: Share challenging tasks to prevent stress on a few members.</li>
+<li>Monitor team happiness: Use surveys or check-ins to detect early signs of fatigue.</li>
+<li>Inspect &amp; adapt: Adjust future sprints based on feedback and observed team pace.</li>
+<li>Protect team focus: Minimize interruptions and mid-sprint scope changes.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensure team delivers/exceeds customer expectations?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Clear requirements &amp; DoR: Ensure backlog items are well-defined, actionable, and prioritized.</li>
+<li>Sprint &amp; Capacity Planning: Commit realistically based on team capacity.</li>
+<li>Regular feedback: Involve stakeholders through reviews and demos.</li>
+<li>Definition of Done (DoD): Ensure all work meets quality standards.</li>
+<li>Continuous improvement: Use retrospectives and metrics to refine processes.</li>
+<li>Technical excellence: Encourage code quality, testing, refactoring, and debt reduction.</li>
+<li>Transparent communication: Keep stakeholders informed about progress and risks.</li>
+<li>Focus on value: Prioritize work that delivers the highest customer value.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Best practices for excellent customer relationships?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Frequent communication: Keep stakeholders informed with regular updates, demos, and progress reports.</li>
+<li>Active listening: Understand customer needs, pain points, and feedback carefully.</li>
+<li>Transparency: Share challenges, risks, and trade-offs openly to build trust.</li>
+<li>Deliver value incrementally: Provide working software frequently to demonstrate progress and value.</li>
+<li>Involve customers: Engage them in backlog refinement, sprint reviews, and planning discussions.</li>
+<li>Manage expectations: Set realistic commitments and clarify priorities.</li>
+<li>Responsiveness: Address questions, concerns, and feedback promptly.</li>
+<li>Focus on collaboration: Treat the customer as a partner, not just an approver.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Tackle uncertainties in a project?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Time-boxed sprints: Deliver increments quickly to gain early feedback and reduce unknowns.</li>
+<li>Backlog refinement &amp; prioritization: Break down high-uncertainty items into clear, actionable stories.</li>
+<li>Spikes / Research tasks: Explore unknowns or new technologies before committing to implementation.</li>
+<li>Inspect &amp; Adapt: Review progress, impediments, and outcomes regularly to adjust plans.</li>
+<li>Transparent communication: Keep the team and stakeholders informed about uncertainties and assumptions.</li>
+<li>Collaborative decision-making: Work with the team and Product Owner to address unknowns and decide the best course of action.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Why is timeboxing important?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Creates focus: Limits time so teams concentrate on what truly matters.</li>
+<li>Encourages predictability: Fixed durations help with planning and expectation setting.</li>
+<li>Reduces risk: Problems surface early instead of late in the project.</li>
+<li>Supports inspection &amp; adaptation: Regular timeboxes enable frequent review and adjustment.</li>
+<li>Prevents over-analysis: Drives decisions and progress instead of endless discussion.</li>
+<li>Promotes sustainable pace: Avoids burnout by setting realistic boundaries.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ideal goal of a Scrum Master?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Enable empiricism: Ensure transparency, inspection, and adaptation across the team and organization.</li>
+<li>Build a self-managing, responsible team: Enable the team to own delivery and outcomes while the Scrum Master remains accountable for Scrum effectiveness.</li>
+<li>Maximize value delivery: Enable consistent use of Definition of Ready and Definition of Done so the team delivers high-quality, valuable increments each sprint.</li>
+<li>Promote Agile mindset &amp; technical excellence: Encourage collaboration, continuous improvement, and sustainable engineering practices.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Manage daily stand-up meeting going beyond the time?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Enforce timeboxing: Keep the Daily Scrum strictly within 15 minutes by setting and reinforcing clear expectations.</li>
+<li>Encourage focused updates: Guide the team to give brief updates on what was done, what’s next, and any blockers, keeping the discussion relevant.</li>
+<li>Identify root causes: If the meeting frequently runs over, analyze whether it’s due to unnecessary detail or off-topic conversations.</li>
+<li>Take discussions offline: Move detailed problem-solving or design discussions to separate follow-up conversations after the stand-up.</li>
+<li>Coach continuously: Reinforce the purpose of the Daily Scrum—to quickly align, identify blockers, and keep the sprint on track.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Stages involved in the Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Requirement gathering : Capture complete, upfront business and system needs</li>
+<li>System design : Define architecture, components, and detailed design</li>
+<li>Implementation : Develop code based on finalized design</li>
+<li>Integration &amp; testing : Combine modules and validate against requirements</li>
+<li>Deployment : Release the product to production environment</li>
+<li>Maintenance : Fix issues and handle post-release enhancements</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Key Scrum Artifacts and how to use effectively?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Artifact</th><th>Effective Usage</th></tr></thead><tbody>
+<tr><td>Product Backlog</td><td>Keep refined, ordered by value, regularly groomed</td></tr>
+<tr><td>Sprint Backlog</td><td>Clearly defined, team-owned, updated daily</td></tr>
+<tr><td>Increment</td><td>Ensure “Done”, potentially shippable each sprint</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Main Scrum Events and purpose of each?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Sprint : Time-box for work → Enables focus, consistency, delivery cadence</li>
+<li>Sprint Planning : Plan sprint work → Define Sprint Goal, select backlog items</li>
+<li>Daily Scrum : Daily sync → Inspect progress, adjust plan</li>
+<li>Sprint Review : Inspect increment → Gather feedback, adapt Product Backlog</li>
+<li>Sprint Retrospective : Improve process → Inspect practices, plan improvements</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Information captured in a Risk Register?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Status</th><th>Meaning / Action</th></tr></thead><tbody>
+<tr><td>Resolved</td><td>Risk eliminated → No longer a threat, no further action</td></tr>
+<tr><td>Owned</td><td>The risk cannot be resolved immediately → A specific team member "owns" it</td></tr>
+<tr><td>Accepted</td><td>Acknowledged risk → No action. cannot be resolved or mitigated</td></tr>
+<tr><td>Mitigated</td><td>Risk reduced → Plan exists to lower impact/likelihood</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Manage dependencies across multiple teams/external contacts?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Early identification : Spot dependencies during refinement &amp; planning, not during execution</li>
+<li>Documentation : Capture clearly in backlog / dependency log for visibility</li>
+<li>Planning alignment : Sequence work based on dependency order before sprint/release commitment</li>
+<li>Continuous tracking : Monitor regularly during stand-ups and sync meetings</li>
+<li>Proactive resolution : Escalate and unblock dependencies before they impact delivery</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Resolve conflicts between two developers?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Open communication : Encourage direct conversation instead of assumptions</li>
+<li>Active listening : Understand concerns from both sides, not just surface issues</li>
+<li>Clarify expectations : Ensure both are aligned on requirement and outcome</li>
+<li>Focus on solution : Shift from argument to resolving the actual problem</li>
+<li>Align on goal : Reinforce shared team objective over individual views</li>
+<li>Follow up : Ensure the concern is resolved and doesn’t repeat</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Manage conflicts between two team members in your role?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Listen individually : Speak to each person separately to understand the real concern</li>
+<li>Stay neutral : Do not take sides or assume intent</li>
+<li>Bring context together : Facilitate a calm, direct conversation between both</li>
+<li>Focus on behavior : Address actions and impact, not personalities</li>
+<li>Align on team goal : Redirect focus to Sprint delivery and shared objective</li>
+<li>Ensure resolution : Agree on next steps and follow up to confirm improvement</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Describe a conflict resolution technique you commonly use.</span><span class="qv">▼</span></div><div class="qb"><p>Neutral facilitation and separation of the person from the problem using a goal-aligned framework.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handle senior developer avoiding Scrum events?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Understand reason : Speak 1:1 to know why they are avoiding events (time, value, conflicts)</li>
+<li>Clarify expectations : Reinforce Scrum event purpose and why team participation matters</li>
+<li>Address impact : Show how absence affects alignment, dependencies, and team flow</li>
+<li>Make it relevant : Highlight what they specifically contribute in each event</li>
+<li>Agree on adjustment : Find practical fix (timing, shorter input, focused participation)</li>
+<li>Escalate if needed : If behavior continues, involve manager/leadership for support</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Domains worked in and product value delivered?</span><span class="qv">▼</span></div><div class="qb"><p>Answer varies based on career profile (e.g., Banking, Healthcare, Automotive).</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Product no longer valid mid-sprint. Actions?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Clarify situation : Confirm with Product Owner/management what changed and why the product is no longer valid</li>
+<li>Stop wrong direction : Avoid continuing work on items that no longer deliver value</li>
+<li>Align stakeholders : Bring PO + key stakeholders + team together immediately</li>
+<li>Decide next step : Let Product Owner decide to pivot, re-scope, or cancel Sprint</li>
+<li>Re-align team focus : Update Sprint Goal/backlog based on new direction</li>
+<li>Protect team effort : Ensure minimal waste and help team smoothly transition to new priorities</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Why organizations adopt Agile?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Faster delivery : Helps release value in smaller, quicker increments</li>
+<li>Better adaptability : Responds quickly to changing business needs and market shifts</li>
+<li>Improved quality : Frequent testing and feedback reduce defects early</li>
+<li>Higher transparency : Work progress is visible through regular events and artifacts</li>
+<li>Stronger collaboration : Improves communication between business and delivery teams</li>
+<li>Customer satisfaction : Continuous feedback ensures product aligns with real user needs</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Importance of being Agile today?</span><span class="qv">▼</span></div><div class="qb"><p>Allows survival in a volatile market where customer needs shift rapidly.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Recent risk identified and successfully mitigated?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Situation identified : During sprint refinement, dependency on external API team had no confirmed delivery timeline</li>
+<li>Risk noticed : Story could get blocked mid-sprint due to missing API readiness</li>
+<li>Action taken : Raised dependency early in planning and aligned with external team on delivery window</li>
+<li>Mitigation applied : Re-sequenced backlog and pulled alternate stories to avoid idle time</li>
+<li>Monitoring done : Tracked dependency daily through sync calls until API was delivered</li>
+<li>Outcome : Sprint completed without blockage and no spillover occurred</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define and use Acceptance Criteria?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Define clarity upfront : Product Owner and team agree on what “done correctly” means for a story</li>
+<li>Break down expectations : Convert requirement into clear, testable conditions</li>
+<li>Guide development : Developers use it to build the right functionality</li>
+<li>Enable testing : QA validates each condition against expected behavior</li>
+<li>Support conversation : Used during refinement to remove ambiguity early</li>
+<li>Confirm completion : Story is accepted only when all criteria are met</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Major challenges faced as Scrum Master and how addressed?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Challenge identified : Team was frequently missing Sprint commitments due to unclear/overloaded Sprint scope</li>
+<li>Root cause analysis : Stories were taken into Sprint without proper refinement and dependency clarity</li>
+<li>Immediate action : Stopped over-commitment and enforced strict Sprint Planning entry criteria</li>
+<li>Process fix : Improved backlog refinement with clear Acceptance Criteria and dependency identification</li>
+<li>Team alignment : Worked with PO to prioritize realistically based on team capacity and past velocity</li>
+<li>Outcome : Sprint predictability improved and spillovers reduced significantly</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Manage scope changes or new requirements mid-sprint?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>First, assess urgency with the Product Owner—whether the change is truly critical</li>
+<li>Avoid adding work mid-sprint; protect the sprint goal whenever possible</li>
+<li>If unavoidable, swap with equal-sized work from the sprint backlog</li>
+<li>Make scope changes transparent to the team and stakeholders</li>
+<li>Re-plan only if the sprint goal is at risk</li>
+<li>Capture new requirements in the product backlog for future sprints</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Steps to handle mid-Sprint PO requests effectively?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Understand change : Clarify what is changing and why it is needed mid-Sprint</li>
+<li>Assess impact : Check effect on Sprint Goal, committed items, and team capacity</li>
+<li>Facilitate discussion : Bring PO and team together to evaluate options</li>
+<li>Decide with PO : If valuable, PO may swap/adjust backlog while protecting Sprint Goal</li>
+<li>Re-plan if needed : Re-sequence or remove items only if agreed by team</li>
+<li>Protect focus : Ensure team is not disrupted unnecessarily and continues stable delivery</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Approach to managing scope creep?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Clear Sprint Goal : Ensure Sprint Goal is agreed and acts as guardrail for scope decisions</li>
+<li>Strong backlog control : Product Owner prioritizes and controls changes through backlog, not mid-sprint</li>
+<li>Change visibility : Any new request is made visible and assessed, not silently added</li>
+<li>Impact discussion : Evaluate impact on time, effort, and existing commitments</li>
+<li>PO-led decision : Product Owner decides if new scope replaces or moves to future Sprint</li>
+<li>Protect delivery focus : Team continues committed work without uncontrolled interruptions</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Conflict: PO adds story in last 2 days without removals?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Understand intent : Clarify why the new story is being introduced and its urgency</li>
+<li>Check Sprint Goal : Evaluate whether the change supports or disrupts the Sprint Goal</li>
+<li>Highlight capacity limits : Explain team commitment and that Sprint scope is fixed once started</li>
+<li>Make impact visible : Show trade-off clearly (adding work without removing reduces quality or completion risk)</li>
+<li>Facilitate discussion : Bring PO and team together to decide what should be swapped or deferred</li>
+<li>Enforce agreed process : If not critical, push new story to backlog for next Sprint prioritization</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define Scope creep and its implications.</span><span class="qv">▼</span></div><div class="qb"><p>Scope creep is uncontrolled growth of project scope. Implications include missing deadlines, reduced quality due to rushing, and team burnout.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling mid-sprint additional User Stories?</span><span class="qv">▼</span></div><div class="qb"><p>Evaluate against the Sprint Goal. If it doesn't align, it goes to the backlog. If it is urgent, a swap is negotiated as per Q.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identified a risk in advance and mitigated?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Early signal detected : Noticed dependency on external team was repeatedly slipping in prior Sprints</li>
+<li>Risk identified : Future Sprint stories could get blocked due to delayed dependency delivery</li>
+<li>Proactive alignment : Scheduled early discussion with external team and Product Owner</li>
+<li>Mitigation planned : Re-ordered backlog and prepared alternate stories for Sprint readiness</li>
+<li>Continuous monitoring : Tracked dependency status in daily syncs before Sprint start</li>
+<li>Outcome : Sprint execution remained smooth with no blocking issues</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Scrum ceremonies regularly followed?</span><span class="qv">▼</span></div><div class="qb"><p>Planning, Daily Scrum, Review, Retrospective, Refinement.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Timely delivery ensured through retro items?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Focus separation : Retrospective is for process improvement, not backlog discussion</li>
+<li>Avoid backlog planning : Upcoming Sprint work is handled in refinement and Sprint Planning</li>
+<li>Address only blockers : If delivery issues are systemic, they are noted as improvement actions</li>
+<li>Capture improvements : Action items are created to fix recurring delivery delays</li>
+<li>Feed into planning : Improvements are applied in next Sprint Planning, not inside Retro</li>
+<li>Ensure delivery : Timely delivery is ensured through refinement, capacity planning, and tracking—not Retro discussions</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Action items from retro implemented next Sprint?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Capture clearly : Record each action item with owner and expected outcome</li>
+<li>Make visible : Add action items to Sprint Backlog or separate tracking board</li>
+<li>Assign ownership : Ensure each item has a responsible person</li>
+<li>Limit few actions : Focus on 1–3 actionable improvements only per Sprint</li>
+<li>Track in daily syncs : Review progress during Daily Scrum when relevant</li>
+<li>Review in next retro : Check completion and impact before closing actions</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Typical day as a Scrum Master?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Remove blockers fast : Help team unblock issues with tools, access, dependencies, or approvals</li>
+<li>Improve clarity : Help refine unclear stories or acceptance criteria with PO/team</li>
+<li>Keep focus in daily scrum : Guide team to talk about progress vs detailed problem-solving</li>
+<li>Manage interruptions : Protect team from unplanned work or unnecessary stakeholder pressure</li>
+<li>Improve collaboration : Encourage dev, QA, PO to talk directly instead of through SM</li>
+<li>Reinforce simple Agile flow : Remind team to finish work before starting new items, avoid overloading</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Story point estimation approach?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Shared understanding : Ensure everyone understands the story before estimating</li>
+<li>Relative estimation : Compare work with known reference stories, not absolute time</li>
+<li>Team-based estimation : Developers, QA, and PO discuss together for balanced input</li>
+<li>Use planning poker : Encourage open discussion and alignment on differences</li>
+<li>Focus on complexity : Consider effort, uncertainty, and risk—not just coding time</li>
+<li>Align and finalize : Reach consensus and use it for sprint capacity planning</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensure estimations are accurate and meaningful?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Clear requirement : Ensure story is well understood before estimating</li>
+<li>Proper refinement : Break down large or unclear stories into smaller, estimable items</li>
+<li>Reference stories : Use past completed work as baseline for comparison</li>
+<li>Team discussion : Encourage open conversation on complexity and unknowns</li>
+<li>Include all roles : Dev, QA, and PO perspectives considered in estimation</li>
+<li>Revisit if needed : Re-estimate when scope or understanding changes during refinement</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Familiarity with team’s technology?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Basic understanding : Know the high-level architecture, tech stack, and system flow</li>
+<li>Dependency awareness : Understand how components interact to spot blockers early</li>
+<li>Communication bridge : Translate between business needs and technical discussions when needed</li>
+<li>Not deep coding role : Do not design or write production code, but understand terminology</li>
+<li>Context for facilitation : Use tech awareness to ask better questions and unblock discussions</li>
+<li>Continuous learning : Stay updated with team’s tech to support effective Scrum facilitation</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Deal with an underperforming team member?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Identify the root cause: Understand whether the issue is skill gaps, lack of clarity, personal challenges, or motivation.</li>
+<li>One-on-one discussion: Provide constructive feedback privately, focusing on behavior and outcomes, not personality.</li>
+<li>Clarify expectations: Revisit Definition of Done (DoD), role responsibilities, and sprint commitments.</li>
+<li>Offer support: Provide mentoring, training, or pairing opportunities to help them improve.</li>
+<li>Set measurable goals: Agree on small, achievable improvements and track progress over time.</li>
+<li>Monitor impact: Observe changes in performance and provide regular feedback.</li>
+<li>Escalate if needed: If performance doesn’t improve, involve HR or leadership according to organizational policy.</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handle difficult members or interpersonal conflicts?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Understand situation : Speak 1:1 to understand what is really causing the behavior/conflict</li>
+<li>Stay neutral : Avoid taking sides or making assumptions</li>
+<li>Address behavior early : Call out impact on team, not personality</li>
+<li>Facilitate conversation : Bring people together to discuss issues openly and calmly</li>
+<li>Focus on team goals : Redirect attention from personal issues to Sprint/team outcomes</li>
+<li>Follow up consistently : Ensure behavior improves and conflict does not repeat</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Address underperformance specifically?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Understand situation : Talk 1:1 to identify root cause (skill gap, workload, personal issues, clarity)</li>
+<li>Clarify expectations : Ensure role expectations and Definition of Done are clearly understood</li>
+<li>Provide support : Offer coaching, pairing, or mentoring where needed</li>
+<li>Remove blockers : Check if dependencies or system/process issues are impacting performance</li>
+<li>Track progress : Observe improvement over few Sprints with regular feedback</li>
+<li>Escalate if needed : If no improvement, involve manager/HR with clear evidence and facts</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Team member not delivering or responding strategies?</span><span class="qv">▼</span></div><div class="qb"><p>Follow the 1:1 discovery and goal-setting process described in Q.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Developer negatively impacts efficiency interventions?</span><span class="qv">▼</span></div><div class="qb"><p>Requires immediate feedback and re-alignment of role expectations.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Initially handle the underperformance situation?</span><span class="qv">▼</span></div><div class="qb"><p>A private discussion to identify and remove any unknown technical or personal blockers.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Actions if underperformance persists despite intervention?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
+<tr><td>Root cause validation</td><td>Recheck if issue is skill, motivation, workload, or clarity</td></tr>
+<tr><td>Formal feedback loop</td><td>Document concerns and structured feedback sessions</td></tr>
+<tr><td>Targeted improvement plan</td><td>Define timelines, mentoring, and outcomes</td></tr>
+<tr><td>Skill/role reassessment</td><td>Evaluate if they are in the right role</td></tr>
+<tr><td>Work redistribution</td><td>Rebalance responsibilities to protect team delivery</td></tr>
+<tr><td>Manager escalation</td><td>Involve manager/HR for formal PIP</td></tr>
+<tr><td>Consequence awareness</td><td>Notify of role change or reassignment possibilities</td></tr>
+<tr><td>Team protection focus</td><td>Ensure overall morale and quality are not impacted</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Member non-cooperative with Scrum process actions?</span><span class="qv">▼</span></div><div class="qb"><p>Coach on the "Why" behind ceremonies and impact on the team flow.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">OS/App issue impacts team progress actions?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Identify blocker early : Capture the issue as soon as it impacts or risks Sprint work</li>
+<li>Assess impact : Understand which stories/tasks are affected and urgency</li>
+<li>Engage right support : Contact relevant IT/App/Infra/DevOps team immediately</li>
+<li>Communicate transparently : Keep PO and team informed on status and expected resolution</li>
+<li>Provide workaround : If possible, enable alternate approach to continue partial work</li>
+<li>Track till closure : Follow up continuously until issue is resolved and work resumes</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How to conduct capacity planning?</span><span class="qv">▼</span></div><div class="qb"><p>Sum available developer hours minus ceremonies, leaves, and a buffer for administrative tasks.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What does “defect leakage” mean?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Defect leakage : Bugs that escape testing phases and are found in later stages (UAT/Production)</li>
+<li>Early miss : Defects not caught during development or QA testing</li>
+<li>Quality indicator : Shows effectiveness of testing and Definition of Done</li>
+<li>Impact on users : Causes production issues and affects customer experience</li>
+<li>Process gap signal : Indicates gaps in requirements, testing, or review process</li>
+<li>Improvement trigger : Used to strengthen testing, refinement, and quality practices</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How to conduct retrospectives in your process?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Review sprint facts : Look at what went well, what didn’t, and key metrics</li>
+<li>Gather team feedback : Use simple prompts (start/stop/continue or what went well/poorly)</li>
+<li>Identify root causes : Focus on why issues happened, not just listing problems</li>
+<li>Define action items : Agree on 1–3 practical improvements for next sprint</li>
+<li>Track outcomes : Ensure actions are implemented and reviewed in next retrospective</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Strengths of your team?</span><span class="qv">▼</span></div><div class="qb"><p>High collaboration, adherence to DoD, and strong internal ownership.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Motivation for transition to Scrum?</span><span class="qv">▼</span></div><div class="qb"><p>Driven by the desire for iterative value delivery and team empowerment.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Recent velocity vs projected velocity comparison?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Projected velocity : Based on past 3–5 sprints average, used for sprint planning</li>
+<li>Actual velocity : Completed story points at Sprint end after all Done items</li>
+<li>Comparison insight : Checked variance between planned vs delivered points</li>
+<li>Deviation analysis : Under/over delivery analyzed (scope change, blockers, estimation gaps)</li>
+<li>Action taken : Improved refinement and capacity planning based on variance</li>
+<li>Outcome tracking : Used learnings to stabilize future sprint predictability</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Factors for inability to achieve projected velocity?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Unplanned work : Production issues, support tasks, or urgent interrupts during sprint</li>
+<li>Unclear requirements : Stories not well refined leading to rework or delays</li>
+<li>Overcommitment : Team taking more work than actual capacity allows</li>
+<li>Dependencies : External teams or systems causing delays in delivery</li>
+<li>Technical challenges : Unexpected complexity or design/implementation issues</li>
+<li>Team availability : Leaves, holidays, or reduced focus due to meetings/context switching</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Professional background overview?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Project walk-through initiation to closure?</span><span class="qv">▼</span></div><div class="qb"><p>Analysis of backlog creation, planning cycles, sprint execution, and release sign-off.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Approach to managing stakeholders and challenging individuals?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Build transparency : Keep stakeholders updated on sprint progress, risks, and delivery status</li>
+<li>Set clear expectations : Align on scope, priorities, and what can realistically be delivered</li>
+<li>Maintain regular touchpoints : Use reviews, demos, and sync-ups for continuous communication</li>
+<li>Listen actively : Understand concerns and business priorities without defensiveness</li>
+<li>Handle pressure calmly : Stay neutral and focus discussions on data and Sprint Goal</li>
+<li>Escalate when needed : Involve Product Owner or leadership if priorities conflict or become disruptive</li>
+</ul>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Could you explain the concept of budgeting as it relates to project management?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">In the scenario of a cost overrun as a Project Manager, what steps would you take to address the situation?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you address and manage task dependencies within your project tasks?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you provide an overview of your professional background and experiences?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Walk me through a project you've been involved in, detailing the planning and execution phases.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Release Strategy</th></tr></thead><tbody>
+<tr><td>Define release goal</td><td>Start with product vision and what value the release should deliver</td></tr>
+<tr><td>Identify scope items</td><td>Pull prioritized PBIs from Product Backlog that support the release goal</td></tr>
+<tr><td>Check readiness</td><td>Ensure stories meet Definition of Ready and are refined enough</td></tr>
+<tr><td>Consider dependencies</td><td>Include cross-team, technical, and external dependency constraints</td></tr>
+<tr><td>Involve key roles</td><td>Product Owner leads, with Dev team, Scrum Master, and stakeholders involved</td></tr>
+<tr><td>Choose framework</td><td>Based on uncertainty and change frequency → Scrum for evolving scope, Kanban for continuous flow, or hybrid for mixed needs</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concepts of PI (Program Increment) and Safe principles.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Who is responsible for running the Scrum of Scrums?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Responsibility</td><td>Typically owned by Scrum Masters from participating teams on a rotating or shared basis</td></tr>
+<tr><td>Facilitation</td><td>One Scrum Master facilitates the meeting to coordinate dependencies and updates</td></tr>
+<tr><td>Accountability</td><td>Each Scrum Master is responsible for representing their team</td></tr>
+<tr><td>Coordination focus</td><td>Used to manage cross-team dependencies, risks, and integration issues</td></tr>
+<tr><td>No single owner</td><td>It is a collaborative coordination forum, not owned by one fixed role</td></tr>
+<tr><td>Enterprise variation</td><td>In scaled setups, an Agile Coach or Release Train Engineer may facilitate</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share your approach to calculating release plan estimation, and explain the roles of RTE (Release Train Engineer) and RPE (Release Planning Event).</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Start with PI scope</td><td>Identify features/epics from prioritized Program Backlog for the release/PI</td></tr>
+<tr><td>Use historical velocity</td><td>Teams use past PI velocity to forecast realistic capacity</td></tr>
+<tr><td>Break down work</td><td>Epics are split into features/stories for better estimation accuracy</td></tr>
+<tr><td>Team-level estimation</td><td>Agile teams estimate and commit during PI Planning collaboratively</td></tr>
+<tr><td>Aggregate forecasting</td><td>RTE consolidates team inputs to create overall release plan and predict outcomes</td></tr>
+<tr><td>Continuous adjustment</td><td>Release plan is refined based on new learning, risks, and dependencies</td></tr>
+<tr><td>RTE role</td><td>Facilitates PI Planning, removes cross-team impediments, ensures alignment across Agile Release Train</td></tr>
+<tr><td>RPE (PI Planning Event)</td><td>Large-scale planning event where teams align on objectives, dependencies, and commitments for the PI</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you go about writing user stories?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Understand need</td><td>Discuss with Product Owner/stakeholder to understand user problem or value</td></tr>
+<tr><td>Keep user focus</td><td>Write from end-user perspective, not system or technical view</td></tr>
+<tr><td>Follow format</td><td>Use "As a &lt;user&gt;, I want &lt;goal&gt;, so that &lt;benefit&gt;"</td></tr>
+<tr><td>Define acceptance</td><td>Add clear, testable acceptance criteria with PO and team</td></tr>
+<tr><td>Keep small &amp; simple</td><td>Ensure story is small enough to complete within a Sprint</td></tr>
+<tr><td>Refine collaboratively</td><td>Review with Dev/QA/PO to remove ambiguity before Sprint planning</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concept of an epic, provide an example, and detail how you break down an epic into features with an example.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Define Epic goal</td><td>Identify a large, high-level business objective that spans multiple Sprints</td></tr>
+<tr><td>Identify capabilities</td><td>Break the broad goal into distinct functional "blocks" or major features</td></tr>
+<tr><td>Group by user value</td><td>Ensure each feature provides a specific, tangible benefit to the end-user</td></tr>
+<tr><td>Assess complexity</td><td>Partition the Epic into features small enough to fit within a single release</td></tr>
+<tr><td>Align with strategy</td><td>Verify that each feature directly supports the overall Epic's success</td></tr>
+<tr><td>Refine boundaries</td><td>Clearly define where one feature ends and the next begins to avoid overlap</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Discuss strategies for reducing cycle time, and elaborate on the concepts of swarming and WIP (Work in Progress).</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Reduce WIP limits</td><td>Limit number of items in progress to improve flow and avoid multitasking</td></tr>
+<tr><td>Smaller stories</td><td>Break work into smaller chunks to complete faster and reduce wait time</td></tr>
+<tr><td>Swarming</td><td>Team members collaborate on a single high-priority item to finish it quickly</td></tr>
+<tr><td>Remove blockers early</td><td>Actively resolve dependencies, approvals, and environment issues</td></tr>
+<tr><td>Improve flow visibility</td><td>Track work on board to quickly identify bottlenecks</td></tr>
+<tr><td>Focus on finishing</td><td>Encourage "start less, finish more" to reduce cycle time</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is "if framing" and how does it relate to project management?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Definition</td><td>"IF framing" is a communication technique used to explore possibilities by reframing statements as conditional options</td></tr>
+<tr><td>Purpose</td><td>Helps teams and stakeholders think in alternatives instead of fixed decisions</td></tr>
+<tr><td>Usage in planning</td><td>Used to evaluate scope, trade-offs, and delivery options without locking assumptions</td></tr>
+<tr><td>Example</td><td>"If we reduce scope, we can deliver faster" or "If dependency is delayed, we will re-sequence work"</td></tr>
+<tr><td>Risk management link</td><td>Helps in scenario planning and proactive risk handling</td></tr>
+<tr><td>Decision support</td><td>Encourages flexible thinking and better prioritization discussions</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Justify the use of relative estimation in project planning.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Better accuracy</td><td>Compares work items to each other instead of guessing absolute time</td></tr>
+<tr><td>Reduces uncertainty</td><td>Avoids false precision in complex or unknown work</td></tr>
+<tr><td>Faster estimation</td><td>Team can estimate quickly through comparison discussions</td></tr>
+<tr><td>Shared understanding</td><td>Encourages team conversation and alignment on complexity</td></tr>
+<tr><td>Consistent scaling</td><td>Uses reference stories to maintain estimation consistency over time</td></tr>
+<tr><td>Improves predictability</td><td>Helps in stable velocity tracking and better sprint planning</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Detail any training sessions you have conducted and your approach to setting up a new Agile project.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Team onboarding</td><td>Conduct Agile/Scrum basics session for new team members and stakeholders</td></tr>
+<tr><td>Role clarity training</td><td>Explain PO, SM, and Dev responsibilities with real project examples</td></tr>
+<tr><td>Ceremonies walkthrough</td><td>Train team on Sprint Planning, Daily Scrum, Review, and Retrospective flow</td></tr>
+<tr><td>Backlog training</td><td>Guide PO/team on writing user stories, acceptance criteria, and refinement</td></tr>
+<tr><td>Tool onboarding</td><td>Train team on Jira/boards for tracking stories and sprint progress</td></tr>
+<tr><td>Project setup approach</td><td>Start with vision and goals aligned with stakeholders</td></tr>
+<tr><td>Team formation</td><td>Ensure cross-functional team with clear roles and availability</td></tr>
+<tr><td>Backlog creation</td><td>Build initial product backlog with prioritized epics and stories</td></tr>
+<tr><td>Definition setup</td><td>Establish Definition of Ready and Definition of Done early</td></tr>
+<tr><td>Sprint kickstart</td><td>Begin with Sprint 0/initial planning to stabilize process and cadence</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Differentiate between scope creep and scope change, and identify where scope changes can be observed.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Scope creep</td><td>Uncontrolled addition of work without formal approval or impact analysis</td></tr>
+<tr><td>Scope change</td><td>Controlled modification to scope after proper discussion and approval</td></tr>
+<tr><td>Key difference</td><td>Creep happens silently | Change happens intentionally and transparently</td></tr>
+<tr><td>Impact control</td><td>Creep disrupts Sprint/release | Change is assessed and re-planned</td></tr>
+<tr><td>Ownership</td><td>Creep has no clear owner | Change is driven by PO/stakeholders</td></tr>
+<tr><td>Where observed</td><td>Product Backlog updates, Sprint Backlog changes, and stakeholder requests</td></tr>
+<tr><td>Sprint level tracking</td><td>During Sprint Planning or mid-Sprint change requests</td></tr>
+<tr><td>Release level view</td><td>In roadmap or release backlog adjustments over time</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain issue types and your method for tracking them.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Issue types</td><td>Different categories used to classify work items in tracking tools like Jira</td></tr>
+<tr><td>Story</td><td>Functional requirement delivering user/business value</td></tr>
+<tr><td>Bug</td><td>Defect or incorrect behavior in existing functionality</td></tr>
+<tr><td>Task</td><td>Non-functional or supporting work (setup, documentation, activities)</td></tr>
+<tr><td>Sub-task</td><td>Smaller breakdown of a story or task for execution clarity</td></tr>
+<tr><td>Epic</td><td>Large work item spanning multiple stories and sprints</td></tr>
+<tr><td>Tracking method</td><td>Use Agile board (To Do → In Progress → Done) for real-time visibility</td></tr>
+<tr><td>Sprint tracking</td><td>Stories and tasks tracked within Sprint Backlog</td></tr>
+<tr><td>Defect tracking</td><td>Bugs prioritized separately or within sprint based on severity</td></tr>
+<tr><td>Visibility control</td><td>Dashboards used for status, aging, and progress monitoring</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share your techniques for convincing a team during planning sessions.</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Describe the domain in which you have worked.</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the third principle in Agile with a relevant example.</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you plan for team size, and what is your approach to forming a new team?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Understand product scope</td><td>Analyze work type, complexity, and domain to decide skill needs</td></tr>
+<tr><td>Define skill mix</td><td>Ensure required skills like Dev, QA, automation, DevOps are covered</td></tr>
+<tr><td>Optimal team size</td><td>Prefer 5–9 members for effective communication and ownership</td></tr>
+<tr><td>Ensure cross-functionality</td><td>Team should be able to deliver end-to-end without external dependency</td></tr>
+<tr><td>Stable composition</td><td>Avoid frequent changes to maintain velocity and trust</td></tr>
+<tr><td>Forming approach</td><td>Align people, clarify roles, set working agreements, and establish Agile practices early</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share the various ways you conduct retrospections.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Start-Stop-Continue</td><td>Identify what to start doing, stop doing, and continue doing</td></tr>
+<tr><td>Mad-Sad-Glad</td><td>Capture emotions to surface team sentiment and hidden issues</td></tr>
+<tr><td>4Ls</td><td>Liked, Learned, Lacked, Longed for reflection format</td></tr>
+<tr><td>Timeline review</td><td>Walk through sprint events chronologically to identify improvement points</td></tr>
+<tr><td>Data-driven retro</td><td>Use metrics (velocity, defects, spillover) to guide discussion</td></tr>
+<tr><td>Silent brainstorming</td><td>Individual inputs first, then group discussion to avoid bias</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concepts of CICD (Continuous Integration and Continuous Deployment)</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Continuous Integration (CI)</td><td>Code merge + automated build + unit/integration tests run in CI server</td></tr>
+<tr><td>Continuous Delivery (CD)</td><td>Code is always deployable; deployed to Staging/UAT for validation</td></tr>
+<tr><td>Continuous Deployment (CD)</td><td>Automatically deploy to Production after pipeline success (no manual gate)</td></tr>
+<tr><td>Release</td><td>Business-controlled exposure using feature flags or toggles</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Justify the use of Jira and Confluence in Agile projects.</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Do you have any questions for me.</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identify the metrics commonly used in Kanban.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Cycle time</td><td>Time taken from start of work to completion of a task</td></tr>
+<tr><td>Lead time</td><td>Time from request creation to delivery to customer</td></tr>
+<tr><td>Throughput</td><td>Number of items completed in a given time period</td></tr>
+<tr><td>WIP (Work in Progress)</td><td>Number of items currently in progress at any time</td></tr>
+<tr><td>WIP aging</td><td>How long items stay in progress before completion</td></tr>
+<tr><td>Flow efficiency</td><td>Ratio of active work time vs total elapsed time</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you decide between Scrum and Kanban for a particular project?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Requirement stability</td><td>Stable &amp; predictable work → Kanban | Evolving &amp; uncertain → Scrum</td></tr>
+<tr><td>Delivery pattern</td><td>Continuous flow → Kanban | Time-boxed delivery → Scrum</td></tr>
+<tr><td>Prioritization need</td><td>Dynamic prioritization → Kanban | Sprint-based planning → Scrum</td></tr>
+<tr><td>Change frequency</td><td>Frequent ad-hoc changes → Kanban | Controlled changes → Scrum</td></tr>
+<tr><td>Team maturity</td><td>Operational/support teams → Kanban | Cross-functional product teams → Scrum</td></tr>
+<tr><td>Commitment style</td>  <td>No fixed commitment → Kanban | Sprint commitment required → Scrum</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How frequently do you interact with the Product Owner?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Daily interaction</td><td>Clarify stories, priorities, and resolve immediate questions during Sprint execution</td></tr>
+<tr><td>Refinement sessions</td><td>Regular backlog grooming to ensure stories are ready for upcoming Sprints</td></tr>
+<tr><td>Sprint planning</td><td>Align on Sprint Goal, scope, and priorities together</td></tr>
+<tr><td>Sprint review</td><td>Review delivered increment and gather feedback from stakeholders</td></tr>
+<tr><td>Ad-hoc discussions</td><td>Handle urgent changes, risks, or dependency clarifications as needed</td></tr>
+<tr><td>Continuous alignment</td><td>Ensure PO and team stay synced on value delivery and priorities throughout Sprint</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Describe the artifacts in Agile and explain the 3C concept, detailing where you would use it.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Product Backlog</td><td>Ordered list of all work items required for the product (owned by Product Owner)</td></tr>
+<tr><td>Sprint Backlog</td><td>Selected backlog items + Sprint plan owned by the Development Team for the Sprint</td></tr>
+<tr><td>Increment</td><td>Potentially shippable product output that meets Definition of Done</td></tr>
+<tr><td>3C (Card)</td><td>Represents the User Story written in simple, visible form capturing intent</td></tr>
+<tr><td>3C (Conversation)</td><td>Ongoing discussion between PO, Dev, and QA to refine understanding of requirement</td></tr>
+<tr><td>3C (Confirmation)</td><td>Acceptance Criteria that confirms when a story is "Done" and meets expectations</td></tr>
+<tr><td>Usage in Agile</td><td>Used during backlog refinement, sprint planning, and development to ensure shared understanding and delivery clarity</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What tools do you utilize for Sprint Planning in your team, and could you elaborate on your approach to the process?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Jira for planning</td><td>Backlog refinement, sprint selection, capacity allocation, sprint tracking, burndown visibility</td></tr>
+<tr><td>Confluence for documentation</td><td>BRDs, design notes, meeting minutes, decisions, and retrospectives</td></tr>
+<tr><td>Confluence for knowledge base</td><td>Maintains project context, historical decisions, and reusable team knowledge</td></tr>
+<tr><td>Confluence for transparency</td><td>Provides a single source of truth for what was agreed, why it was done, and how it evolved</td></tr>
+<tr><td>Pre-planning (Refinement)</td><td>Ensure stories are INVEST-compliant, estimated, and have clear acceptance criteria</td></tr>
+<tr><td>Capacity check</td><td>Validate team availability, holidays, and planned leaves before committing</td></tr>
+<tr><td>Sprint selection</td><td>Pick highest priority stories that fit within team velocity/capacity</td></tr>
+<tr><td>Task breakdown</td><td>Break stories into actionable tasks for execution clarity in Jira</td></tr>
+<tr><td>Sprint goal alignment</td><td>Ensure selected scope supports a clear and measurable Sprint Goal</td></tr>
+<tr><td>Commitment finalization</td><td>Team agrees on sprint scope collaboratively, not imposed by PO or SM</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you list and explain the Scrum Values?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Commitment</td><td>Team commits to achieving Sprint Goal and delivering agreed work with shared ownership</td></tr>
+<tr><td>Focus</td><td>Concentrate on Sprint Goal, avoiding distractions and unnecessary work</td></tr>
+<tr><td>Openness</td><td>Be transparent about progress, challenges, risks, and feedback</td></tr>
+<tr><td>Respect</td><td>Value each team member's skills, opinions, and contributions</td></tr>
+<tr><td>Courage</td><td>Speak up on issues, challenge impediments, and make tough decisions when needed</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Outline the Scrum principles</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Empirical Process Control</td><td>Decisions driven by transparency, inspection, and adaptation based on real outcomes</td></tr>
+<tr><td>Self-organization</td><td>Teams decide how to do the work, improving ownership, accountability, and efficiency</td></tr>
+<tr><td>Collaboration</td><td>Continuous interaction between PO, Dev, QA, and stakeholders to align and deliver value</td></tr>
+<tr><td>Value-based prioritization</td><td>Work is ordered based on business value, risk, and customer impact</td></tr>
+<tr><td>Time-boxing</td><td>Fixed duration events (Sprint, Planning, Review, Retro) to create focus and predictability</td></tr>
+<tr><td>Iterative development</td><td>Product is built in small increments, enabling feedback and continuous improvement</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">When your team selects a solution (option A) for an issue, but you believe another option (B) is more effective, how would you navigate the situation, and which option would you ultimately choose?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Listen first</td><td>Understand why the team chose Option A (constraints, assumptions, risks, context)</td></tr>
+<tr><td>Clarify impact</td><td>Evaluate both A and B on effort, risk, scalability, maintainability, and delivery speed</td></tr>
+<tr><td>Facilitate discussion</td><td>Bring team together to compare options openly, not as debate but as shared problem-solving</td></tr>
+<tr><td>Challenge constructively</td><td>Share concerns on Option A with facts/data, not authority or opinion</td></tr>
+<tr><td>Encourage ownership</td><td>Let developers own the final technical decision since they build and maintain it</td></tr>
+<tr><td>Align on outcome, not ego</td><td>Focus on solving the problem effectively rather than "winning" an option</td></tr>
+<tr><td>Final decision</td><td>Option chosen by the team (A or B) after informed discussion; Scrum Master does not impose choice</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How do you assess the Agile maturity of your team within your organization?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Delivery predictability</td><td>Compare planned vs completed work across sprints (commitment reliability)</td></tr>
+<tr><td>Scrum event effectiveness</td><td>Check if Planning, Daily, Review, Retro add real value or are ritual-driven</td></tr>
+<tr><td>Backlog health</td><td>Evaluate clarity, prioritization, refinement quality, and readiness of stories</td></tr>
+<tr><td>Engineering practices</td><td>Assess CI/CD usage, code quality, testing discipline, and Definition of Done adherence</td></tr>
+<tr><td>Team self-organization</td><td>Observe decision-making ownership without SM intervention</td></tr>
+<tr><td>Impediment handling speed</td><td>Measure how quickly blockers are identified, escalated, and resolved</td></tr>
+<tr><td>Continuous improvement</td><td>Track whether retrospective actions are implemented and producing change</td></tr>
+<tr><td>Stakeholder engagement</td><td>Evaluate frequency and quality of PO/stakeholder feedback loops</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identify any anti-patterns of Agile observed in your project.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Micromanagement</td><td>Team decisions controlled externally, reducing ownership and autonomy</td></tr>
+<tr><td>Lack of transparency</td><td>Work, blockers, and progress not visible to team and stakeholders</td></tr>
+<tr><td>Weak DoD / DoR</td><td>Poor quality checks and unclear readiness leading to rework</td></tr>
+<tr><td>No continuous improvement</td><td>Retrospectives ineffective or action items not implemented</td></tr>
+<tr><td>High technical debt</td><td>Shortcuts taken without cleanup, slowing future delivery</td></tr>
+<tr><td>Overcommitment</td><td>Taking more work than capacity, causing spillovers</td></tr>
+<tr><td>Unclear requirements</td><td>Stories enter sprint without proper refinement or acceptance criteria</td></tr>
+<tr><td>Dependency mismanagement</td><td>External dependencies not identified early, causing delays</td></tr>
+<tr><td>Siloed working</td><td>Dev/QA/PO working separately instead of collaboratively</td></tr>
+<tr><td>Interrupt-driven work</td><td>Frequent unplanned work disrupting sprint focus</td></tr>
+<tr><td>Lack of stakeholder involvement</td><td>Minimal feedback leading to misaligned delivery</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Apart from typical Scrum Master activities, what other roles or responsibilities do you undertake?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Stakeholder management</td><td>Align business, PO, and team on priorities, risks, and delivery expectations</td></tr>
+<tr><td>Dependency coordination</td><td>Work across teams/infra/vendors to manage external dependencies</td></tr>
+<tr><td>Delivery tracking</td><td>Monitor progress, risks, and ensure predictable sprint/release outcomes</td></tr>
+<tr><td>Process improvement</td><td>Identify gaps and drive practical improvements beyond ceremonies</td></tr>
+<tr><td>Team coaching</td><td>Support team in collaboration, ownership, and effective ways of working</td></tr>
+<tr><td>Risk management</td><td>Proactively identify and mitigate delivery risks</td></tr>
+<tr><td>Reporting &amp; visibility</td><td>Provide clear status, metrics, and insights to leadership</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">In your understanding, what does servant leadership mean?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Servant leadership</td><td>Lead by supporting the team, not controlling them</td></tr>
+<tr><td>Enable success</td><td>Remove impediments and create environment for team to perform</td></tr>
+<tr><td>Put team first</td><td>Focus on team needs over personal authority or recognition</td></tr>
+<tr><td>Empower decision-making</td><td>Encourage team ownership and self-organization</td></tr>
+<tr><td>Facilitate, not direct</td><td>Guide discussions instead of giving commands</td></tr>
+<tr><td>Build trust</td><td>Create safe space for openness, feedback, and continuous improvement</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define a story point and explain what constitutes a good story point.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Story point</td><td>Relative unit to estimate effort based on complexity, effort, and uncertainty</td></tr>
+<tr><td>Good story point</td><td>Represents relative comparison, not absolute time</td></tr>
+<tr><td>Consistency</td><td>Similar-sized stories get similar points across sprints</td></tr>
+<tr><td>Team alignment</td><td>Entire team has shared understanding of what a point means</td></tr>
+<tr><td>Includes uncertainty</td><td>Accounts for unknowns, risks, and complexity—not just coding effort</td></tr>
+<tr><td>Not time-based</td><td>Avoids direct mapping like 1 point = X hours</td></tr>
+<tr><td>Stable over time</td><td>Helps maintain predictable velocity for planning</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Who takes ownership of the daily stand-up in your team?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Ownership</td><td>Development Team owns the Daily Scrum</td></tr>
+<tr><td>Facilitation</td><td>Scrum Master may facilitate but does not own it</td></tr>
+<tr><td>Purpose control</td><td>Team drives the discussion around progress and plan for the day</td></tr>
+<tr><td>Self-management</td><td>Team decides how to conduct it and keep it effective</td></tr>
+<tr><td>Scrum Master role</td><td>Ensures it happens and stays within purpose, not to lead or report</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Differentiate between burn up and burn down charts and explain the concept of Sprint burn up.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Burndown chart</td><td>Tracks remaining work over time → shows how much is left to complete</td></tr>
+<tr><td>Burnup chart</td><td>Tracks completed work against total scope → shows progress toward goal</td></tr>
+<tr><td>Key difference</td><td>Burndown focuses on remaining work | Burnup shows both scope and completed work</td></tr>
+<tr><td>Scope visibility</td><td>Burndown hides scope changes | Burnup clearly shows scope increase/decrease</td></tr>
+<tr><td>Sprint burnup</td><td>Tracks completed work within a sprint against total committed scope</td></tr>
+<tr><td>Lines in burnup</td><td>One line for total scope, one line for completed work</td></tr>
+<tr><td>Benefit</td><td>Clearly shows progress and any scope change during the sprint</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Differentiate between burn up and burn down charts and explain the concept of Sprint burn up.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Burndown chart</td><td>Tracks remaining work over time → shows how much is left to complete</td></tr>
+<tr><td>Burnup chart</td><td>Tracks completed work against total scope → shows progress toward goal</td></tr>
+<tr><td>Key difference</td><td>Burndown focuses on remaining work | Burnup shows both scope and completed work</td></tr>
+<tr><td>Scope visibility</td><td>Burndown hides scope changes | Burnup clearly shows scope increase/decrease</td></tr>
+<tr><td>Sprint burnup</td><td>Tracks completed work within a sprint against total committed scope</td></tr>
+<tr><td>Lines in burnup</td><td>One line for total scope, one line for completed work</td></tr>
+<tr><td>Benefit</td><td>Clearly shows progress and any scope change during the sprint</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you explain the difference between a burndown chart and a burnup chart in Scrum?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Burndown</td><td>Only shows work remaining. No separate line for scope vs progress. If scope changes, the line may jump, and the team often doesn't meet the ideal line by sprint end, making it harder to judge true progress</td></tr>
+<tr><td>Burnup</td><td>Has two lines — total scope and work completed. Even if scope changes, you can clearly see if the completed line is tracking toward the ideal progress, so it's easier to tell whether the team is on track</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">In the event of a production issue during a release, what specific actions do you take to address the situation?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Assess severity</td><td>Quickly understand impact, scope, and urgency of the issue</td></tr>
+<tr><td>Activate response</td><td>Engage Dev, QA, DevOps, and relevant stakeholders immediately</td></tr>
+<tr><td>Stabilize system</td><td>Rollback, hotfix, or disable feature (feature flag) to stop impact</td></tr>
+<tr><td>Communicate clearly</td><td>Keep stakeholders informed with status and expected resolution</td></tr>
+<tr><td>Track to closure</td><td>Monitor fix deployment and confirm system stability</td></tr>
+<tr><td>Post-incident review</td><td>Conduct RCA and implement preventive actions for future</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Regarding defect reports, could you describe the specific actions or resolutions you have implemented based on the insights gained from these reports?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Identify patterns</td><td>Analyze defect trends by module, type, and root cause</td></tr>
+<tr><td>Strengthen testing</td><td>Improve unit/integration test coverage where defects are high</td></tr>
+<tr><td>Improve refinement</td><td>Add clearer acceptance criteria to avoid requirement gaps</td></tr>
+<tr><td>Fix DoD gaps</td><td>Update Definition of Done to include missed quality checks</td></tr>
+<tr><td>Address root causes</td><td>Resolve recurring issues like environment, data, or dependency problems</td></tr>
+<tr><td>Prevent recurrence</td><td>Introduce automation, code reviews, and better validation practices</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you discuss the most recent action items identified during retrospective sprints?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Improve story clarity</td><td>Ensure better refinement and clear acceptance criteria before Sprint start</td></tr>
+<tr><td>Limit WIP</td><td>Reduce parallel work to improve focus and faster completion</td></tr>
+<tr><td>Early testing</td><td>Start QA involvement earlier to avoid end-of-sprint testing rush</td></tr>
+<tr><td>Dependency tracking</td><td>Identify and align external dependencies before Sprint planning</td></tr>
+<tr><td>Reduce spillovers</td><td>Commit realistically based on capacity and past velocity</td></tr>
+<tr><td>Follow-up tracking</td><td>Track action items in next Sprint to ensure closure</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Have there been any spill-overs in your sprints, and how do you address them?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Yes, occasional spillovers</td><td>Happens due to dependencies, unclear requirements, or unforeseen complexity</td></tr>
+<tr><td>DoD check</td><td>Ensure incomplete stories are not marked as Done</td></tr>
+<tr><td>Back to backlog</td><td>Spillover items are re-prioritized by Product Owner</td></tr>
+<tr><td>Re-planning</td><td>Pulled into next Sprint based on priority and capacity</td></tr>
+<tr><td>Root cause analysis</td><td>Identify reasons (overcommitment, late testing, blockers) in retrospective</td></tr>
+<tr><td>Preventive actions</td><td>Improve refinement, limit WIP, and plan more realistically</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Have there been any spill-overs in your sprints, and how do you address them?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Yes, occasional spillovers</td><td>Happens due to dependencies, unclear requirements, or unforeseen complexity</td></tr>
+<tr><td>DoD check</td><td>Ensure incomplete stories are not marked as Done</td></tr>
+<tr><td>Back to backlog</td><td>Spillover items are re-prioritized by Product Owner</td></tr>
+<tr><td>Re-planning</td><td>Pulled into next Sprint based on priority and capacity</td></tr>
+<tr><td>Root cause analysis</td><td>Identify reasons (overcommitment, late testing, blockers) in retrospective</td></tr>
+<tr><td>Preventive actions</td><td>Improve refinement, limit WIP, and plan more realistically</td></tr>
+</tbody></table>
+</div></div>
+
+</div>
+<script>
+// ── Auto-number all Q badges dynamically ──
+function reNumber() {
+  document.querySelectorAll('.qc').forEach((c, i) => {
+    const badge = c.querySelector('.qn');
+    if (badge) badge.textContent = 'Q' + (i + 1);
+  });
+  const total = document.querySelectorAll('.qc').length;
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('footerCount').textContent = total;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  reNumber();
+});
+
+// ── Toggle single card ──
+function tog(h) {
+  h.closest('.qc').classList.toggle('open');
+}
+
+// ── Expand / Collapse All ──
+function toggleAll(o) {
+  document.querySelectorAll('.qc').forEach(c => {
+    if (!c.classList.contains('hidden')) {
+      if (o) {
+        c.classList.add('open');
+      } else {
+        c.classList.remove('open');
+      }
+    }
+  });
+}
+
+// ── Search filter ──
+function filterQ(v) {
+  const q = v.toLowerCase().trim();
+  const sw = document.getElementById('sw');
+  sw.classList.toggle('has-value', v.length > 0);
+  document.querySelectorAll('.qc').forEach(c => {
+    const t = c.querySelector('.qt').textContent.toLowerCase();
+    const b = c.querySelector('.qb').textContent.toLowerCase();
+    const n = c.querySelector('.qn').textContent.toLowerCase();
+    if (!q || t.includes(q) || b.includes(q) || n.includes(q)) {
+      c.classList.remove('hidden');
+    } else {
+      c.classList.add('hidden');
+      c.classList.remove('open');
+    }
+  });
+}
+
+// ── Clear search ──
+function clearSearch() {
+  const box = document.getElementById('searchBox');
+  box.value = '';
+  filterQ('');
+  box.focus();
+}
+
+// ── Back to Top / Bottom ──
+window.addEventListener('scroll', function () {
+  const topBtn = document.getElementById('backToTop');
+  const botBtn = document.getElementById('backToBottom');
+  if (window.scrollY > 100) {
+    topBtn.style.display = 'block';
+    botBtn.style.display = 'block';
+  } else {
+    topBtn.style.display = 'none';
+    botBtn.style.display = 'none';
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToBottom() {
+  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+}
+
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+</script>
+
+<button id="backToTop" onclick="scrollToTop()" title="Go to top">↑</button>
+<button id="backToBottom" onclick="scrollToBottom()" title="Go to bottom">↓</button>
+
+<div style="text-align:center;padding:30px 40px 20px;border-top:1px solid var(--border);margin-top:40px;">
+  
+  <p style="font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--text-muted);letter-spacing:1px;">
+    SCRUM &amp; AGILE INTERVIEW PREPARATION
+  </p>
+
+  <p style="font-size:.72rem;color:var(--text-muted);margin-top:8px;opacity:0.6;">
+    © 2026 · Intended for Interview Preparation Only
+  </p>
+
+  <p style="font-size:.75rem;color:var(--text-muted);margin-top:10px;opacity:0.55;">
+    Created by Madhusudan Iyengar
+  </p>
+
+  <p style="font-size:.68rem;color:var(--text-muted);margin-top:4px;opacity:0.45;">
+    All rights reserved
+  </p>
+
+</div>
+</body>
+</html>
