@@ -497,12 +497,13 @@
 <body>
 
 <div class="ph">
-  <h1>Scrum &amp; <span>Agile</span> Interview Questions</h1>
-  <p>A complete guide to Scrum framework and Agile ways of working</p>
+ <h1>Scrum &amp; <span>Agile</span> Guide</h1>
+<p>A complete reference to Scrum framework and Agile ways of working</p>
   <div class="hm">
    <!-- <span class="mb"><span id="totalCount">0</span> Questions</span> -->
    <span class="mb">Scrum · Kanban · Waterfall</span>
-   <span class="mb">Roles · Events · Artifacts</span>
+   <span class="mb">Accountabilities · Events · Artifacts</span>
+   <span class="mb">Developers · Product Owner· Scrum Master</span>
   </div>
 </div>
 
@@ -517,11 +518,25 @@
 </div>
 <div class="content">
 
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <button class="btn agile" onclick="openModal('agilePrinciple')"><b>Agile Principles</b></button>
-  <button class="btn agile" onclick="openModal('agileValue')"><b>Agile Values</b></button>
-  <button class="btn agile" onclick="openModal('scrumPrinciple')"><b>Scrum Principles</b></button>
-  <button class="btn agile" onclick="openModal('scrumValue')"><b>Scrum Values</b></button>
+<div style="max-width: 0 auto; margin: 0 auto; display: flex; flex-direction: column; gap: 0 auto;">
+  <!-- Row 1 -->
+  <div style="display: flex; justify-content: center; gap: 5px;">
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('agilePrinciple')"><b>Agile Principles</b></button>
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('agileValue')"><b>Agile Values</b></button>
+  </div>
+  <!-- Row 2 -->
+  <div style="display: flex; justify-content: center; gap: 5px;">
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumTheory')"><b>Scrum Theory</b></button>
+	<button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumPrinciple')"><b>Scrum Principles</b></button>
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumValue')"><b>Scrum Values</b></button>
+  </div>
+  <!-- Row 3 -->
+  <div style="display: flex; justify-content: center; gap: 5px;">
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumDefinition')"><b>Scrum</b></button>
+	<button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumTeam')"><b>Scrum Team</b></button>
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumEvents')"><b>Scrum Events</b></button>
+    <button class="btn agile" style="white-space: nowrap; width: 250px;" onclick="openModal('scrumArtifacts')"><b>Scrum Artifacts</b></button>
+  </div>
 </div>
 
 <!-- Modal -->
@@ -608,6 +623,124 @@
   </div>
 </div>
 
+<!-- Scrum Theory Modal -->
+<div id="scrumTheory" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumTheory')">&times;</span>
+    <div style="text-align: center;">
+      <h2>Scrum Theory</h2>
+    </div>
+	
+	<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+  Scrum is built on <b style="color: var(--accent3);">Empiricism</b> and <b style="color: var(--accent3);">Lean Thinking</b>.
+</p>
+
+    <table class="agile-table">
+      <tr><th>Concept</th><th>Description</th></tr>
+      <tr><td><b>Empiricism</b></td><td>Asserts that knowledge comes from experience and making decisions based on what is observed</td></tr>
+      <tr><td><b>Lean Thinking</b></td><td>Focuses on maximizing value while minimizing waste</td></tr>
+    </table>
+
+    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+      It is supported by <b style="color: var(--accent3);">3 core pillars</b>
+    </p>
+
+    <table class="agile-table">
+      <tr><th>Pillar</th><th>Description</th></tr>
+      <tr><td><b>Transparency</b></td><td>Make the work visible and clear to everyone (those performing the work as well as those receiving the work)</td></tr>
+      <tr><td><b>Inspection</b></td><td>Regularly review progress and outcomes (through scrum events)</td></tr>
+      <tr><td><b>Adaptation</b></td><td>Adjust quickly to improve results (through scrum events)</td></tr>
+    </table>
+
+    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+      <b>Scrum delivers work in small, incremental steps, enabling continuous feedback, learning, and improvement</b>
+    </p>
+
+    <div class="ob">
+      <strong>👉 In simple terms:</strong> <b>Focus on impact, stay data-driven, and embrace continuous growth</b>
+    </div>
+
+  </div>
+</div>
+
+<div id="scrumDefinition" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumDefinition')">&times;</span>
+    <div style="text-align: center;">
+      <h2>What is Scrum?</h2>
+    </div>
+
+    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+      Scrum is a lightweight <b style="color: var(--accent3);">framework</b> that helps teams and organizations generate value through adaptive solutions for complex problems.
+    </p>
+
+    <table class="agile-table">
+      <tr><th>Aspect</th><th>Description</th></tr>
+      <tr><td><b>Framework</b></td><td>Not a process or methodology — a simple framework within which you can employ various processes and techniques</td></tr>
+      <tr><td><b>Purpose</b></td><td>Helps teams collaborate, learn, and adapt to deliver value incrementally in complex environments</td></tr>
+      <tr><td><b>Structure</b></td><td>Built on a small team of people with three accountabilities: Developers, Product Owner, and Scrum Master</td></tr>
+      <tr><td><b>Cadence</b></td><td>Work is organized into short, fixed-length cycles called Sprints (1–4 weeks) to ensure regular delivery</td></tr>
+      <tr><td><b>Foundation</b></td><td>Grounded in empiricism and lean thinking — learn from experience, inspect reality, and adapt continuously</td></tr>
+    </table>
+
+    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+      Scrum is intentionally <b style="color: var(--accent3);">incomplete</b> — it defines only the parts required to implement Scrum theory, leaving the rest to the team.
+    </p>
+
+    <div class="ob">
+      <strong>👉 In simple terms:</strong> Scrum is a smart, structured way for teams to tackle complex work — delivering real value, fast, through teamwork and continuous learning
+    </div>
+
+  </div>
+</div>
+
+<div id="scrumEvents" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumEvents')">&times;</span>
+    <div style="text-align: center;">
+      <h2>Scrum Events</h2>
+    </div>
+    <table class="agile-table">
+      <tr><th>Event</th><th>Description</th></tr>
+      <tr><td><b>Sprint</b></td><td>A fixed time-box (1–4 weeks) where a usable increment is created</td></tr>
+      <tr><td><b>Sprint Planning</b></td><td>Team decides what to work on and how to deliver it in the sprint</td></tr>
+      <tr><td><b>Daily Scrum</b></td><td>A 15-min daily sync to inspect progress and adapt the plan</td></tr>
+      <tr><td><b>Sprint Review</b></td><td>Team presents the increment to stakeholders and gathers feedback</td></tr>
+      <tr><td><b>Sprint Retrospective</b></td><td>Team reflects on the process and identifies improvements for next sprint</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumArtifacts" class="agile-modal">
+  <div class="agile-modal-content">
+    <span class="agile-close" onclick="closeModal('scrumArtifacts')">&times;</span>
+    <div style="text-align: center;">
+      <h2>Scrum Artifacts</h2>
+    </div>
+    <table class="agile-table">
+      <tr><th>Artifact</th><th>Description</th></tr>
+      <tr><td><b>Product Backlog</b></td><td>An ordered list of everything needed in the product, owned by the Product Owner</td></tr>
+      <tr><td><b>Sprint Backlog</b></td><td>The set of Product Backlog items selected for the sprint plus the plan to deliver them</td></tr>
+      <tr><td><b>Increment</b></td><td>The sum of all completed work at the end of a sprint that meets the Definition of Done</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="scrumTeam" class="agile-modal">
+  <div class="agile-modal-content agile-wide">
+    <span class="agile-close" onclick="closeModal('scrumTeam')">&times;</span>
+    <div style="text-align: center;">
+      <h2>Scrum Team</h2>
+    </div>
+    <table class="agile-table">
+      <tr><th>Accountability</th><th>Primary Focus & Description</th></tr>
+      <tr><td><b>Developers</b></td><td>Creating the Increment. They are the people in the Scrum Team committed to creating any aspect of a usable Increment each Sprint. This includes coding, testing, designing, or any work needed to meet the Definition of Done.</td></tr>
+      <tr><td><b>Product Owner (PO)</b></td><td>Maximizing Value. They are accountable for effective Product Backlog management, including developing and communicating the Product Goal and ensuring the backlog is transparent and understood.</td></tr>
+      <tr><td><b>Scrum Master (SM)</b></td><td>Scrum Effectiveness. They are accountable for establishing Scrum as defined in the Scrum Guide. They do this by helping everyone understand Scrum theory and practice, both within the Scrum Team and the organization.</td></tr>
+    </table>
+  </div>
+</div>
+
 <style>
 /* ONLY this question hover (prevents global issue) 
 .qh.agile-q:hover {
@@ -622,6 +755,12 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   z-index: 9999;
+}
+
+.agile-wide .agile-table td:nth-child(2) {
+  max-width: 900px;
+  white-space: normal;
+  word-break: break-word;
 }
 
 /* Modal box */
@@ -735,6 +874,7 @@ window.addEventListener("click", function(event) {
   document.querySelectorAll(".agile-modal").forEach(function(modal) {
     if (event.target === modal) {
       modal.style.display = "none";
+	  document.body.style.overflow = '';
     }
   });
 });
@@ -744,8 +884,19 @@ document.addEventListener("keydown", function(e) {
     document.querySelectorAll(".agile-modal").forEach(function(modal) {
       modal.style.display = "none";
     });
+	document.body.style.overflow = '';
   }
 });
+
+function openModal(id) {
+  document.getElementById(id).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = 'none';
+  document.body.style.overflow = '';
+}
 </script>
 
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is Scrum, and how does it differ from other agile frameworks?</span><span class="qv">▼</span></div><div class="qb">
