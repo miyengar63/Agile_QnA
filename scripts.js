@@ -42,6 +42,7 @@ function reNumber() {
 // ═══════════════════════════════════════════
 function tog(el) {
   el.closest('.qc')?.classList.toggle('open');
+  focusSearch();
 }
 
 // ═══════════════════════════════════════════
@@ -59,6 +60,7 @@ function toggleSection(header) {
     header.classList.remove('collapsed');
     header.nextElementSibling?.classList.remove('collapsed');
   }
+  focusSearch();
 }
 
 // ═══════════════════════════════════════════
@@ -91,6 +93,9 @@ function toggleAll() {
   } else {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  setTimeout(() => {
+    document.getElementById('searchBox')?.focus();
+  }, 0);
 }
 
 // ═══════════════════════════════════════════
@@ -325,6 +330,7 @@ function closeModal(id) {
   if (el) {
     el.style.display = 'none';
     document.body.style.overflow = '';
+	focusSearch();
   }
 }
 
@@ -333,6 +339,7 @@ window.addEventListener('click', e => {
     if (e.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = '';
+	  focusSearch();
     }
   });
 });
@@ -343,6 +350,7 @@ document.addEventListener('keydown', e => {
       modal.style.display = 'none';
     });
     document.body.style.overflow = '';
+	focusSearch();
   }
 });
 
@@ -360,10 +368,12 @@ window.addEventListener('scroll', () => {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  focusSearch();
 }
 
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  focusSearch();
 }
 
 // ═══════════════════════════════════════════

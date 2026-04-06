@@ -155,11 +155,21 @@ body {
 }
 
 .btn.agile {
-  border-color: var(--accent);
+  border-color: var(--accent3);
   color: #fff;
-  margin-bottom: 26px;
-  font-size: 16px;
+  margin-bottom: 20px;
+  font-size: 15px;
   background: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 30px;
+  width: 150px;
+  box-sizing: border-box;
+
+  text-align: center;
 }
 
 .btn.agile:hover { background: var(--accent); }
