@@ -1,982 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scrum & Agile QnA</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+  <!-- ================= META ================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  :root {
-    --bg: #0f1923;
-    --surface: #162233;
-    --surface2: #1c2d42;
-    --border: #1e3a5f;
-    --accent: #00b4d8;
-    --accent2: #0077b6;
-    --accent3: #48cae4;
-    --text: #cdd9e8;
-    --text-muted: #7a96b5;
-    --hbg: #0a4d68;
-    --green: #52b788;
-    --div: #2a4a6b;
-  }
+  <!-- ================= TITLE ================= -->
+  <title>Scrum & Agile Guide</title>
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  <!-- ================= STYLES ================= -->
+  <link rel="stylesheet" href="styles.css">
 
-  body {
-    font-family: 'IBM Plex Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    padding: 0 0 60px;
-  }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  /* ── Header ── */
-  .ph {
-    background: linear-gradient(135deg, #0a3d62 0%, #0d5c85 50%, #0a4d68 100%);
-    padding: 40px 40px 32px;
-    border-bottom: 2px solid var(--accent);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ph::before {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 240px;
-    height: 240px;
-    background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .ph h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -0.5px;
-  }
-
-  .ph h1 span {
-    color: var(--accent3);
-  }
-
-  .ph p {
-    margin-top: 6px;
-    color: var(--text-muted);
-    font-size: .9rem;
-  }
-
-  .hm {
-    display: flex;
-    gap: 16px;
-    margin-top: 16px;
-    flex-wrap: wrap;
-  }
-
-  .mb {
-    background: rgba(0,180,216,0.12);
-    border: 1px solid rgba(0,180,216,0.3);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: .78rem;
-    color: var(--accent3);
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  /* ── Controls ── */
-  .ctrl {
-    padding: 16px 40px;
-    display: flex;
-    gap: 12px;
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
-    align-items: center;
-	position: sticky;
-  top: 0;
-  z-index: 100;
-  }
-
-  .btn {
-    padding: 7px 18px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    background: var(--surface2);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: .83rem;
-    cursor: pointer;
-    transition: all .2s;
-  }
-
-  .btn:hover {
-    background: var(--accent2);
-    border-color: var(--accent);
-    color: #fff;
-  }
-
- .btn.p {
-  background: rgba(0, 119, 182, 0.15);
-  border: 1px solid var(--accent3);
-  border-radius: 24px;
-  color: var(--accent3);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: .83rem;
-  font-weight: 600;
-  padding: 8px 35px;
-  cursor: pointer;
-  transition: all .25s ease;
-  box-shadow: 0 0 0 0 rgba(72, 202, 228, 0);
-  letter-spacing: .3px;
-}
-
-.btn.p:hover {
-  background: rgba(0, 180, 216, 0.2);
-  border-color: var(--accent);
-  color: #fff;
-  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
-}
-
-.btn.p:active {
-  background: rgba(0, 180, 216, 0.3);
-  transform: scale(0.97);
-}
-  
-  .btn.agile {
-   /* background: var(--accent2);*/
-    border-color: var(--accent);
-    color: #fff;
-	margin-bottom: 26px;
-	font-size: 16px;
-	background: none;
-  }
-
-  .btn.agile:hover {
-    background: var(--accent);
-  }
-
-  /* ── Search ── */
-.sw {
-  margin-left: auto;
-  position: relative;
-}
-
-.sw input {
-  background: rgba(28, 45, 66, 0.8);
-  border: 2px solid var(--accent2);
-  border-radius: 24px;
-  padding: 8px 34px 8px 38px;
-  color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: .83rem;
-  width: clamp(200px, 38vw, 320px);
-  outline: none;
-  transition: all .25s ease;
-  box-shadow: 0 0 0 0 rgba(72, 202, 228, 0);
-}
-
-.sw input:hover {
-  border-color: var(--accent);
-  background: rgba(28, 45, 66, 1);
-}
-
-.sw input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.15);
-  background: rgba(10, 77, 104, 0.3);
-}
-
-.sw input::placeholder {
-  color: var(--text-muted);
-  font-style: italic;
-  font-size: .8rem;
-}
-
-.sw::before {
-  content: '⌕';
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.1rem;
-  color: var(--accent3);
-  pointer-events: none;
-  transition: color .2s;
-}
-
-.sw:focus-within::before {
-  color: var(--accent);
-}
-
-.clr {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,180,216,0.1);
-  border: 1px solid rgba(0,180,216,0.2);
-  border-radius: 50%;
-  color: var(--text-muted);
-  font-size: .7rem;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  transition: all .2s;
-  line-height: 1;
-}
-
-.clr:hover {
-  background: rgba(0,180,216,0.25);
-  border-color: var(--accent3);
-  color: var(--accent3);
-}
-
-.sw.has-value .clr {
-  display: flex;
-}
-
-  /* ── Content ── */
-  .content {
-    padding: 28px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .sd {
-    margin: 36px 0 28px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-
-  .sd::before,
-  .sd::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--div), transparent);
-  }
-
-  .sd span {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .72rem;
-    color: var(--text-muted);
-    white-space: nowrap;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  /* ── Q Cards ── */
-  .qc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-    transition: border-color .2s;
-  }
-
-  .qc:hover {
-    border-color: var(--accent2);
-  }
-
-  .qc.open {
-    border-color: var(--accent);
-  }
-
-  .qc.hidden {
-    display: none;
-  }
-
-  .qh {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 20px;
-    cursor: pointer;
-    user-select: none;
-    transition: background .2s;
-  }
-
-  .qc.open .qh {
-    background: rgba(0,119,182,0.15);
-  }
-
-  .qh:hover {
-    background: rgba(0,180,216,0.08);
-  }
-
-  .qn {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .72rem;
-    color: var(--accent3);
-    background: rgba(0,180,216,0.1);
-    border: 1px solid rgba(0,180,216,0.2);
-    border-radius: 4px;
-    padding: 2px 8px;
-    min-width: 44px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-
-  .qt {
-    flex: 1;
-    font-weight: 600;
-    font-size: .95rem;
-    color: #ddeeff;
-  }
-
-  .qv {
-    color: var(--text-muted);
-    font-size: .75rem;
-    transition: transform .3s;
-    flex-shrink: 0;
-  }
-
-  .qc.open .qv {
-    transform: rotate(180deg);
-    color: var(--accent3);
-  }
-
-  .qb {
-    display: none;
-    padding: 0 20px 20px;
-    border-top: 1px solid var(--border);
-  }
-
-  .qc.open .qb {
-    display: block;
-  }
-
-  .qb p {
-    color: var(--text);
-    font-size: .9rem;
-    margin: 12px 0 8px;
-  }
-
-  .qb ul {
-    list-style: none;
-    margin: 10px 0;
-    padding: 0;
-  }
-
-  .qb ul li {
-    font-size: .88rem;
-    color: var(--text);
-    padding: 5px 0 5px 20px;
-    position: relative;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
-  }
-
-  .qb ul li:last-child {
-    border-bottom: none;
-  }
-
-  .qb ul li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--accent3);
-    font-size: .75rem;
-    top: 7px;
-  }
-
-  .qb ul li strong {
-    color: var(--accent3);
-    font-weight: 600;
-  }
-
-  /* ── Sub label ── */
-  .sl {
-    font-size: .78rem;
-    font-weight: 600;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin: 14px 0 6px;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  /* ── Table ── */
-  .at {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 14px 0;
-    font-size: .85rem;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-  }
-
-  .at th {
-    background: var(--hbg);
-    color: var(--accent3);
-    font-weight: 600;
-    padding: 10px 14px;
-    text-align: left;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: .8rem;
-    letter-spacing: .5px;
-    border-bottom: 2px solid var(--accent2);
-  }
-
-  .at td {
-    padding: 9px 14px;
-    border-bottom: 1px solid rgba(30,58,95,0.6);
-    color: var(--text);
-    vertical-align: top;
-  }
-
-  .at tr:last-child td {
-    border-bottom: none;
-  }
-
-  .at tr:nth-child(even) td {
-    background: rgba(255,255,255,0.025);
-  }
-
-  .at tr:hover td {
-    background: rgba(0,180,216,0.05);
-  }
-
-  .at td:first-child {
-    color: var(--accent3);
-    font-weight: 500;
-  }
-
-  /* ── Outcome block ── */
-  .ob {
-    background: rgba(82,183,136,0.1);
-    border-left: 3px solid var(--green);
-    border-radius: 0 6px 6px 0;
-    padding: 10px 14px;
-    margin-top: 12px;
-    font-size: .87rem;
-    color: var(--text);
-  }
-
-  .ob strong {
-    color: var(--green);
-  }
-
-  .cl li::before {
-    content: '✓';
-    color: var(--green);
-    font-size: .8rem;
-    top: 6px;
-  }
-
-  /* ── Back to Top / Bottom buttons ── */
-  #backToTop {
-    display: none;
-    position: fixed;
-    bottom: 90px;
-    right: 30px;
-    z-index: 1000;
-    border: none;
-    outline: none;
-    background-color: var(--accent2);
-    color: white;
-    cursor: pointer;
-    padding: 10px 16px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: all 0.3s;
-  }
-
-  #backToTop:hover {
-    background-color: var(--accent);
-    transform: translateY(-3px);
-  }
-
-  #backToBottom {
-    display: none;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    border: none;
-    outline: none;
-    background-color: var(--accent2);
-    color: white;
-    cursor: pointer;
-    padding: 10px 16px;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    transition: all 0.3s;
-  }
-
-  #backToBottom:hover {
-    background-color: var(--accent);
-    transform: translateY(3px);
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .ph  { padding: 24px 20px; }
-    .ctrl { padding: 14px 20px; }
-    .content { padding: 20px 16px; }
-    .sw input { width: 160px; }
-  }
-  
-  body {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-/* Section toggle */
-.sd {
-  cursor: pointer;
-  user-select: none;
-}
-
-.sd:hover::before,
-.sd:hover::after {
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-}
-
-.sd .sd-arrow {
-  font-size: .7rem;
-  color: var(--accent3);
-  margin-left: 10px;
-  transition: transform .3s;
-}
-
-.sd.collapsed .sd-arrow {
-  transform: rotate(-90deg);
-}
-
-.section-body {
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-  max-height: 99999px;
-}
-
-.section-body.collapsed {
-  max-height: 0;
-}
-
-
-</style>
+  <!-- ================= SCRIPT ================= -->
+  <script src="scripts.js" defer></script>
 </head>
+
 <body>
 
-<div class="ph">
- <h1>Scrum &amp; <span>Agile</span> Guide</h1>
-<p>A complete reference to Scrum framework and Agile ways of working</p>
-  <div class="hm">
-   <!-- <span class="mb"><span id="totalCount">0</span> Questions</span> -->
-   <span class="mb">Scrum · Kanban · Waterfall</span>
-   <span class="mb">Accountabilities · Events · Artifacts</span>
-   <span class="mb">Developers · Product Owner· Scrum Master</span>
-  </div>
-</div>
+  <!-- =========================================================
+       HEADER SECTION
+  ========================================================== -->
+  <div class="ph">
+    <h1>Scrum &amp; <span>Agile</span> Guide</h1>
 
-<div class="ctrl">
-  <button class="btn p" id="toggleAll" onclick="toggleAll()">Expand All</button>
-   
-  <div class="sw" id="sw">
-    <input id="searchBox" type="text" placeholder="Search Questions .." oninput="filterQ(this.value)">
-    <button class="clr" onclick="clearSearch()" title="Clear search">✕</button>
-  </div>
-</div>
-<div class="content">
+    <p>
+      A complete reference to Scrum framework and Agile ways of working
+    </p>
 
-<div style="max-width: 0 auto; margin: 0 auto; display: flex; flex-direction: column; gap: 0 auto;">
-  <!-- Row 1 -->
-  <div style="display: flex; justify-content: center; gap: 5px;">
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('agilePrinciple')"><b>Agile Principles</b></button>
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('agileValue')"><b>Agile Values</b></button>
-  </div>
-  <!-- Row 2 -->
-  <div style="display: flex; justify-content: center; gap: 5px;">
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumTheory')"><b>Scrum Theory</b></button>
-	<button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumPrinciple')"><b>Scrum Principles</b></button>
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumValue')"><b>Scrum Values</b></button>
-  </div>
-  <!-- Row 3 -->
-  <div style="display: flex; justify-content: center; gap: 5px;">
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumDefinition')"><b>Scrum</b></button>
-	<button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumTeam')"><b>Scrum Team</b></button>
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumEvents')"><b>Scrum Events</b></button>
-    <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumArtifacts')"><b>Scrum Artifacts</b></button>
-  </div>
-</div>
+    <!-- HEADER META BADGES -->
+    <div class="hm">
+      <!-- Optional counter -->
+      <!-- <span class="mb"><span id="totalCount">0</span> Questions</span> -->
 
-<!-- Modal -->
-<div id="agilePrinciple" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('agilePrinciple')">&times;</span>
+      <span class="mb">Scrum · Kanban · Waterfall</span>
+      <span class="mb">Accountabilities · Events · Artifacts</span>
+      <span class="mb">Developers · Product Owner· Scrum Master</span>
+    </div>
+  </div>
 
-    <div style="text-align: center;">
-		<h2>Agile Principles</h2>
+  <!-- =========================================================
+       CONTROL BAR (SEARCH + ACTIONS)
+  ========================================================== -->
+  <div class="ctrl">
+
+    <!-- Expand / Collapse Button -->
+    <button
+      class="btn p"
+      id="toggleAll"
+      data-state="collapsed"
+      onclick="toggleAll()">
+      Expand All
+    </button>
+
+    <!-- SEARCH WRAPPER -->
+    <div class="sw" id="sw">
+
+      <!-- SEARCH INPUT -->
+      <input
+        id="searchBox"
+        type="text"
+        placeholder="Search Questions .."
+        oninput="filterQ(this.value)"
+        onkeydown="if(event.key==='Enter') nextMatch()"
+      >
+
+      <!-- SEARCH RESULT COUNTER -->
+      <span id="searchCount"
+        style="
+          position: absolute;
+          right: 34px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: .68rem;
+          color: var(--accent3);
+          white-space: nowrap;
+          pointer-events: none;
+        ">
+      </span>
+
+      <!-- CLEAR SEARCH BUTTON -->
+      <button
+        class="clr"
+        onclick="clearSearch()"
+        title="Clear search">
+        ✕
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MAIN CONTENT
+  ========================================================== -->
+  <div class="content">
+
+    <!-- ================= QUICK ACTION BUTTON GRID ================= -->
+    <div style="
+        max-width: 0 auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0 auto;
+      ">
+
+      <!-- ---------- ROW 1 ---------- -->
+      <div style="display: flex; justify-content: center; gap: 5px;">
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('agilePrinciple')">
+          <b>Agile Principles</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('agileValue')">
+          <b>Agile Values</b>
+        </button>
+      </div>
+
+      <!-- ---------- ROW 2 ---------- -->
+      <div style="display: flex; justify-content: center; gap: 5px;">
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumTheory')">
+          <b>Scrum Theory</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumPrinciple')">
+          <b>Scrum Principles</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumValue')">
+          <b>Scrum Values</b>
+        </button>
+      </div>
+
+      <!-- ---------- ROW 3 ---------- -->
+      <div style="display: flex; justify-content: center; gap: 5px;">
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumDefinition')">
+          <b>Scrum</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumTeam')">
+          <b>Scrum Team</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumEvents')">
+          <b>Scrum Events</b>
+        </button>
+
+        <button class="btn agile" style="white-space: nowrap; width: 150px;" onclick="openModal('scrumArtifacts')">
+          <b>Scrum Artifacts</b>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= MODALS SECTION ================= -->
+
+    <!-- ================= Agile Principles Modal ================= -->
+    <div id="agilePrinciple" class="agile-modal">
+      <div class="agile-modal-content">
+
+        <!-- Close Button -->
+        <span class="agile-close" onclick="closeModal('agilePrinciple')">&times;</span>
+
+        <!-- Title -->
+        <div style="text-align: center;">
+          <h2>Agile Principles</h2>
+        </div>
+
+        <!-- Table -->
+        <table class="agile-table">
+          <tr><th>Principle</th><th>Description</th></tr>
+          <tr><td><b>Customer Satisfaction</b></td><td>Prioritize early and continuous delivery of valuable software</td></tr>
+          <tr><td><b>Welcome Change</b></td><td>Embrace changing requirements, even late in development</td></tr>
+          <tr><td><b>Frequent Delivery</b></td><td>Deliver working software frequently (weeks rather than months).</td></tr>
+          <tr><td><b>Collaboration</b></td><td>Business stakeholders and developers must work together daily</td></tr>
+          <tr><td><b>Motivated Individuals</b></td><td>Build projects around motivated individuals and trust them</td></tr>
+          <tr><td><b>Face-to-Face Conversation</b></td><td>Use direct, in-person communication whenever possible</td></tr>
+          <tr><td><b>Working Software</b></td><td>This is the primary measure of progress</td></tr>
+          <tr><td><b>Sustainable Development</b></td><td>Maintain a consistent, sustainable work pace indefinitely</td></tr>
+          <tr><td><b>Technical Excellence</b></td><td>Continuous attention to good design and quality improves agility</td></tr>
+          <tr><td><b>Simplicity</b></td><td>Maximize the amount of work not done (focus on essential tasks)</td></tr>
+          <tr><td><b>Self-Organizing Teams</b></td><td>The best architectures and designs emerge from self-organizing teams</td></tr>
+          <tr><td><b>Regular Reflection</b></td><td>Teams regularly reflect on how to become more effective, then adjust accordingly</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ================= Agile Values Modal 	  ================= -->
+    <div id="agileValue" class="agile-modal">
+      <div class="agile-modal-content">
+
+        <span class="agile-close" onclick="closeModal('agileValue')">&times;</span>
+
+        <div style="text-align: center;">
+          <h2>Agile Values</h2>
+        </div>
+
+        <table class="agile-table">
+          <tr><th>Value</th><th>Description</th></tr>
+          <tr><td><b>Individuals and interactions over processes and tools</b></td><td>Focuses on people, communication, and collaboration over rigid processes or tools</td></tr>
+          <tr><td><b>Working software over comprehensive documentation</b></td><td>Prioritizes delivering usable software over excessive documentation</td></tr>
+          <tr><td><b>Customer collaboration over contract negotiation</b></td><td>Encourages continuous customer involvement instead of relying only on contracts</td></tr>
+          <tr><td><b>Responding to change over following a plan</b></td><td>Promotes adapting to change rather than strictly sticking to a fixed plan</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+    <!-- ================= Scrum Principles Modal ================= -->
+    <div id="scrumPrinciple" class="agile-modal">
+      <div class="agile-modal-content">
+
+        <span class="agile-close" onclick="closeModal('scrumPrinciple')">&times;</span>
+
+        <div style="text-align: center;">
+          <h2>Scrum Principles</h2>
+        </div>
+
+        <table class="agile-table">
+          <tr><th>Principle</th><th>Description</th></tr>
+          <tr><td><b>Empirical Process Control</b></td><td>Decisions are based on observation, experience, and experimentation</td></tr>
+          <tr><td><b>Self-Organization</b></td><td>Teams decide how best to accomplish their work</td></tr>
+          <tr><td><b>Collaboration</b></td><td>Team works together to deliver value</td></tr>
+          <tr><td><b>Value-based Prioritization</b></td><td>Work is prioritized based on business value</td></tr>
+          <tr><td><b>Time-boxing</b></td><td>Events have fixed duration to maintain focus and efficiency</td></tr>
+          <tr><td><b>Iterative Development</b></td><td>Deliver work in small, incremental cycles</td></tr>
+        </table>
+
+      </div>
+    </div>
+
+	<!-- ================= Scrum Values Modal 	  ================= -->
+	<div id="scrumValue" class="agile-modal">
+	  <div class="agile-modal-content">
+
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumValue')">&times;</span>
+
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>Scrum Values</h2>
+		</div>
+
+		<!-- Table -->
+		<table class="agile-table">
+		  <tr><th>Value</th><th>Description</th></tr>
+		  <tr><td><b>Commitment</b></td><td>Team members commit to achieving the sprint goals and supporting each other</td></tr>
+		  <tr><td><b>Courage</b></td><td>Team members have the courage to do the right thing and tackle tough problems</td></tr>
+		  <tr><td><b>Focus</b></td><td>The team focuses on the work of the sprint and its goals to deliver value</td></tr>
+		  <tr><td><b>Openness</b></td><td>Team members are open about work, feedback, and challenges, increasing transparency</td></tr>
+		  <tr><td><b>Respect</b></td><td>Members respect each other as capable, independent professionals</td></tr>
+		</table>
+
+	  </div>
 	</div>
-
-    <table class="agile-table">
-      <tr><th>Principle</th><th>Description</th></tr>
-      <tr><td><b>Customer Satisfaction</b></td><td>Prioritize early and continuous delivery of valuable software</td></tr>
-	  <tr><td><b>Welcome Change</b></td><td>Embrace changing requirements, even late in development</td></tr>
-	  <tr><td><b>Frequent Delivery</b></td><td>Deliver working software frequently (weeks rather than months).</td></tr>
-	  <tr><td><b>Collaboration</b></td><td>Business stakeholders and developers must work together daily</td></tr>
-	  <tr><td><b>Motivated Individuals</b></td><td>Build projects around motivated individuals and trust them</td></tr>
-	  <tr><td><b>Face-to-Face Conversation</b></td><td>Use direct, in-person communication whenever possible</td></tr>
-	  <tr><td><b>Working Software</b></td><td>This is the primary measure of progress</td></tr>
-	  <tr><td><b>Sustainable Development</b></td><td>Maintain a consistent, sustainable work pace indefinitely</td></tr>
-	  <tr><td><b>Technical Excellence</b></td><td>Continuous attention to good design and quality improves agility</td></tr>
-	  <tr><td><b>Simplicity</b></td><td>Maximize the amount of work not done (focus on essential tasks)</td></tr>
-	  <tr><td><b>Self-Organizing Teams</b></td><td>The best architectures and designs emerge from self-organizing teams</td></tr>
-	  <tr><td><b>Regular Reflection</b></td><td>Teams regularly reflect on how to become more effective, then adjust accordingly</td></tr>
-    </table>
-  </div>
-</div>
-
-<div id="agileValue" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('agileValue')">&times;</span>
-
-     <div style="text-align: center;">
-	<h2>Agile Values</h2>
-	</div>
-
-    <table class="agile-table">
-      <tr><th>Value</th><th>Description</th></tr>
-      <tr><td><b>Individuals and interactions over processes and tools</b></td><td>Focuses on people, communication, and collaboration over rigid processes or tools</td></tr>
-      <tr><td><b>Working software over comprehensive documentation</b></td><td>Prioritizes delivering usable software over excessive documentation</td></tr>
-      <tr><td><b>Customer collaboration over contract negotiation</b></td><td>Encourages continuous customer involvement instead of relying only on contracts</td></tr>
-      <tr><td><b>Responding to change over following a plan</b></td><td>Promotes adapting to change rather than strictly sticking to a fixed plan</td></tr>
-    </table>
-  </div>
-</div>
-
-<div id="scrumPrinciple" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumPrinciple')">&times;</span>
-
-    <div style="text-align: center;">
-      <h2>Scrum Principles</h2>
-    </div>
-
-    <table class="agile-table">
-      <tr><th>Principle</th><th>Description</th></tr>
-      <tr><td><b>Empirical Process Control</b></td><td>Decisions are based on observation, experience, and experimentation</td></tr>
-      <tr><td><b>Self-Organization</b></td><td>Teams decide how best to accomplish their work</td></tr>
-	  <tr><td><b>Collaboration</b></td><td>Team works together to deliver value</td></tr>
-	  <tr><td><b>Value-based Prioritization</b></td><td>Work is prioritized based on business value</td></tr>
-	  <tr><td><b>Time-boxing</b></td><td>Events have fixed duration to maintain focus and efficiency</td></tr>
-      <tr><td><b>Iterative Development</b></td><td>Deliver work in small, incremental cycles</td></tr>
-    </table>
-  </div>
-</div>
-
-<div id="scrumValue" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumValue')">&times;</span>
-
-    <div style="text-align: center;">
-      <h2>Scrum Values</h2>
-    </div>
-
-    <table class="agile-table">
-      <tr><th>Value</th><th>Description</th></tr>
-      <tr><td><b>Commitment</b></td><td>Team members commit to achieving the sprint goals and supporting each other</td></tr>
-      <tr><td><b>Courage</b></td><td>Team members have the courage to do the right thing and tackle tough problems</td></tr>
-      <tr><td><b>Focus</b></td><td>The team focuses on the work of the sprint and its goals to deliver value</td></tr>
-      <tr><td><b>Openness</b></td><td>Team members are open about work, feedback, and challenges, increasing transparency</td></tr>
-      <tr><td><b>Respect</b></td><td>Members respect each other as capable, independent professionals</td></tr>
-    </table>
-  </div>
-</div>
-
-<!-- Scrum Theory Modal -->
-<div id="scrumTheory" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumTheory')">&times;</span>
-    <div style="text-align: center;">
-      <h2>Scrum Theory</h2>
-    </div>
 	
-	<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
-  Scrum is built on <b style="color: var(--accent3);">Empiricism</b> and <b style="color: var(--accent3);">Lean Thinking</b>.
-</p>
+	<!-- ================= Scrum Theory Modal 	  ================= -->
+	<div id="scrumTheory" class="agile-modal">
+	  <div class="agile-modal-content">
 
-    <table class="agile-table">
-      <tr><th>Concept</th><th>Description</th></tr>
-      <tr><td><b>Empiricism</b></td><td>Asserts that knowledge comes from experience and making decisions based on what is observed</td></tr>
-      <tr><td><b>Lean Thinking</b></td><td>Focuses on maximizing value while minimizing waste</td></tr>
-    </table>
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumTheory')">&times;</span>
 
-    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
-      It is supported by <b style="color: var(--accent3);">3 core pillars</b>
-    </p>
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>Scrum Theory</h2>
+		</div>
 
-    <table class="agile-table">
-      <tr><th>Pillar</th><th>Description</th></tr>
-      <tr><td><b>Transparency</b></td><td>Make the work visible and clear to everyone (those performing the work as well as those receiving the work)</td></tr>
-      <tr><td><b>Inspection</b></td><td>Regularly review progress and outcomes (through scrum events)</td></tr>
-      <tr><td><b>Adaptation</b></td><td>Adjust quickly to improve results (through scrum events)</td></tr>
-    </table>
+		<!-- Intro Text -->
+		<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+		  Scrum is built on <b style="color: var(--accent3);">Empiricism</b> and <b style="color: var(--accent3);">Lean Thinking</b>.
+		</p>
 
-    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
-      <b>Scrum delivers work in small, incremental steps, enabling continuous feedback, learning, and improvement</b>
-    </p>
+		<!-- Concepts Table -->
+		<table class="agile-table">
+		  <tr><th>Concept</th><th>Description</th></tr>
+		  <tr><td><b>Empiricism</b></td><td>Asserts that knowledge comes from experience and making decisions based on what is observed</td></tr>
+		  <tr><td><b>Lean Thinking</b></td><td>Focuses on maximizing value while minimizing waste</td></tr>
+		</table>
 
-    <div class="ob">
-      <strong>👉 In simple terms:</strong> <b>Focus on impact, stay data-driven, and embrace continuous growth</b>
-    </div>
+		<!-- Pillars Intro -->
+		<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+		  It is supported by <b style="color: var(--accent3);">3 core pillars</b>
+		</p>
 
-  </div>
-</div>
+		<!-- Pillars Table -->
+		<table class="agile-table">
+		  <tr><th>Pillar</th><th>Description</th></tr>
+		  <tr><td><b>Transparency</b></td><td>Make the work visible and clear to everyone (those performing the work as well as those receiving the work)</td></tr>
+		  <tr><td><b>Inspection</b></td><td>Regularly review progress and outcomes (through scrum events)</td></tr>
+		  <tr><td><b>Adaptation</b></td><td>Adjust quickly to improve results (through scrum events)</td></tr>
+		</table>
 
-<div id="scrumDefinition" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumDefinition')">&times;</span>
-    <div style="text-align: center;">
-      <h2>What is Scrum?</h2>
-    </div>
+		<!-- Closing Explanation -->
+		<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+		  <b>Scrum delivers work in small, incremental steps, enabling continuous feedback, learning, and improvement</b>
+		</p>
 
-    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
-      Scrum is a lightweight <b style="color: var(--accent3);">framework</b> that helps teams and organizations generate value through adaptive solutions for complex problems.
-    </p>
+		<!-- Outcome Box -->
+		<div class="ob">
+		  <strong>👉 In simple terms:</strong>
+		  <b>Focus on impact, stay data-driven, and embrace continuous growth</b>
+		</div>
 
-    <table class="agile-table">
-      <tr><th>Aspect</th><th>Description</th></tr>
-      <tr><td><b>Framework</b></td><td>Not a process or methodology — a simple framework within which you can employ various processes and techniques</td></tr>
-      <tr><td><b>Purpose</b></td><td>Helps teams collaborate, learn, and adapt to deliver value incrementally in complex environments</td></tr>
-      <tr><td><b>Structure</b></td><td>Built on a small team of people with three accountabilities: Developers, Product Owner, and Scrum Master</td></tr>
-      <tr><td><b>Cadence</b></td><td>Work is organized into short, fixed-length cycles called Sprints (1–4 weeks) to ensure regular delivery</td></tr>
-      <tr><td><b>Foundation</b></td><td>Grounded in empiricism and lean thinking — learn from experience, inspect reality, and adapt continuously</td></tr>
-    </table>
+	  </div>
+	</div>
+	
+	<!-- ================= Scrum Definition Modal ================= -->
+	<div id="scrumDefinition" class="agile-modal">
+	  <div class="agile-modal-content">
 
-    <p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
-      Scrum is intentionally <b style="color: var(--accent3);">incomplete</b> — it defines only the parts required to implement Scrum theory, leaving the rest to the team.
-    </p>
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumDefinition')">&times;</span>
 
-    <div class="ob">
-      <strong>👉 In simple terms:</strong> Scrum is a smart, structured way for teams to tackle complex work — delivering real value, fast, through teamwork and continuous learning
-    </div>
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>What is Scrum?</h2>
+		</div>
 
-  </div>
-</div>
+		<!-- Intro -->
+		<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+		  Scrum is a lightweight <b style="color: var(--accent3);">framework</b> that helps teams and organizations generate value through adaptive solutions for complex problems.
+		</p>
 
-<div id="scrumEvents" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumEvents')">&times;</span>
-    <div style="text-align: center;">
-      <h2>Scrum Events</h2>
-    </div>
-    <table class="agile-table">
-      <tr><th>Event</th><th>Description</th></tr>
-      <tr><td><b>Sprint</b></td><td>A fixed time-box (1–4 weeks) where a usable increment is created</td></tr>
-      <tr><td><b>Sprint Planning</b></td><td>Team decides what to work on and how to deliver it in the sprint</td></tr>
-      <tr><td><b>Daily Scrum</b></td><td>A 15-min daily sync to inspect progress and adapt the plan</td></tr>
-      <tr><td><b>Sprint Review</b></td><td>Team presents the increment to stakeholders and gathers feedback</td></tr>
-      <tr><td><b>Sprint Retrospective</b></td><td>Team reflects on the process and identifies improvements for next sprint</td></tr>
-    </table>
-  </div>
-</div>
+		<!-- Table -->
+		<table class="agile-table">
+		  <tr><th>Aspect</th><th>Description</th></tr>
+		  <tr><td><b>Framework</b></td><td>Not a process or methodology — a simple framework within which you can employ various processes and techniques</td></tr>
+		  <tr><td><b>Purpose</b></td><td>Helps teams collaborate, learn, and adapt to deliver value incrementally in complex environments</td></tr>
+		  <tr><td><b>Structure</b></td><td>Built on a small team of people with three accountabilities: Developers, Product Owner, and Scrum Master</td></tr>
+		  <tr><td><b>Cadence</b></td><td>Work is organized into short, fixed-length cycles called Sprints (1–4 weeks) to ensure regular delivery</td></tr>
+		  <tr><td><b>Foundation</b></td><td>Grounded in empiricism and lean thinking — learn from experience, inspect reality, and adapt continuously</td></tr>
+		</table>
 
-<div id="scrumArtifacts" class="agile-modal">
-  <div class="agile-modal-content">
-    <span class="agile-close" onclick="closeModal('scrumArtifacts')">&times;</span>
-    <div style="text-align: center;">
-      <h2>Scrum Artifacts</h2>
-    </div>
-    <table class="agile-table">
-      <tr><th>Artifact</th><th>Description</th></tr>
-      <tr><td><b>Product Backlog</b></td><td>An ordered list of everything needed in the product, owned by the Product Owner</td></tr>
-      <tr><td><b>Sprint Backlog</b></td><td>The set of Product Backlog items selected for the sprint plus the plan to deliver them</td></tr>
-      <tr><td><b>Increment</b></td><td>The sum of all completed work at the end of a sprint that meets the Definition of Done</td></tr>
-    </table>
-  </div>
-</div>
+		<!-- Closing -->
+		<p style="color: var(--text); font-size: .88rem; margin: 14px 0 10px; text-indent: 20px;">
+		  Scrum is intentionally <b style="color: var(--accent3);">incomplete</b> — it defines only the parts required to implement Scrum theory, leaving the rest to the team.
+		</p>
 
-<div id="scrumTeam" class="agile-modal">
-  <div class="agile-modal-content agile-wide">
-    <span class="agile-close" onclick="closeModal('scrumTeam')">&times;</span>
-    <div style="text-align: center;">
-      <h2>Scrum Team</h2>
-    </div>
-    <table class="agile-table">
-      <tr><th>Accountability</th><th>Primary Focus & Description</th></tr>
-      <tr><td><b>Developers</b></td><td>Creating the Increment. They are the people in the Scrum Team committed to creating any aspect of a usable Increment each Sprint. This includes coding, testing, designing, or any work needed to meet the Definition of Done.</td></tr>
-      <tr><td><b>Product Owner (PO)</b></td><td>Maximizing Value. They are accountable for effective Product Backlog management, including developing and communicating the Product Goal and ensuring the backlog is transparent and understood.</td></tr>
-      <tr><td><b>Scrum Master (SM)</b></td><td>Scrum Effectiveness. They are accountable for establishing Scrum as defined in the Scrum Guide. They do this by helping everyone understand Scrum theory and practice, both within the Scrum Team and the organization.</td></tr>
-    </table>
-  </div>
-</div>
+		<!-- Outcome -->
+		<div class="ob">
+		  <strong>👉 In simple terms:</strong>
+		  Scrum is a smart, structured way for teams to tackle complex work — delivering real value, fast, through teamwork and continuous learning
+		</div>
 
-<style>
-/* ONLY this question hover (prevents global issue) 
-.qh.agile-q:hover {
-  background: #f2f6ff;
-  cursor: pointer;
-} */
+	  </div>
+	</div>
+	
+	<!-- ================= Scrum Events Modal 	  ================= -->
+	<div id="scrumEvents" class="agile-modal">
+	  <div class="agile-modal-content">
 
-/* Modal overlay */
-.agile-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-}
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumEvents')">&times;</span>
 
-.agile-wide .agile-table td:nth-child(2) {
-  max-width: 900px;
-  white-space: normal;
-  word-break: break-word;
-}
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>Scrum Events</h2>
+		</div>
 
-/* Modal box */
-.agile-modal-content {
-  background: var(--surface);
-  color: var(--text);
-  width: fit-content;
-  max-width: 92vw;
-  max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: auto;
-  margin: 5vh auto;
-  padding: 24px 28px;
-  border-radius: 12px;
-  position: relative;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-}
+		<!-- Table -->
+		<table class="agile-table">
+		  <tr><th>Event</th><th>Description</th></tr>
+		  <tr><td><b>Sprint</b></td><td>A fixed time-box (1–4 weeks) where a usable increment is created</td></tr>
+		  <tr><td><b>Sprint Planning</b></td><td>Team decides what to work on and how to deliver it in the sprint</td></tr>
+		  <tr><td><b>Daily Scrum</b></td><td>A 15-min daily sync to inspect progress and adapt the plan</td></tr>
+		  <tr><td><b>Sprint Review</b></td><td>Team presents the increment to stakeholders and gathers feedback</td></tr>
+		  <tr><td><b>Sprint Retrospective</b></td><td>Team reflects on the process and identifies improvements for next sprint</td></tr>
+		</table>
 
-.agile-modal-content h2 {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--accent3);
-  margin-bottom: 4px;
-  letter-spacing: 0.3px;
-}
+	  </div>
+	</div>
+	
+	<!-- ================= Scrum Artifacts Modal  ================= -->
+	<div id="scrumArtifacts" class="agile-modal">
+	  <div class="agile-modal-content">
 
-/* Close button */
-.agile-close {
-  position: absolute;
-  right: 14px;
-  top: 12px;
-  font-size: 22px;
-  cursor: pointer;
-  color: var(--text-muted);
-  line-height: 1;
-  transition: color 0.2s;
-}
-.agile-close:hover {
-  color: var(--accent3);
-}
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumArtifacts')">&times;</span>
 
-/* Table */
-.agile-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 14px;
-  font-size: .85rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>Scrum Artifacts</h2>
+		</div>
 
-.agile-table th {
-  background: var(--hbg);
-  color: var(--accent3);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .8rem;
-  font-weight: 600;
-  padding: 10px 14px;
-  text-align: left;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid var(--accent2);
-}
+		<!-- Table -->
+		<table class="agile-table">
+		  <tr><th>Artifact</th><th>Description</th></tr>
+		  <tr><td><b>Product Backlog</b></td><td>An ordered list of everything needed in the product, owned by the Product Owner</td></tr>
+		  <tr><td><b>Sprint Backlog</b></td><td>The set of Product Backlog items selected for the sprint plus the plan to deliver them</td></tr>
+		  <tr><td><b>Increment</b></td><td>The sum of all completed work at the end of a sprint that meets the Definition of Done</td></tr>
+		</table>
 
-.agile-table td {
-  padding: 9px 14px;
-  border-bottom: 1px solid rgba(30, 58, 95, 0.6);
-  color: var(--text);
-  vertical-align: top;
-}
+	  </div>
+	</div>
+	
+	<!-- ================= Scrum Team Modal 	  ================= -->
+	<div id="scrumTeam" class="agile-modal">
+	  <div class="agile-modal-content agile-wide">
 
-.agile-table tr:last-child td {
-  border-bottom: none;
-}
+		<!-- Close Button -->
+		<span class="agile-close" onclick="closeModal('scrumTeam')">&times;</span>
 
-.agile-table tr:nth-child(even) td {
-  background: rgba(255, 255, 255, 0.025);
-}
+		<!-- Title -->
+		<div style="text-align: center;">
+		  <h2>Scrum Team</h2>
+		</div>
 
-.agile-table tr:hover td {
-  background: rgba(0, 180, 216, 0.07);
-}
+		<!-- Table -->
+		<table class="agile-table">
+		  <tr><th>Accountability</th><th>Primary Focus & Description</th></tr>
+		  <tr><td><b>Developers</b></td><td>Creating the Increment. They are the people in the Scrum Team committed to creating any aspect of a usable Increment each Sprint. This includes coding, testing, designing, or any work needed to meet the Definition of Done.</td></tr>
+		  <tr><td><b>Product Owner (PO)</b></td><td>Maximizing Value. They are accountable for effective Product Backlog management, including developing and communicating the Product Goal and ensuring the backlog is transparent and understood.</td></tr>
+		  <tr><td><b>Scrum Master (SM)</b></td><td>Scrum Effectiveness. They are accountable for establishing Scrum as defined in the Scrum Guide. They do this by helping everyone understand Scrum theory and practice, both within the Scrum Team and the organization.</td></tr>
+		</table>
 
-.agile-table td:first-child {
-  color: var(--accent3);
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 500;
-  white-space: nowrap;
-  //text-align: center;
-}
-
-.agile-table td:nth-child(2) {
-  white-space: nowrap;
-}
-
-</style>
-
-<script>
-function openModal(id) {
-  document.getElementById(id).style.display = "block";
-}
-
-function closeModal(id) {
-  document.getElementById(id).style.display = "none";
-}
-
-// close when clicking outside
-window.addEventListener("click", function(event) {
-  document.querySelectorAll(".agile-modal").forEach(function(modal) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-	  document.body.style.overflow = '';
-    }
-  });
-});
-
-document.addEventListener("keydown", function(e) {
-  if (e.key === "Escape") {
-    document.querySelectorAll(".agile-modal").forEach(function(modal) {
-      modal.style.display = "none";
-    });
-	document.body.style.overflow = '';
-  }
-});
-
-function openModal(id) {
-  document.getElementById(id).style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal(id) {
-  document.getElementById(id).style.display = 'none';
-  document.body.style.overflow = '';
-}
-</script>
+	  </div>
+	</div>
 
 <div class="sd collapsed" onclick="toggleSection(this)">
   <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Agile Basics ---&gt;</b></span>
@@ -2406,164 +1847,6 @@ function closeModal(id) {
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concepts of PI (Program Increment) and Safe principles.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
 
 </div>
-
-<script>
-// ── Auto-number all Q badges dynamically ──
-function reNumber() {
-  document.querySelectorAll('.qc').forEach((c, i) => {
-    const badge = c.querySelector('.qn');
-    if (badge) badge.textContent = 'Q' + (i + 1);
-  });
-  const total = document.querySelectorAll('.qc').length;
-  document.getElementById('totalCount').textContent = total;
-  document.getElementById('footerCount').textContent = total;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  reNumber();
-});
-
-// ── Toggle single card ──
-function tog(h) {
-  h.closest('.qc').classList.toggle('open');
-}
-
-// ── Expand / Collapse All ──
-function toggleAll() {
-  const btn = document.getElementById('toggleAll');
-  const isExpanded = btn.textContent === 'Collapse All';
-
-  // toggle sections
-  document.querySelectorAll('.sd').forEach(function(header) {
-    const body = header.nextElementSibling;
-    if (isExpanded) {
-      header.classList.add('collapsed');
-      body.classList.add('collapsed');
-    } else {
-      header.classList.remove('collapsed');
-      body.classList.remove('collapsed');
-    }
-  });
-
-  // toggle q cards
-  document.querySelectorAll('.qc').forEach(function(card) {
-    if (isExpanded) {
-      card.classList.remove('open');
-    } else {
-      card.classList.add('open');
-    }
-  });
-
-  btn.textContent = isExpanded ? 'Expand All' : 'Collapse All';
-}
-
-// ── Search filter ──
-function clearSearch() {
-  const input = document.getElementById('searchBox');
-  input.value = '';
-  const sw = document.querySelector('.sw');
-  sw.classList.remove('has-value');
-
-  document.querySelectorAll('.qc').forEach(function(card) {
-    card.classList.remove('hidden');
-    card.classList.remove('open');
-  });
-
-  document.querySelectorAll('.sd').forEach(function(h) {
-    h.classList.add('collapsed');
-    h.nextElementSibling.classList.add('collapsed');
-  });
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  input.blur();
-}
-
-function filterQ(val) {
-  const query = val.trim().toLowerCase();
-  const sw = document.querySelector('.sw');
-  sw.classList.toggle('has-value', val.length > 0);
-
-  // if cleared via backspace
-  if (!query) {
-    document.querySelectorAll('.qc').forEach(function(card) {
-      card.classList.remove('hidden');
-      card.classList.remove('open');
-    });
-    document.querySelectorAll('.sd').forEach(function(h) {
-      h.classList.add('collapsed');
-      h.nextElementSibling.classList.add('collapsed');
-    });
-    // NO first section reopen here
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    return;
-  }
-
-  // filter q cards
-  document.querySelectorAll('.qc').forEach(function(card) {
-    const text = card.querySelector('.qt').textContent.toLowerCase();
-    const match = text.includes(query);
-    card.classList.toggle('hidden', !match);
-    card.classList.remove('open');
-  });
-
-  // expand/collapse sections based on matches
-  document.querySelectorAll('.sd').forEach(function(header) {
-    const body = header.nextElementSibling;
-    const hasMatch = Array.from(body.querySelectorAll('.qc'))
-      .some(card => !card.classList.contains('hidden'));
-
-    if (hasMatch) {
-      header.classList.remove('collapsed');
-      body.classList.remove('collapsed');
-    } else {
-      header.classList.add('collapsed');
-      body.classList.add('collapsed');
-    }
-  });
-
-  // auto scroll to first match
-  const firstMatch = document.querySelector('.qc:not(.hidden)');
-  if (firstMatch) {
-    setTimeout(function() {
-      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 350);
-  }
-}
-
-// ── Back to Top / Bottom ──
-window.addEventListener('scroll', function () {
-  const topBtn = document.getElementById('backToTop');
-  const botBtn = document.getElementById('backToBottom');
-  if (window.scrollY > 100) {
-    topBtn.style.display = 'block';
-    botBtn.style.display = 'block';
-  } else {
-    topBtn.style.display = 'none';
-    botBtn.style.display = 'none';
-  }
-});
-
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function scrollToBottom() {
-  window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-}
-
-document.addEventListener('contextmenu', e => e.preventDefault());
-
-function toggleSection(el) {
-  el.classList.toggle('collapsed');
-  const body = el.nextElementSibling;
-  body.classList.toggle('collapsed');
-}
-
-history.scrollRestoration = 'manual';
-
-
-
-</script>
 
 <button id="backToTop" onclick="scrollToTop()" title="Go to top">↑</button>
 <button id="backToBottom" onclick="scrollToBottom()" title="Go to bottom">↓</button>
