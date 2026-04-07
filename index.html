@@ -420,7 +420,7 @@
 	</div>
 
 <div class="sd collapsed" onclick="toggleSection(this)">
-  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Agile Basics ---&gt;</b></span>
+  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Basics / Fundamentals ---&gt;</b></span>
 </div>
 <div class="section-body collapsed">
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Define Agile and Scrum in the context of project management.</span><span class="qv">▼</span></div><div class="qb">
@@ -464,7 +464,56 @@
 </tbody></table>
 </div></div>
 </div>
- 
+
+<div class="sd collapsed" onclick="toggleSection(this)">
+  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Agile vs Waterfall ---&gt;</b></span>
+</div>
+<div class="section-body collapsed">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Waterfall Model</th><th>Agile Methodology</th></tr></thead><tbody>
+<tr><td>Requirements clarity</td><td>Stable &amp; fixed</td><td>Evolving &amp; unclear</td></tr>
+<tr><td>Change frequency</td><td>Minimal changes</td><td>Frequent changes</td></tr>
+<tr><td>Customer involvement</td><td>Limited</td><td>Continuous</td></tr>
+<tr><td>Project complexity</td><td>Predictable</td><td>Complex &amp; uncertain</td></tr>
+<tr><td>Delivery approach</td><td>One-time release</td><td>Incremental delivery</td></tr>
+<tr><td>Risk handling</td><td>Low risk</td><td>High risk, early feedback</td></tr>
+<tr><td>Team style</td><td>Siloed</td><td>Cross-functional</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Release Strategy</th></tr></thead><tbody>
+<tr><td>Define release goal</td><td>Start with product vision and what value the release should deliver</td></tr>
+<tr><td>Identify scope items</td><td>Pull prioritized PBIs from Product Backlog that support the release goal</td></tr>
+<tr><td>Check readiness</td><td>Ensure stories meet Definition of Ready and are refined enough</td></tr>
+<tr><td>Consider dependencies</td><td>Include cross-team, technical, and external dependency constraints</td></tr>
+<tr><td>Involve key roles</td><td>Product Owner leads, with Dev team, Scrum Master, and stakeholders involved</td></tr>
+<tr><td>Choose framework</td><td>Based on uncertainty and change frequency → Scrum for evolving scope, Kanban for continuous flow, or hybrid for mixed needs</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the importance of Agile over the traditional Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Factor</th><th>Agile Methodology</th></tr></thead><tbody>
+<tr><td>Handles change better</td><td>Adapts quickly to requirement changes instead of fixed upfront scope</td></tr>
+<tr><td>Early value delivery</td><td>Delivers working increments instead of waiting till end</td></tr>
+<tr><td>Continuous feedback</td><td>Regular stakeholder input improves product quality early</td></tr>
+<tr><td>Risk reduction</td><td>Issues are identified and corrected in short cycles</td></tr>
+<tr><td>Better transparency</td><td>Progress is visible through frequent reviews and updates</td></tr>
+<tr><td>Higher customer focus</td><td>Builds product based on evolving customer needs and priorities</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Stages involved in the Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
+<ul>
+<li>Requirement gathering : Capture complete, upfront business and system needs</li>
+<li>System design : Define architecture, components, and detailed design</li>
+<li>Implementation : Develop code based on finalized design</li>
+<li>Integration &amp; testing : Combine modules and validate against requirements</li>
+<li>Deployment : Release the product to production environment</li>
+<li>Maintenance : Fix issues and handle post-release enhancements</li>
+</ul>
+</div></div>
+</div>
 
 <div class="sd collapsed" onclick="toggleSection(this)">
   <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Values & Principles ---&gt;</b></span>
@@ -554,97 +603,8 @@
 </div></div>
 </div>
 
-
 <div class="sd collapsed" onclick="toggleSection(this)">
-  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Kanban & Other Frameworks ---&gt;</b></span>
-</div>
-<div class="section-body collapsed"> 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identify the metrics commonly used in Kanban.</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
-<tr><td>Cycle time</td><td>Time taken from start of work to completion of a task</td></tr>
-<tr><td>Lead time</td><td>Time from request creation to delivery to customer</td></tr>
-<tr><td>Throughput</td><td>Number of items completed in a given time period</td></tr>
-<tr><td>WIP (Work in Progress)</td><td>Number of items currently in progress at any time</td></tr>
-<tr><td>WIP aging</td><td>How long items stay in progress before completion</td></tr>
-<tr><td>Flow efficiency</td><td>Ratio of active work time vs total elapsed time</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you decide between Scrum and Kanban for a particular project?</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
-<tr><td>Requirement stability</td><td>Stable &amp; predictable work → Kanban | Evolving &amp; uncertain → Scrum</td></tr>
-<tr><td>Delivery pattern</td><td>Continuous flow → Kanban | Time-boxed delivery → Scrum</td></tr>
-<tr><td>Prioritization need</td><td>Dynamic prioritization → Kanban | Sprint-based planning → Scrum</td></tr>
-<tr><td>Change frequency</td><td>Frequent ad-hoc changes → Kanban | Controlled changes → Scrum</td></tr>
-<tr><td>Team maturity</td><td>Operational/support teams → Kanban | Cross-functional product teams → Scrum</td></tr>
-<tr><td>Commitment style</td>  <td>No fixed commitment → Kanban | Sprint commitment required → Scrum</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Discuss strategies for reducing cycle time, and elaborate on the concepts of swarming and WIP (Work in Progress).</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
-<tr><td>Reduce WIP limits</td><td>Limit number of items in progress to improve flow and avoid multitasking</td></tr>
-<tr><td>Smaller stories</td><td>Break work into smaller chunks to complete faster and reduce wait time</td></tr>
-<tr><td>Swarming</td><td>Team members collaborate on a single high-priority item to finish it quickly</td></tr>
-<tr><td>Remove blockers early</td><td>Actively resolve dependencies, approvals, and environment issues</td></tr>
-<tr><td>Improve flow visibility</td><td>Track work on board to quickly identify bottlenecks</td></tr>
-<tr><td>Focus on finishing</td><td>Encourage "start less, finish more" to reduce cycle time</td></tr>
-</tbody></table>
-</div></div>
-</div>
-
-<div class="sd collapsed" onclick="toggleSection(this)">
-  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Agile vs Traditional ---&gt;</b></span>
-</div>
-<div class="section-body collapsed">
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Factor</th><th>Waterfall Model</th><th>Agile Methodology</th></tr></thead><tbody>
-<tr><td>Requirements clarity</td><td>Stable &amp; fixed</td><td>Evolving &amp; unclear</td></tr>
-<tr><td>Change frequency</td><td>Minimal changes</td><td>Frequent changes</td></tr>
-<tr><td>Customer involvement</td><td>Limited</td><td>Continuous</td></tr>
-<tr><td>Project complexity</td><td>Predictable</td><td>Complex &amp; uncertain</td></tr>
-<tr><td>Delivery approach</td><td>One-time release</td><td>Incremental delivery</td></tr>
-<tr><td>Risk handling</td><td>Low risk</td><td>High risk, early feedback</td></tr>
-<tr><td>Team style</td><td>Siloed</td><td>Cross-functional</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you determine whether a project is better suited for the Waterfall model or Agile methodology?</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Factor</th><th>Release Strategy</th></tr></thead><tbody>
-<tr><td>Define release goal</td><td>Start with product vision and what value the release should deliver</td></tr>
-<tr><td>Identify scope items</td><td>Pull prioritized PBIs from Product Backlog that support the release goal</td></tr>
-<tr><td>Check readiness</td><td>Ensure stories meet Definition of Ready and are refined enough</td></tr>
-<tr><td>Consider dependencies</td><td>Include cross-team, technical, and external dependency constraints</td></tr>
-<tr><td>Involve key roles</td><td>Product Owner leads, with Dev team, Scrum Master, and stakeholders involved</td></tr>
-<tr><td>Choose framework</td><td>Based on uncertainty and change frequency → Scrum for evolving scope, Kanban for continuous flow, or hybrid for mixed needs</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the importance of Agile over the traditional Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Factor</th><th>Agile Methodology</th></tr></thead><tbody>
-<tr><td>Handles change better</td><td>Adapts quickly to requirement changes instead of fixed upfront scope</td></tr>
-<tr><td>Early value delivery</td><td>Delivers working increments instead of waiting till end</td></tr>
-<tr><td>Continuous feedback</td><td>Regular stakeholder input improves product quality early</td></tr>
-<tr><td>Risk reduction</td><td>Issues are identified and corrected in short cycles</td></tr>
-<tr><td>Better transparency</td><td>Progress is visible through frequent reviews and updates</td></tr>
-<tr><td>Higher customer focus</td><td>Builds product based on evolving customer needs and priorities</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Stages involved in the Waterfall model?</span><span class="qv">▼</span></div><div class="qb">
-<ul>
-<li>Requirement gathering : Capture complete, upfront business and system needs</li>
-<li>System design : Define architecture, components, and detailed design</li>
-<li>Implementation : Develop code based on finalized design</li>
-<li>Integration &amp; testing : Combine modules and validate against requirements</li>
-<li>Deployment : Release the product to production environment</li>
-<li>Maintenance : Fix issues and handle post-release enhancements</li>
-</ul>
-</div></div>
-</div>
-
-<div class="sd collapsed" onclick="toggleSection(this)">
-  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Roles ---&gt;</b></span>
+  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Accountabilities / Roles ---&gt;</b></span>
 </div>
 <div class="section-body collapsed">
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">What is the role of a Scrum Master, and how does it differ from a Project Manager?</span><span class="qv">▼</span></div><div class="qb">
@@ -1797,6 +1757,65 @@
 </div>
 
 <div class="sd collapsed" onclick="toggleSection(this)">
+  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Kanban Framework ---&gt;</b></span>
+</div>
+<div class="section-body collapsed"> 
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Identify the metrics commonly used in Kanban.</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Cycle time</td><td>Time taken from start of work to completion of a task</td></tr>
+<tr><td>Lead time</td><td>Time from request creation to delivery to customer</td></tr>
+<tr><td>Throughput</td><td>Number of items completed in a given time period</td></tr>
+<tr><td>WIP (Work in Progress)</td><td>Number of items currently in progress at any time</td></tr>
+<tr><td>WIP aging</td><td>How long items stay in progress before completion</td></tr>
+<tr><td>Flow efficiency</td><td>Ratio of active work time vs total elapsed time</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">How would you decide between Scrum and Kanban for a particular project?</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Requirement stability</td><td>Stable &amp; predictable work → Kanban | Evolving &amp; uncertain → Scrum</td></tr>
+<tr><td>Delivery pattern</td><td>Continuous flow → Kanban | Time-boxed delivery → Scrum</td></tr>
+<tr><td>Prioritization need</td><td>Dynamic prioritization → Kanban | Sprint-based planning → Scrum</td></tr>
+<tr><td>Change frequency</td><td>Frequent ad-hoc changes → Kanban | Controlled changes → Scrum</td></tr>
+<tr><td>Team maturity</td><td>Operational/support teams → Kanban | Cross-functional product teams → Scrum</td></tr>
+<tr><td>Commitment style</td>  <td>No fixed commitment → Kanban | Sprint commitment required → Scrum</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Discuss strategies for reducing cycle time, and elaborate on the concepts of swarming and WIP (Work in Progress).</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Reduce WIP limits</td><td>Limit number of items in progress to improve flow and avoid multitasking</td></tr>
+<tr><td>Smaller stories</td><td>Break work into smaller chunks to complete faster and reduce wait time</td></tr>
+<tr><td>Swarming</td><td>Team members collaborate on a single high-priority item to finish it quickly</td></tr>
+<tr><td>Remove blockers early</td><td>Actively resolve dependencies, approvals, and environment issues</td></tr>
+<tr><td>Improve flow visibility</td><td>Track work on board to quickly identify bottlenecks</td></tr>
+<tr><td>Focus on finishing</td><td>Encourage "start less, finish more" to reduce cycle time</td></tr>
+</tbody></table>
+</div></div>
+</div>
+
+<div class="sd collapsed" onclick="toggleSection(this)">
+  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- SAFe (Scaled Agile) ---&gt;</b></span>
+</div>
+<div class="section-body collapsed">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share your approach to calculating release plan estimation, and explain the roles of RTE (Release Train Engineer) and RPE (Release Planning Event).</span><span class="qv">▼</span></div><div class="qb">
+<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
+<tr><td>Start with PI scope</td><td>Identify features/epics from prioritized Program Backlog for the release/PI</td></tr>
+<tr><td>Use historical velocity</td><td>Teams use past PI velocity to forecast realistic capacity</td></tr>
+<tr><td>Break down work</td><td>Epics are split into features/stories for better estimation accuracy</td></tr>
+<tr><td>Team-level estimation</td><td>Agile teams estimate and commit during PI Planning collaboratively</td></tr>
+<tr><td>Aggregate forecasting</td><td>RTE consolidates team inputs to create overall release plan and predict outcomes</td></tr>
+<tr><td>Continuous adjustment</td><td>Release plan is refined based on new learning, risks, and dependencies</td></tr>
+<tr><td>RTE role</td><td>Facilitates PI Planning, removes cross-team impediments, ensures alignment across Agile Release Train</td></tr>
+<tr><td>RPE (PI Planning Event)</td><td>Large-scale planning event where teams align on objectives, dependencies, and commitments for the PI</td></tr>
+</tbody></table>
+</div></div>
+
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concepts of PI (Program Increment) and Safe principles.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+
+</div>
+
+<div class="sd collapsed" onclick="toggleSection(this)">
   <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Others ---&gt;</b></span>
 </div>
 <div class="section-body collapsed">
@@ -1824,27 +1843,6 @@
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Can you provide an overview of your professional background and experiences?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Walk me through a project you've been involved in, detailing the planning and execution phases.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
-
-</div>
-
-<div class="sd collapsed" onclick="toggleSection(this)">
-  <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- SAFe ---&gt;</b></span>
-</div>
-<div class="section-body collapsed">
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Share your approach to calculating release plan estimation, and explain the roles of RTE (Release Train Engineer) and RPE (Release Planning Event).</span><span class="qv">▼</span></div><div class="qb">
-<table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
-<tr><td>Start with PI scope</td><td>Identify features/epics from prioritized Program Backlog for the release/PI</td></tr>
-<tr><td>Use historical velocity</td><td>Teams use past PI velocity to forecast realistic capacity</td></tr>
-<tr><td>Break down work</td><td>Epics are split into features/stories for better estimation accuracy</td></tr>
-<tr><td>Team-level estimation</td><td>Agile teams estimate and commit during PI Planning collaboratively</td></tr>
-<tr><td>Aggregate forecasting</td><td>RTE consolidates team inputs to create overall release plan and predict outcomes</td></tr>
-<tr><td>Continuous adjustment</td><td>Release plan is refined based on new learning, risks, and dependencies</td></tr>
-<tr><td>RTE role</td><td>Facilitates PI Planning, removes cross-team impediments, ensures alignment across Agile Release Train</td></tr>
-<tr><td>RPE (PI Planning Event)</td><td>Large-scale planning event where teams align on objectives, dependencies, and commitments for the PI</td></tr>
-</tbody></table>
-</div></div>
-
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Explain the concepts of PI (Program Increment) and Safe principles.?</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
 
 </div>
 
