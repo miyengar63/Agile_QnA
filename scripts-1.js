@@ -36,7 +36,7 @@ function reNumber() {
 
   cards.forEach((c, i) => {
     const badge = c.querySelector('.qn');
-    if (badge) badge.textContent = 'Q' + (i + 1);
+    if (badge) badge.textContent = (i + 1);
   });
 
   const total  = cards.length;
@@ -51,7 +51,7 @@ function reNumber() {
 // ═══════════════════════════════════════════
 function tog(el) {
   el.closest('.qc')?.classList.toggle('open');
-  focusSearch();
+  //focusSearch();
 }
 
 // ═══════════════════════════════════════════
@@ -61,7 +61,7 @@ function toggleSection(header) {
   const isCollapsed = header.classList.contains('collapsed');
   header.classList.toggle('collapsed', !isCollapsed);
   header.nextElementSibling?.classList.toggle('collapsed', !isCollapsed);
-  focusSearch();
+  //focusSearch();
 }
 
 // ═══════════════════════════════════════════
@@ -259,7 +259,7 @@ function clearSearch() {
   doFilter('');
   setTimeout(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    focusSearch();
+    //focusSearch();
   }, 50);
 }
 
@@ -273,7 +273,7 @@ document.addEventListener('keydown', e => {
       modal.style.display = 'none';
     });
     document.body.style.overflow = '';
-    focusSearch();
+    //focusSearch();
   }
 
   // Search box navigation
@@ -300,7 +300,7 @@ function closeModal(id) {
   if (el) {
     el.style.display = 'none';
     document.body.style.overflow = '';
-    focusSearch();
+   // focusSearch();
   }
 }
 
@@ -309,7 +309,7 @@ window.addEventListener('click', e => {
     if (e.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = '';
-      focusSearch();
+     // focusSearch();
     }
   });
 });
@@ -327,12 +327,12 @@ window.addEventListener('scroll', () => {
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  focusSearch();
+  //focusSearch();
 }
 
 function scrollToBottom() {
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-  focusSearch();
+  //focusSearch();
 }
 
 // ═══════════════════════════════════════════
@@ -353,7 +353,7 @@ document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
 
-document.addEventListener('click', function (e) {
+/*document.addEventListener('click', function (e) {
   const input = document.getElementById('searchBox');
 
   if (!input) return;
@@ -363,4 +363,11 @@ document.addEventListener('click', function (e) {
   if (!ignore) {
     setTimeout(() => input.focus(), 0);
   }
-});
+});*/
+
+const searchBox = document.getElementById('searchBox');
+if (searchBox) {
+  searchBox.addEventListener('focusout', function () {
+    setTimeout(() => this.focus(), 0);
+  });
+}

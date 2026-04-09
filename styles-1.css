@@ -61,8 +61,8 @@ body {
 }
 
 .ph h1 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.7rem;
+  font-weight: 400;
   color: #fff;
   letter-spacing: -0.5px;
 }
@@ -169,7 +169,8 @@ body {
   text-align: center;
 }
 
-.btn.agile:hover { background: var(--accent); }
+/*.btn.agile:hover { background: var(--accent); }*/
+.btn.agile:hover { background: rgba(0, 180, 216, 0.2); }
 
 /* ═══════════════════════════════════════════
    SEARCH
