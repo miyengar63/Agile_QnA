@@ -160,15 +160,12 @@ body {
   margin-bottom: 20px;
   font-size: 15px;
   background: none;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 30px;
   width: 150px;
   box-sizing: border-box;
-
   text-align: center;
 }
 
@@ -331,9 +328,9 @@ body {
   scroll-margin-top: 80px;
 }
 
-.qc:hover { border-color: var(--accent2); }
-.qc.open { border-color: var(--accent); }
-.qc.hidden { display: none; }
+.qc:hover         { border-color: var(--accent2); }
+.qc.open          { border-color: var(--accent); }
+.qc.hidden        { display: none; }
 
 .qc.active-match {
   border-color: var(--accent) !important;
@@ -356,7 +353,7 @@ body {
 }
 
 .qc.open .qh { background: rgba(0,119,182,0.15); }
-.qh:hover { background: rgba(0,180,216,0.08); }
+.qh:hover     { background: rgba(0,180,216,0.08); }
 
 .qn {
   font-family: 'IBM Plex Mono', monospace;
@@ -391,7 +388,7 @@ body {
 }
 
 /* ═══════════════════════════════════════════
-   HIGHLIGHT (unchanged)
+   HIGHLIGHT
 ═══════════════════════════════════════════ */
 mark.hl {
   background: linear-gradient(90deg, #00b4d8, #48cae4);
@@ -402,21 +399,16 @@ mark.hl {
   box-shadow: 0 0 6px rgba(0,180,216,0.4);
 }
 
-/* ═══════════════════════════════════════════
-   ACTIVE CARD (unchanged)
-═══════════════════════════════════════════ */
 .qc.active-match mark.hl {
   background: linear-gradient(90deg, #ffb703, #ffd166);
   color: #000;
   box-shadow: 0 0 8px rgba(255,183,3,0.6);
 }
 
-/* ═══════════════════════════════════════════
-   🔥 CURRENT MATCH (ONLY this stands out)
-═══════════════════════════════════════════ */
+/* current match: solid amber bg so text is readable */
 mark.hl.current {
-  background: #000;
-  color: #002b36 !important;
+  background: #ffb703;
+  color: #002b36;
   font-weight: 800;
   border: 3px solid #ffb703;
   box-shadow: 0 0 10px rgba(255,183,3,0.8);
@@ -503,7 +495,6 @@ mark.hl.current {
   font-size: .8rem;
   letter-spacing: .5px;
   border-bottom: 2px solid var(--accent2);
-  text-align: left;
 }
 
 .at td {
@@ -515,14 +506,10 @@ mark.hl.current {
   hyphens: auto;
 }
 
-.at tr:last-child td { border-bottom: none; }
+.at tr:last-child td  { border-bottom: none; }
 .at tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
-.at tr:hover td { background: rgba(0,180,216,0.05); }
-.at td:first-child { color: var(--accent3); font-weight: 500; }
-.at th, 
-.at td {
-  width: auto;
-}
+.at tr:hover td       { background: rgba(0,180,216,0.05); }
+.at td:first-child    { color: var(--accent3); font-weight: 500; }
 
 /* ═══════════════════════════════════════════
    OUTCOME BLOCK
@@ -567,9 +554,9 @@ mark.hl.current {
   transition: all 0.3s;
 }
 
-#backToTop { bottom: 90px; }
+#backToTop    { bottom: 90px; }
 #backToBottom { bottom: 30px; }
-#backToTop:hover { background-color: var(--accent); transform: translateY(-3px); }
+#backToTop:hover    { background-color: var(--accent); transform: translateY(-3px); }
 #backToBottom:hover { background-color: var(--accent); transform: translateY(3px); }
 
 /* ═══════════════════════════════════════════
@@ -653,9 +640,9 @@ mark.hl.current {
   vertical-align: top;
 }
 
-.agile-table tr:last-child td { border-bottom: none; }
+.agile-table tr:last-child td  { border-bottom: none; }
 .agile-table tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
-.agile-table tr:hover td { background: rgba(0,180,216,0.07); }
+.agile-table tr:hover td       { background: rgba(0,180,216,0.07); }
 
 .agile-table td:first-child {
   color: var(--accent3);
@@ -676,8 +663,8 @@ mark.hl.current {
    RESPONSIVE
 ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
-  .ph   { padding: 24px 20px; }
-  .ctrl { padding: 14px 20px; }
+  .ph      { padding: 24px 20px; }
+  .ctrl    { padding: 14px 20px; }
   .content { padding: 20px 16px; }
   .sw input { width: 160px; }
 }

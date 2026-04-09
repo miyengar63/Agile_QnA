@@ -18,17 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (qb) qb.dataset.original = qb.innerHTML;
   });
 
-  // 🔥 FORCE ALL SECTIONS CLOSED ON LOAD
   document.querySelectorAll('.sd').forEach(h => {
     h.classList.add('collapsed');
     h.nextElementSibling?.classList.add('collapsed');
   });
 
-  // OPTIONAL: ensure all cards are closed too
-  document.querySelectorAll('.qc').forEach(c => {
-    c.classList.remove('open');
-  });
+  document.querySelectorAll('.qc').forEach(c => c.classList.remove('open'));
 
+  setTimeout(focusSearch, 100);
 });
 
 // ═══════════════════════════════════════════
@@ -42,7 +39,7 @@ function reNumber() {
     if (badge) badge.textContent = 'Q' + (i + 1);
   });
 
-  const total = cards.length;
+  const total  = cards.length;
   const top    = document.getElementById('totalCount');
   const bottom = document.getElementById('footerCount');
   if (top)    top.textContent    = total;
@@ -62,19 +59,8 @@ function tog(el) {
 // ═══════════════════════════════════════════
 function toggleSection(header) {
   const isCollapsed = header.classList.contains('collapsed');
-
-  /*document.querySelectorAll('.sd').forEach(h => {
-    h.classList.add('collapsed');
-    h.nextElementSibling?.classList.add('collapsed');
-  });*/
-
-  if (isCollapsed) {
-    header.classList.remove('collapsed');
-    header.nextElementSibling?.classList.remove('collapsed');
-  } else {
-    header.classList.add('collapsed');
-    header.nextElementSibling?.classList.add('collapsed');
-  }
+  header.classList.toggle('collapsed', !isCollapsed);
+  header.nextElementSibling?.classList.toggle('collapsed', !isCollapsed);
   focusSearch();
 }
 
@@ -90,9 +76,7 @@ function toggleAll() {
     h.nextElementSibling?.classList.toggle('collapsed', !expand);
   });
 
-  document.querySelectorAll('.qc').forEach(c => {
-    c.classList.toggle('open', expand);
-  });
+  document.querySelectorAll('.qc').forEach(c => c.classList.toggle('open', expand));
 
   btn.dataset.state = expand ? 'expanded' : 'collapsed';
   btn.textContent   = expand ? 'Collapse All' : 'Expand All';
@@ -108,9 +92,8 @@ function toggleAll() {
   } else {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  setTimeout(() => {
-    document.getElementById('searchBox')?.focus();
-  }, 0);
+
+  setTimeout(focusSearch, 0);
 }
 
 // ═══════════════════════════════════════════
@@ -137,31 +120,24 @@ function resetCard(card) {
 function highlight(container, query, card) {
   if (!container || !query) return;
 
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex   = new RegExp(`(${escaped})`, 'gi');
 
   function walk(node) {
     if (node.nodeType === 3) {
       if (!regex.test(node.nodeValue)) return;
-      regex.lastIndex = 0;
 
       const span = document.createElement('span');
       span.innerHTML = node.nodeValue.replace(regex, '<mark class="hl">$1</mark>');
 
-      const nodes = Array.from(span.childNodes);
+      Array.from(span.childNodes).forEach(n => {
+        if (n.nodeType === 1 && n.tagName === 'MARK' && !n.dataset.added) {
+          matchList.push({ card, el: n });
+          n.dataset.added = '1';
+        }
+      });
 
-      nodes.forEach(n => {
-  if (n.nodeType === 1 && n.tagName === 'MARK') {
-
-    // 🔥 prevent duplicate push
-    if (!n.dataset.added) {
-      matchList.push({ card, el: n });
-      n.dataset.added = '1';
-    }
-
-  }
-});
-
-      node.replaceWith(...nodes);
+      node.replaceWith(...span.childNodes);
 
     } else if (
       node.nodeType === 1 &&
@@ -195,12 +171,10 @@ function doFilter(val) {
 
   if (!query) {
     if (counter) counter.textContent = '';
-
     document.querySelectorAll('.sd').forEach(h => {
       h.classList.add('collapsed');
       h.nextElementSibling?.classList.add('collapsed');
     });
-
     setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 50);
     return;
   }
@@ -214,7 +188,6 @@ function doFilter(val) {
 
     if (match) {
       card.classList.add('open');
-
       highlight(card.querySelector('.qt'), query, card);
       highlight(card.querySelector('.qb'), query, card);
     }
@@ -223,10 +196,8 @@ function doFilter(val) {
   document.querySelectorAll('.sd').forEach(header => {
     const body = header.nextElementSibling;
     if (!body) return;
-
     const hasMatch = Array.from(body.querySelectorAll('.qc'))
       .some(c => !c.classList.contains('hidden'));
-
     header.classList.toggle('collapsed', !hasMatch);
     body.classList.toggle('collapsed', !hasMatch);
   });
@@ -247,25 +218,16 @@ function doFilter(val) {
 // NAVIGATE (SCROLL TO QUESTION)
 // ═══════════════════════════════════════════
 function navigateTo(index) {
-  // remove active card highlight
   document.querySelectorAll('.qc').forEach(c => c.classList.remove('active-match'));
-
-  // 🔥 remove previous current highlight
   document.querySelectorAll('mark.hl.current').forEach(m => m.classList.remove('current'));
 
   const match = matchList[index];
   if (!match) return;
 
-  const card = match.card;
-  card.classList.add('active-match', 'open');
+  match.card.classList.add('active-match', 'open');
+  match.el?.classList.add('current');
 
-  // 🔥 highlight ONLY current match
-  if (match.el) {
-    match.el.classList.add('current');
-  }
-
-  const header = card.querySelector('.qh') || card;
-
+  const header = match.card.querySelector('.qh') || match.card;
   const y = header.getBoundingClientRect().top + window.pageYOffset - 80;
   window.scrollTo({ top: y, behavior: 'smooth' });
 
@@ -295,37 +257,30 @@ function clearSearch() {
   const input = document.getElementById('searchBox');
   if (input) input.value = '';
   doFilter('');
-
   setTimeout(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    focusSearch();
   }, 50);
 }
 
 // ═══════════════════════════════════════════
-// KEYBOARD CONTROL
+// KEYBOARD CONTROL (single listener)
 // ═══════════════════════════════════════════
 document.addEventListener('keydown', e => {
-  const active = document.activeElement;
+  // Close any open modal on Escape
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.agile-modal').forEach(modal => {
+      modal.style.display = 'none';
+    });
+    document.body.style.overflow = '';
+    focusSearch();
+  }
 
-  if (active && active.id === 'searchBox') {
-
-    // 🔥 DOWN
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      nextMatch();
-    }
-
-    // 🔥 UP
-    else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      prevMatch();
-    }
-
-    // 🔥 ESC
-    else if (e.key === 'Escape') {
-      e.preventDefault();
-      clearSearch();
-    }
+  // Search box navigation
+  if (document.activeElement?.id === 'searchBox') {
+    if (e.key === 'ArrowDown')  { e.preventDefault(); nextMatch(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); prevMatch(); }
+    else if (e.key === 'Escape') { e.preventDefault(); clearSearch(); }
   }
 });
 
@@ -345,7 +300,7 @@ function closeModal(id) {
   if (el) {
     el.style.display = 'none';
     document.body.style.overflow = '';
-	focusSearch();
+    focusSearch();
   }
 }
 
@@ -354,19 +309,9 @@ window.addEventListener('click', e => {
     if (e.target === modal) {
       modal.style.display = 'none';
       document.body.style.overflow = '';
-	  focusSearch();
+      focusSearch();
     }
   });
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.agile-modal').forEach(modal => {
-      modal.style.display = 'none';
-    });
-    document.body.style.overflow = '';
-	focusSearch();
-  }
 });
 
 // ═══════════════════════════════════════════
@@ -376,7 +321,6 @@ window.addEventListener('scroll', () => {
   const show   = window.scrollY > 100;
   const topBtn = document.getElementById('backToTop');
   const botBtn = document.getElementById('backToBottom');
-
   if (topBtn) topBtn.style.display = show ? 'block' : 'none';
   if (botBtn) botBtn.style.display = show ? 'block' : 'none';
 });
@@ -402,39 +346,21 @@ if ('scrollRestoration' in history) {
 // AUTO FOCUS SEARCH BOX
 // ═══════════════════════════════════════════
 function focusSearch() {
-  const input = document.getElementById('searchBox');
-  if (input) {
-    input.focus();
-  }
-}
-
-// Focus on page load
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(focusSearch, 100);
-});
-
-// Focus after clearing search
-function clearSearch() {
-  const input = document.getElementById('searchBox');
-  if (input) input.value = '';
-  doFilter('');
-
-  setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    focusSearch(); // 🔥 keep cursor back
-  }, 50);
+  document.getElementById('searchBox')?.focus();
 }
 
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
 
-/*// OPTIONAL: keep focus always (like Ctrl+F feel)
-document.addEventListener('click', (e) => {
+document.addEventListener('click', function (e) {
   const input = document.getElementById('searchBox');
 
-  // don't steal focus if user clicks inside input
-  if (input && e.target !== input) {
+  if (!input) return;
+
+  const ignore = e.target.closest('button, a, .agile-modal');
+
+  if (!ignore) {
     setTimeout(() => input.focus(), 0);
   }
-});*/
+});
