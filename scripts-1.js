@@ -76,7 +76,7 @@ function toggleAll() {
     h.nextElementSibling?.classList.toggle('collapsed', !expand);
   });
 
-  document.querySelectorAll('.qc').forEach(c => c.classList.toggle('open', expand));
+  //document.querySelectorAll('.qc').forEach(c => c.classList.toggle('open', expand));
 
   btn.dataset.state = expand ? 'expanded' : 'collapsed';
   btn.textContent   = expand ? 'Collapse All' : 'Expand All';

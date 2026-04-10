@@ -1,22 +1,34 @@
 /* ═══════════════════════════════════════════
-   FONTS & VARIABLES
+   FONTS
 ═══════════════════════════════════════════ */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
+
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
 :root {
-  --bg: #0f1923;
-  --surface: #162233;
-  --surface2: #1c2d42;
-  --border: #1e3a5f;
-  --accent: #00b4d8;
-  --accent2: #0077b6;
-  --accent3: #48cae4;
-  --text: #cdd9e8;
-  --text-muted: #7a96b5;
-  --hbg: #0a4d68;
-  --green: #52b788;
-  --div: #2a4a6b;
+  /* Backgrounds */
+  --bg:          #0f1923;
+  --surface:     #162233;
+  --surface2:    #1c2d42;
+  --hbg:         #0a4d68;
+
+  /* Borders & Dividers */
+  --border:      #1e3a5f;
+  --div:         #2a4a6b;
+
+  /* Accent palette */
+  --accent:      #00b4d8;
+  --accent2:     #0077b6;
+  --accent3:     #48cae4;
+  --green:       #52b788;
+
+  /* Typography */
+  --text:        #cdd9e8;
+  --text-muted:  #7a96b5;
 }
+
 
 /* ═══════════════════════════════════════════
    RESET
@@ -27,6 +39,7 @@
   padding: 0;
 }
 
+
 /* ═══════════════════════════════════════════
    BASE
 ═══════════════════════════════════════════ */
@@ -36,10 +49,17 @@ body {
   color: var(--text);
   line-height: 1.65;
   padding: 0 0 60px;
+  user-select: none; /* Text selection disabled globally; search box overrides below */
 }
 
+/* Allow text selection only inside the search input */
+#searchBox {
+  user-select: text;
+}
+
+
 /* ═══════════════════════════════════════════
-   HEADER
+   HEADER  (.ph)
 ═══════════════════════════════════════════ */
 .ph {
   background: linear-gradient(135deg, #0a3d62 0%, #0d5c85 50%, #0a4d68 100%);
@@ -49,6 +69,7 @@ body {
   overflow: hidden;
 }
 
+/* Decorative radial glow in the top-right corner */
 .ph::before {
   content: '';
   position: absolute;
@@ -75,6 +96,7 @@ body {
   font-size: .9rem;
 }
 
+/* Meta badges row */
 .hm {
   display: flex;
   gap: 16px;
@@ -92,8 +114,10 @@ body {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+
 /* ═══════════════════════════════════════════
-   CONTROLS BAR
+   CONTROLS BAR  (.ctrl)
+   Sticky top bar holding filter buttons and search
 ═══════════════════════════════════════════ */
 .ctrl {
   padding: 16px 40px;
@@ -108,9 +132,11 @@ body {
   z-index: 100;
 }
 
+
 /* ═══════════════════════════════════════════
-   BUTTONS
+   BUTTONS  (.btn)
 ═══════════════════════════════════════════ */
+/* Base button */
 .btn {
   padding: 7px 18px;
   border-radius: 6px;
@@ -129,17 +155,18 @@ body {
   color: #fff;
 }
 
+/* Primary / pill button — used for main CTAs */
 .btn.p {
   background: rgba(0, 119, 182, 0.15);
   border: 1px solid var(--accent3);
-  border-radius: 24px;
+  border-radius: 30px;
   color: var(--accent3);
   font-size: .83rem;
   font-weight: 600;
   padding: 8px 35px;
-  transition: all .25s ease;
-  box-shadow: 0 0 0 0 rgba(72, 202, 228, 0);
   letter-spacing: .3px;
+  box-shadow: 0 0 0 0 rgba(72, 202, 228, 0);
+  transition: all .25s ease;
 }
 
 .btn.p:hover {
@@ -154,26 +181,29 @@ body {
   transform: scale(0.97);
 }
 
+/* Agile category / filter button — pill shape, transparent bg */
 .btn.agile {
-  border-color: var(--accent3);
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 15px;
-  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 320;
+  height: 35px;
   width: 150px;
   box-sizing: border-box;
   text-align: center;
+  margin-bottom: 10px;
 }
 
-/*.btn.agile:hover { background: var(--accent); }*/
 .btn.agile:hover { background: rgba(0, 180, 216, 0.2); }
 
+
 /* ═══════════════════════════════════════════
-   SEARCH
+   SEARCH  (.sw)
 ═══════════════════════════════════════════ */
 .sw {
   margin-left: auto;
@@ -183,7 +213,7 @@ body {
 .sw input {
   background: rgba(28, 45, 66, 0.8);
   border: 2px solid var(--accent2);
-  border-radius: 24px;
+  border-radius: 30px;
   padding: 8px 90px 8px 38px;
   color: var(--text);
   font-family: 'IBM Plex Sans', sans-serif;
@@ -210,6 +240,7 @@ body {
   font-size: .8rem;
 }
 
+/* Search icon (CSS-only, no extra element needed) */
 .sw::before {
   content: '⌕';
   position: absolute;
@@ -224,25 +255,26 @@ body {
 
 .sw:focus-within::before { color: var(--accent); }
 
+/* Clear (×) button — shown only when input has a value */
 .clr {
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  display: none; /* toggled to flex by .sw.has-value below */
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  line-height: 1;
+  font-size: .7rem;
+  cursor: pointer;
   background: rgba(0,180,216,0.1);
   border: 1px solid rgba(0,180,216,0.2);
   border-radius: 50%;
   color: var(--text-muted);
-  font-size: .7rem;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
   transition: all .2s;
-  line-height: 1;
 }
 
 .clr:hover {
@@ -253,17 +285,20 @@ body {
 
 .sw.has-value .clr { display: flex; }
 
+
 /* ═══════════════════════════════════════════
-   CONTENT
+   MAIN CONTENT WRAPPER
 ═══════════════════════════════════════════ */
 .content {
   padding: 28px 40px;
-  max-width: 1100px;
+  max-width: 950px;
   margin: 0 auto;
 }
 
+
 /* ═══════════════════════════════════════════
-   SECTION DIVIDERS
+   SECTION DIVIDERS  (.sd)
+   Clickable collapsible section headers
 ═══════════════════════════════════════════ */
 .sd {
   margin: 36px 0 28px;
@@ -274,6 +309,7 @@ body {
   cursor: pointer;
 }
 
+/* Decorative horizontal rules flanking the label */
 .sd::before,
 .sd::after {
   content: '';
@@ -296,6 +332,7 @@ body {
   text-transform: uppercase;
 }
 
+/* Chevron arrow — rotates when collapsed */
 .sd .sd-arrow {
   font-size: .7rem;
   color: var(--accent3);
@@ -305,34 +342,34 @@ body {
 
 .sd.collapsed .sd-arrow { transform: rotate(-90deg); }
 
-/* ═══════════════════════════════════════════
-   SECTION BODY
-═══════════════════════════════════════════ */
+/* Animated collapse container */
 .section-body {
   overflow: hidden;
-  transition: max-height 0.4s ease;
   max-height: 99999px;
+  transition: max-height 0.4s ease;
 }
 
 .section-body.collapsed { max-height: 0; }
 
+
 /* ═══════════════════════════════════════════
-   Q CARDS
+   QUESTION CARDS  (.qc)
 ═══════════════════════════════════════════ */
 .qc {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 30px;
   margin-bottom: 10px;
   overflow: hidden;
   transition: border-color .2s;
   scroll-margin-top: 80px;
 }
 
-.qc:hover         { border-color: var(--accent2); }
-.qc.open          { border-color: var(--accent); }
-.qc.hidden        { display: none; }
+.qc:hover      { border-color: var(--accent2); }
+.qc.open       { border-color: var(--accent); }
+.qc.hidden     { display: none; }
 
+/* Highlighted match card — pulsing border glow */
 .qc.active-match {
   border-color: var(--accent) !important;
   box-shadow: 0 0 0 2px rgba(0, 180, 216, 0.3);
@@ -344,6 +381,7 @@ body {
   100% { box-shadow: 0 0 0 6px rgba(0,180,216,0); }
 }
 
+/* Card header row */
 .qh {
   display: flex;
   align-items: center;
@@ -356,6 +394,7 @@ body {
 .qc.open .qh { background: rgba(0,119,182,0.15); }
 .qh:hover     { background: rgba(0,180,216,0.08); }
 
+/* Question number badge */
 .qn {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .72rem;
@@ -369,18 +408,20 @@ body {
   flex-shrink: 0;
 }
 
+/* Question title text */
 .qt {
   flex: 1;
-  font-weight: 600;
+  font-weight: 450;
   font-size: .95rem;
   color: #ddeeff;
 }
 
+/* Expand/collapse chevron */
 .qv {
   color: var(--text-muted);
   font-size: .75rem;
-  transition: transform .3s;
   flex-shrink: 0;
+  transition: transform .3s;
 }
 
 .qc.open .qv {
@@ -388,9 +429,11 @@ body {
   color: var(--accent3);
 }
 
+
 /* ═══════════════════════════════════════════
-   HIGHLIGHT
+   SEARCH HIGHLIGHT  (mark.hl)
 ═══════════════════════════════════════════ */
+/* Default match — cyan gradient */
 mark.hl {
   background: linear-gradient(90deg, #00b4d8, #48cae4);
   color: #002b36;
@@ -400,13 +443,14 @@ mark.hl {
   box-shadow: 0 0 6px rgba(0,180,216,0.4);
 }
 
+/* Match inside the active card — amber gradient */
 .qc.active-match mark.hl {
   background: linear-gradient(90deg, #ffb703, #ffd166);
   color: #000;
   box-shadow: 0 0 8px rgba(255,183,3,0.6);
 }
 
-/* current match: solid amber bg so text is readable */
+/* Current focused match — solid amber with scale pop */
 mark.hl.current {
   background: #ffb703;
   color: #002b36;
@@ -416,8 +460,9 @@ mark.hl.current {
   transform: scale(1.08);
 }
 
+
 /* ═══════════════════════════════════════════
-   ANSWER BODY
+   ANSWER BODY  (.qb)
 ═══════════════════════════════════════════ */
 .qb {
   display: none;
@@ -433,6 +478,7 @@ mark.hl.current {
   margin: 12px 0 8px;
 }
 
+/* Bullet list inside answers */
 .qb ul {
   list-style: none;
   margin: 10px 0;
@@ -449,20 +495,19 @@ mark.hl.current {
 
 .qb ul li:last-child { border-bottom: none; }
 
+/* Accent arrow bullet */
 .qb ul li::before {
   content: '▸';
   position: absolute;
   left: 0;
+  top: 7px;
   color: var(--accent3);
   font-size: .75rem;
-  top: 7px;
 }
 
 .qb ul li strong { color: var(--accent3); font-weight: 600; }
 
-/* ═══════════════════════════════════════════
-   SUB LABEL
-═══════════════════════════════════════════ */
+/* Sub-section label inside an answer */
 .sl {
   font-size: .78rem;
   font-weight: 600;
@@ -473,8 +518,30 @@ mark.hl.current {
   font-family: 'IBM Plex Mono', monospace;
 }
 
+/* Outcome / key-takeaway block */
+.ob {
+  background: rgba(82,183,136,0.1);
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  margin-top: 12px;
+  font-size: .87rem;
+  color: var(--text);
+}
+
+.ob strong { color: var(--green); }
+
+/* Checklist variant — green tick bullets */
+.cl li::before {
+  content: '✓';
+  color: var(--green);
+  font-size: .8rem;
+  top: 6px;
+}
+
+
 /* ═══════════════════════════════════════════
-   TABLES
+   TABLES  (.at — answer tables)
 ═══════════════════════════════════════════ */
 .at {
   width: 100%;
@@ -495,51 +562,145 @@ mark.hl.current {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .8rem;
   letter-spacing: .5px;
-  border-bottom: 2px solid var(--accent2);
+  border-bottom: 2px solid var(--accent3);
 }
 
 .at td {
   padding: 9px 14px;
-  border-bottom: 1px solid rgba(30,58,95,0.6);
+  border-bottom: 3px solid rgba(30,58,95,0.6);
   color: var(--text);
   vertical-align: top;
   word-wrap: break-word;
   hyphens: auto;
 }
 
-.at tr:last-child td  { border-bottom: none; }
-.at tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
-.at tr:hover td       { background: rgba(0,180,216,0.05); }
-.at td:first-child    { color: var(--accent3); font-weight: 500; }
+.at tr:last-child td         { border-bottom: none; }
+.at tr:nth-child(even) td    { background: rgba(255,255,255,0.025); }
+.at tr:hover td              { background: rgba(0,180,216,0.05); }
+.at td:first-child           { color: var(--accent3); font-weight: 500; }
+
 
 /* ═══════════════════════════════════════════
-   OUTCOME BLOCK
+   MODAL  (.agile-modal)
 ═══════════════════════════════════════════ */
-.ob {
-  background: rgba(82,183,136,0.1);
-  border-left: 3px solid var(--green);
-  border-radius: 0 6px 6px 0;
-  padding: 10px 14px;
-  margin-top: 12px;
-  font-size: .87rem;
+.agile-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+/* Custom thin scrollbar inside modals */
+.agile-modal ::-webkit-scrollbar       { width: 0; }
+.agile-modal ::-webkit-scrollbar-track { background: transparent; }
+.agile-modal ::-webkit-scrollbar-thumb {
+  background: rgba(0, 180, 216, 0.4);
+  border-radius: 10px;
+}
+
+.agile-modal-content {
+  background: var(--surface);
   color: var(--text);
+  width: fit-content;
+  max-width: 92vw;
+  max-height: 90vh;
+  overflow: hidden;
+  margin: 5vh auto;
+  padding: 0;
+  border-radius: 32px;
+  position: relative;
+  border: 2px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.ob strong { color: var(--green); }
+/* Scrollable inner wrapper so the rounded corners stay visible */
+.modal-scroll {
+  max-height: 90vh;
+  overflow: auto;
+  padding: 24px 28px;
+}
 
-.cl li::before {
-  content: '✓';
-  color: var(--green);
+.agile-modal-content h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent3);
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+/* Close (×) button */
+.agile-close {
+  position: absolute;
+  right: 14px;
+  top: 12px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-muted);
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.agile-close:hover { color: var(--accent3); }
+
+/* Modal tables */
+.agile-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: .80rem;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.agile-table th {
+  background: var(--hbg);
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
   font-size: .8rem;
-  top: 6px;
+  font-weight: 600;
+  padding: 4.6px 14px;
+  text-align: left;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--accent2);
 }
+
+.agile-table td {
+  padding: 4.6px 14px;
+  border-bottom: 1px solid rgba(30, 58, 95, 0.6);
+  color: var(--text);
+  vertical-align: top;
+}
+
+.agile-table tr:last-child td       { border-bottom: none; }
+.agile-table tr:nth-child(even) td  { background: rgba(255,255,255,0.025); }
+.agile-table tr:hover td            { background: rgba(0,180,216,0.07); }
+
+.agile-table td:first-child {
+  color: var(--accent3);
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 200;
+  white-space: nowrap;
+}
+
+.agile-table td:nth-child(2) { white-space: nowrap; }
+
+/* Wide modal variant — allows second column to wrap */
+.agile-wide .agile-table td:nth-child(2) {
+  max-width: 900px;
+  white-space: normal;
+  word-break: break-word;
+}
+
 
 /* ═══════════════════════════════════════════
-   SCROLL BUTTONS
+   SCROLL-TO-TOP / SCROLL-TO-BOTTOM BUTTONS
 ═══════════════════════════════════════════ */
 #backToTop,
 #backToBottom {
-  display: none;
+  display: none; /* shown via JS scroll listener */
   position: fixed;
   right: 30px;
   z-index: 1000;
@@ -557,123 +718,17 @@ mark.hl.current {
 
 #backToTop    { bottom: 90px; }
 #backToBottom { bottom: 30px; }
+
 #backToTop:hover    { background-color: var(--accent); transform: translateY(-3px); }
 #backToBottom:hover { background-color: var(--accent); transform: translateY(3px); }
 
-/* ═══════════════════════════════════════════
-   MODAL
-═══════════════════════════════════════════ */
-.agile-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-}
-
-.agile-modal-content {
-  background: var(--surface);
-  color: var(--text);
-  width: fit-content;
-  max-width: 92vw;
-  max-height: 90vh;
-  overflow-y: auto;
-  overflow-x: auto;
-  margin: 5vh auto;
-  padding: 24px 28px;
-  border-radius: 12px;
-  position: relative;
-  border: 1px solid var(--border);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-}
-
-.agile-modal-content h2 {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--accent3);
-  margin-bottom: 4px;
-  letter-spacing: 0.3px;
-}
-
-.agile-close {
-  position: absolute;
-  right: 14px;
-  top: 12px;
-  font-size: 22px;
-  cursor: pointer;
-  color: var(--text-muted);
-  line-height: 1;
-  transition: color 0.2s;
-}
-
-.agile-close:hover { color: var(--accent3); }
 
 /* ═══════════════════════════════════════════
-   MODAL TABLES
-═══════════════════════════════════════════ */
-.agile-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 14px;
-  font-size: .85rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.agile-table th {
-  background: var(--hbg);
-  color: var(--accent3);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .8rem;
-  font-weight: 600;
-  padding: 10px 14px;
-  text-align: left;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid var(--accent2);
-}
-
-.agile-table td {
-  padding: 9px 14px;
-  border-bottom: 1px solid rgba(30, 58, 95, 0.6);
-  color: var(--text);
-  vertical-align: top;
-}
-
-.agile-table tr:last-child td  { border-bottom: none; }
-.agile-table tr:nth-child(even) td { background: rgba(255,255,255,0.025); }
-.agile-table tr:hover td       { background: rgba(0,180,216,0.07); }
-
-.agile-table td:first-child {
-  color: var(--accent3);
-  font-family: 'IBM Plex Mono', monospace;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.agile-table td:nth-child(2) { white-space: nowrap; }
-
-.agile-wide .agile-table td:nth-child(2) {
-  max-width: 900px;
-  white-space: normal;
-  word-break: break-word;
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
+   RESPONSIVE  (≤ 640 px)
 ═══════════════════════════════════════════ */
 @media (max-width: 640px) {
   .ph      { padding: 24px 20px; }
   .ctrl    { padding: 14px 20px; }
   .content { padding: 20px 16px; }
   .sw input { width: 160px; }
-}
-
-body {
-  user-select: none;
-}
-
-#searchBox {
-  user-select: text;
 }

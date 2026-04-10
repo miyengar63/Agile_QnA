@@ -158,7 +158,7 @@
     <!-- ================= Agile Principles Modal ================= -->
     <div id="agilePrinciple" class="agile-modal">
       <div class="agile-modal-content">
-
+	  <div class="modal-scroll">
         <!-- Close Button -->
         <span class="agile-close" onclick="closeModal('agilePrinciple')">&times;</span>
 
@@ -186,10 +186,12 @@
 
       </div>
     </div>
+	</div>
 
     <!-- ================= Agile Values Modal 	  ================= -->
     <div id="agileValue" class="agile-modal">
       <div class="agile-modal-content">
+	  <div class="modal-scroll">
 
         <span class="agile-close" onclick="closeModal('agileValue')">&times;</span>
 
@@ -207,10 +209,12 @@
 
       </div>
     </div>
+	</div>
 
     <!-- ================= Scrum Principles Modal ================= -->
     <div id="scrumPrinciple" class="agile-modal">
       <div class="agile-modal-content">
+	  <div class="modal-scroll">
 
         <span class="agile-close" onclick="closeModal('scrumPrinciple')">&times;</span>
 
@@ -230,11 +234,12 @@
 
       </div>
     </div>
+	</div>
 
 	<!-- ================= Scrum Values Modal 	  ================= -->
 	<div id="scrumValue" class="agile-modal">
 	  <div class="agile-modal-content">
-
+		<div class="modal-scroll">
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumValue')">&times;</span>
 
@@ -255,10 +260,12 @@
 
 	  </div>
 	</div>
+	</div>
 	
 	<!-- ================= Scrum Theory Modal 	  ================= -->
 	<div id="scrumTheory" class="agile-modal">
 	  <div class="agile-modal-content">
+		<div class="modal-scroll">
 
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumTheory')">&times;</span>
@@ -287,6 +294,10 @@
 
 		<!-- Pillars Table -->
 		<table class="agile-table">
+		<colgroup>
+    <col style="width: 18%;">
+    <col style="width: 82%;">
+  </colgroup>
 		  <tr><th>Pillar</th><th>Description</th></tr>
 		  <tr><td><b>Transparency</b></td><td>Make the work visible and clear to everyone (those performing the work as well as those receiving the work)</td></tr>
 		  <tr><td><b>Inspection</b></td><td>Regularly review progress and outcomes (through scrum events)</td></tr>
@@ -306,10 +317,12 @@
 
 	  </div>
 	</div>
+	</div>
 	
 	<!-- ================= Scrum Definition Modal ================= -->
 	<div id="scrumDefinition" class="agile-modal">
 	  <div class="agile-modal-content">
+		<div class="modal-scroll">
 
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumDefinition')">&times;</span>
@@ -347,10 +360,12 @@
 
 	  </div>
 	</div>
+	</div>
 	
 	<!-- ================= Scrum Events Modal 	  ================= -->
 	<div id="scrumEvents" class="agile-modal">
 	  <div class="agile-modal-content">
+		<div class="modal-scroll">
 
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumEvents')">&times;</span>
@@ -372,10 +387,12 @@
 
 	  </div>
 	</div>
+	</div>
 	
 	<!-- ================= Scrum Artifacts Modal  ================= -->
 	<div id="scrumArtifacts" class="agile-modal">
 	  <div class="agile-modal-content">
+		<div class="modal-scroll">
 
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumArtifacts')">&times;</span>
@@ -395,10 +412,12 @@
 
 	  </div>
 	</div>
+	</div>
 	
 	<!-- ================= Scrum Team Modal 	  ================= -->
 	<div id="scrumTeam" class="agile-modal">
 	  <div class="agile-modal-content agile-wide">
+		<div class="modal-scroll">
 
 		<!-- Close Button -->
 		<span class="agile-close" onclick="closeModal('scrumTeam')">&times;</span>
@@ -418,11 +437,46 @@
 
 	  </div>
 	</div>
+	</div>
 
 <div class="sd collapsed" onclick="toggleSection(this)">
   <span style="font-size: 1rem; color: var(--accent2); letter-spacing: 1px;"><b>&lt;--- Basics / Fundamentals ---&gt;</b></span>
 </div>
 <div class="section-body collapsed">
+
+<div class="qc">
+  <div class="qh" onclick="tog(this)">
+    <span class="qn">Topic</span>
+    <span class="qt">Methodology vs Framework</span>
+    <span class="qv">▼</span>
+  </div>
+  <div class="qb">
+<table class="at">
+  <thead><tr><th>Aspect</th><th>Methodology</th><th>Framework</th></tr></thead>
+
+  <tr><td><b>Prescriptive vs. Flexible</b></td><td>Prescriptive, strict process</td><td>Flexible, provides structure but allows adaptations</td></tr>
+  <tr><td><b>Execution Style</b></td><td>Prescribes exact steps</td><td>Defines structure but allows variations</td></tr>
+  <tr><td><b>Example</b></td><td>Waterfall, Six Sigma</td><td>Scrum, SAFe, LeSS</td></tr>
+</table>
+
+<!-- Explanation -->
+<ul>
+<li> Agile focuses on <b>"What" and "Why"</b> — values and principles that guide development.</li>
+
+<li>Scrum focuses on <b>"How"</b> — a structured yet adaptive way to apply those principles in real-world delivery. </li>
+
+<li>Agile is neither a methodology nor a framework — it is a <b style="color: var(--accent3);">mindset</b> built on values and principles defined in the Agile Manifesto. It emphasizes adaptability, collaboration, and delivering value continuously.</li>
+
+<li>Scrum, on the other hand, is a <b style="color: var(--accent3);">framework</b> that implements Agile principles in practice. It defines roles, events, and artifacts, but leaves flexibility for teams to decide how to execute the work.</li>
+</ul>
+
+<!-- Outcome -->
+<div class="ob">
+  <strong>👉 In simple terms:</strong>
+  Agile is the mindset of working smart and adapting to change, while Scrum is a practical framework that helps teams implement Agile in a structured way.
+</div>
+</div>
+</div>
 
 <!-- 1. Agile & Scrum Overview -->
 <div class="qc">
@@ -835,43 +889,69 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Master vs Project Manager – Key Differences</span>
     <span class="qv">▼</span>
   </div>
   <div class="qb">
-<table class="at">
-  <thead><tr><th>Scrum Master</th><th>Project Manager</th></tr></thead>
-  <tbody>
-    <tr><td>Facilitates Scrum framework and ensures it is followed correctly</td><td>Plans, executes, and controls the overall project delivery</td></tr>
-    <tr><td>Removes impediments that block the team’s progress</td><td>Manages scope, schedule, resources, and budget</td></tr>
-    <tr><td>Enables and coaches the team to become self-organizing and high-performing</td><td>Directs and assigns work to ensure project completion</td></tr>
-    <tr><td>Focuses on team collaboration, Agile practices, and continuous improvement</td><td>Focuses on delivery timelines, cost control, and project governance</td></tr>
-    <tr><td>Serves the Scrum Team and organization as a servant leader</td><td>Acts as a manager responsible for project success and reporting</td></tr>
-  </tbody>
-</table>
+<div style="display:flex; gap:20px; padding:20px;">
+
+  <div style="flex:1; padding:15px; border:1px solid var(--accent); border-radius:30px;">
+    <h3 style="text-align:center; color: var(--accent2);">Scrum Master</h3>
+    <ul>
+      <li>Facilitates Scrum framework and ensures it is followed correctly</li>
+      <li>Removes impediments that block the team’s progress</li>
+      <li>Enables and coaches the team to become self-organizing and high-performing</li>
+      <li>Focuses on team collaboration, Agile practices, and continuous improvement</li>
+      <li>Serves the Scrum Team and organization as a servant leader</li>
+    </ul>
+  </div>
+
+  <div style="flex:1; padding:15px; border:1px solid var(--accent); border-radius:30px;">
+    <h3 style="text-align:center; color: var(--accent2);">Project Manager</h3>
+    <ul>
+      <li>Plans, executes, and controls the overall project delivery</li>
+      <li>Manages scope, schedule, resources, and budget</li>
+      <li>Directs and assigns work to ensure project completion</li>
+      <li>Focuses on delivery timelines, cost control, and project governance</li>
+      <li>Acts as a manager responsible for project success and reporting</li>
+    </ul>
+  </div>
+
+</div>
 </div></div>
 
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Project Monitoring vs Project Control</span>
     <span class="qv">▼</span>
   </div>
   <div class="qb">
-<table class="at">
-  <thead><tr><th>Monitoring</th><th>Controlling</th></tr></thead>
-  <tbody>
-    <tr><td>Observing and tracking project performance against the plan (passive/informational)</td><td>Taking corrective actions when deviations occur to bring the project back on track (active/corrective)</td></tr>
-  </tbody>
-</table>
+<div style="display:flex; gap:20px; padding:20px;">
+
+  <div style="flex:1; padding:15px; border:1px solid var(--accent); border-radius:15px;">
+    <h3 style="text-align:center; color: var(--accent2);">Monitoring</h3>
+    <ul>
+      <li>Observing and tracking project performance against the plan (passive / informational)</li>
+    </ul>
+  </div>
+
+  <div style="flex:1; padding:15px; border:1px solid var(--accent); border-radius:15px;">
+    <h3 style="text-align:center; color: var(--accent2);">Controlling</h3>
+    <ul>
+      <li>Taking corrective actions when deviations occur to bring the project back on track (active / corrective)</li>
+    </ul>
+  </div>
+
+</div>
 </div></div>
 
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Master – Core Purpose and Ideal Goals</span>
     <span class="qv">▼</span>
   </div>
@@ -890,7 +970,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Typical Day in a Scrum Master Role</span>
     <span class="qv">▼</span>
   </div>
@@ -911,7 +991,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Master Responsibilities Beyond Scrum Events</span>
     <span class="qv">▼</span>
   </div>
@@ -933,7 +1013,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Servant Leadership in Scrum</span>
     <span class="qv">▼</span>
   </div>
@@ -954,7 +1034,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Master & Product Owner Collaboration</span>
     <span class="qv">▼</span>
   </div>
@@ -981,7 +1061,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Events and Their Purpose</span>
     <span class="qv">▼</span>
   </div>
@@ -1001,7 +1081,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Scrum Ceremonies Followed in Practice</span>
     <span class="qv">▼</span>
   </div>
@@ -1021,7 +1101,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Sprint Zero – Meaning and Usage</span>
     <span class="qv">▼</span>
   </div>
@@ -1048,7 +1128,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Managing Overrun in Daily Stand-up</span>
     <span class="qv">▼</span>
   </div>
@@ -1068,7 +1148,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Ownership of Daily Stand-up</span>
     <span class="qv">▼</span>
   </div>
@@ -1088,7 +1168,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Conducting Retrospectives Effectively</span>
     <span class="qv">▼</span>
   </div>
@@ -1108,7 +1188,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Retrospective Techniques Used in Teams</span>
     <span class="qv">▼</span>
   </div>
@@ -1129,7 +1209,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Tracking Retrospective Action Items</span>
     <span class="qv">▼</span>
   </div>
@@ -1150,7 +1230,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Ensuring Delivery Through Retrospective Outcomes</span>
     <span class="qv">▼</span>
   </div>
@@ -1170,7 +1250,7 @@
 
 <div class="qc">
   <div class="qh" onclick="tog(this)">
-    <span class="qn">Q</span>
+    <span class="qn">Topic</span>
     <span class="qt">Recent Retrospective Action Items (Examples)</span>
     <span class="qv">▼</span>
   </div>
@@ -1453,7 +1533,7 @@
 </div>
 <div class="section-body collapsed">
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Facilitating Estimation and Sprint Planning Effectively</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Facilitating Estimation and Sprint Planning Effectively</span><span class="qv">▼</span></div><div class="qb">
 <ul>
 <li>Facilitate Backlog Refinement to break down stories into clear tasks</li>
 <li>Guide Sprint Planning with Planning Poker</li>
@@ -1462,7 +1542,7 @@
 </ul>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Velocity vs Capacity in Scrum</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Velocity vs Capacity in Scrum</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1473,7 +1553,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Capacity and Velocity in Project Planning with Examples</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Capacity and Velocity in Project Planning with Examples</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1485,11 +1565,11 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Sprint Capacity Calculation Approach</span><span class="qv">▼</span></div><div class="qb"><p>Capacity is calculated by adding total available hours of all team members for the Sprint and subtracting holidays, planned time-off, and non-development activities like Scrum events.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Sprint Capacity Calculation Approach</span><span class="qv">▼</span></div><div class="qb"><p>Capacity is calculated by adding total available hours of all team members for the Sprint and subtracting holidays, planned time-off, and non-development activities like Scrum events.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Capacity Planning in Scrum</span><span class="qv">▼</span></div><div class="qb"><p>Sum available developer hours minus ceremonies, leaves, and a buffer for administrative tasks.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Capacity Planning in Scrum</span><span class="qv">▼</span></div><div class="qb"><p>Sum available developer hours minus ceremonies, leaves, and a buffer for administrative tasks.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Story Point Estimation Approach</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Story Point Estimation Approach</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1503,7 +1583,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensuring Accurate and Meaningful Estimation</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Ensuring Accurate and Meaningful Estimation</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1517,7 +1597,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Story Points and Characteristics of Good Story Points</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Story Points and Characteristics of Good Story Points</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Story point</td><td>Relative measure of effort, complexity, and uncertainty</td></tr>
 <tr><td>Good story point</td><td>Represents relative sizing, not time</td></tr>
@@ -1529,7 +1609,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Benefits of Relative Estimation in Agile Planning</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Benefits of Relative Estimation in Agile Planning</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Better accuracy</td><td>Comparison improves estimation quality</td></tr>
 <tr><td>Reduces uncertainty</td><td>Avoids false precision</td></tr>
@@ -1540,7 +1620,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Sprint Planning Tools and Approach</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Sprint Planning Tools and Approach</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Jira usage</td><td>Backlog, sprint planning, tracking</td></tr>
 <tr><td>Confluence usage</td><td>Documentation and knowledge base</td></tr>
@@ -1553,9 +1633,9 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Stakeholder Alignment Techniques During Sprint Planning</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Stakeholder Alignment Techniques During Sprint Planning</span><span class="qv">▼</span></div><div class="qb"><p>---------</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">IF Framing Technique in Project Management</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">IF Framing Technique in Project Management</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Definition</td><td>Reframing statements into conditional scenarios</td></tr>
 <tr><td>Purpose</td><td>Encourages alternative thinking</td></tr>
@@ -1566,7 +1646,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Technical Debt and Spike Stories in Agile</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Technical Debt and Spike Stories in Agile</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1581,9 +1661,9 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Spike Story – Definition and Purpose</span><span class="qv">▼</span></div><div class="qb"><p>A spike is a time-boxed research activity used to reduce uncertainty and support estimation or solution discovery.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Spike Story – Definition and Purpose</span><span class="qv">▼</span></div><div class="qb"><p>A spike is a time-boxed research activity used to reduce uncertainty and support estimation or solution discovery.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Managing Cross-Team and External Dependencies</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Managing Cross-Team and External Dependencies</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -1604,7 +1684,7 @@
 <div class="section-body collapsed">
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Team Performance Tracking Metrics</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1622,7 +1702,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Role of Metrics in Scrum</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1644,7 +1724,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Sprint Retrospective Metrics</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1662,7 +1742,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Metrics for Team vs Management Reporting</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1682,7 +1762,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Project Metrics Overview</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1702,7 +1782,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Key Scrum Metrics</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1710,7 +1790,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Sprint Metrics</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1718,7 +1798,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Common Scrum Reports and Their Usage</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1736,7 +1816,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Most Valuable Project Metrics</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1744,7 +1824,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Burndown vs Burnup Charts (Comparison and Sprint Burnup Concept)</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1760,7 +1840,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Velocity: Projected vs Actual Comparison</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1778,7 +1858,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span>
+<span class="qn">Topic</span>
 <span class="qt">Factors Affecting Velocity Achievement</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -1803,7 +1883,7 @@
 <div class="section-body collapsed">
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing a Team - Missing Sprint Commitments</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing a Team - Missing Sprint Commitments</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1819,7 +1899,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Team Solution Conflict (Option A vs Option B)</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Team Solution Conflict (Option A vs Option B)</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Listen first</td><td>Understand why the team chose Option A (constraints, assumptions, risks, context)</td></tr>
 <tr><td>Clarify impact</td><td>Evaluate both A and B on effort, risk, scalability, maintainability, and delivery speed</td></tr>
@@ -1832,7 +1912,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Frequent Unplanned Work Interruptions</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Frequent Unplanned Work Interruptions</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1849,7 +1929,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Team Overcommitment</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Team Overcommitment</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1864,7 +1944,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Fluctuating Sprint Velocity</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Fluctuating Sprint Velocity</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1879,7 +1959,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Sprint Spillovers</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Sprint Spillovers</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Yes, occasional spillovers</td><td>Happens due to dependencies, unclear requirements, or unforeseen complexity</td></tr>
 <tr><td>DoD check</td><td>Ensure incomplete stories are not marked as Done</td></tr>
@@ -1891,7 +1971,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Product Invalidation Mid-Sprint</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Product Invalidation Mid-Sprint</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1906,7 +1986,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Mid-Sprint Scope Change</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Mid-Sprint Scope Change</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1921,7 +2001,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Mid-Sprint Product Owner Requests</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Mid-Sprint Product Owner Requests</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1936,7 +2016,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Scope Creep in Scrum</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Scope Creep in Scrum</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1951,7 +2031,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling PO Adding Work Without Removing Items</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling PO Adding Work Without Removing Items</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -1966,17 +2046,17 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Scope Creep Definition and Impact</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Scope Creep Definition and Impact</span><span class="qv">▼</span></div><div class="qb">
 <p>Scope creep is uncontrolled expansion of project scope leading to delays, reduced quality, and team burnout.</p>
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Additional User Stories Mid-Sprint</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Additional User Stories Mid-Sprint</span><span class="qv">▼</span></div><div class="qb">
 <p>Evaluate against Sprint Goal. If not aligned, move to backlog. If urgent, swap with PO approval.</p>
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Scope Creep vs Scope Change</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Scope Creep vs Scope Change</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Scope creep</td><td>Uncontrolled addition of work without approval</td></tr>
 <tr><td>Scope change</td><td>Controlled and approved modification</td></tr>
@@ -1987,7 +2067,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing External Stakeholder Interference</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing External Stakeholder Interference</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2002,7 +2082,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Stakeholders and Difficult Individuals</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Stakeholders and Difficult Individuals</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2017,7 +2097,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Risk Register Information</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Risk Register Information</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody>
 <tr><td>Resolved</td><td>Risk eliminated</td></tr>
 <tr><td>Owned</td><td>Assigned to owner</td></tr>
@@ -2027,7 +2107,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Proactive Risk Identification and Mitigation</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Proactive Risk Identification and Mitigation</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Stage</th><th>Description</th></tr></thead>
 <tbody>
@@ -2042,7 +2122,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Common Impediments</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Common Impediments</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Challenge</th><th>Mitigation</th></tr></thead>
 <tbody>
@@ -2058,7 +2138,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling OS/App Issues Impacting Team</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling OS/App Issues Impacting Team</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2073,7 +2153,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Production Issues During Release</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Production Issues During Release</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Assess severity</td><td>Evaluate impact</td></tr>
 <tr><td>Activate response</td><td>Engage teams</td></tr>
@@ -2085,7 +2165,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Defect Report Driven Actions and Improvements</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Defect Report Driven Actions and Improvements</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Aspect</th><th>Detail</th></tr></thead><tbody>
 <tr><td>Identify patterns</td><td>Analyze defects</td></tr>
 <tr><td>Strengthen testing</td><td>Improve coverage</td></tr>
@@ -2097,7 +2177,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Defect Leakage Meaning and Impact</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Defect Leakage Meaning and Impact</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Aspect</th><th>Description</th></tr></thead>
 <tbody>
@@ -2111,7 +2191,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Managing Technical Debt</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Managing Technical Debt</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2126,7 +2206,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Scrum Master Role in Technical Debt Management</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Scrum Master Role in Technical Debt Management</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Responsibility</th><th>Description</th></tr></thead>
 <tbody>
@@ -2142,7 +2222,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Handling Project Uncertainty</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Handling Project Uncertainty</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Practice</th><th>Description</th></tr></thead>
 <tbody>
@@ -2157,7 +2237,7 @@
 </div></div>
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Q</span><span class="qt">Scrum Practice Compliance Issues</span><span class="qv">▼</span></div><div class="qb">
+<span class="qn">Topic</span><span class="qt">Scrum Practice Compliance Issues</span><span class="qv">▼</span></div><div class="qb">
 <ul>
 <li>Identify missing practices</li>
 <li>Understand reasons for deviation</li>
@@ -2172,7 +2252,7 @@
 </div>
 <div class="section-body collapsed">
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Underperforming Team Member</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Underperforming Team Member</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2187,7 +2267,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Resolving Major Scrum Master Challenges (Example Experience)</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Resolving Major Scrum Master Challenges (Example Experience)</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Stage</th><th>Description</th></tr></thead>
 <tbody>
@@ -2201,7 +2281,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Promoting Transparency in Scrum Teams</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Promoting Transparency in Scrum Teams</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Practice</th><th>Description</th></tr></thead>
 <tbody>
@@ -2212,7 +2292,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Managing Difficult Team Members and Interpersonal Conflicts</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Managing Difficult Team Members and Interpersonal Conflicts</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2226,7 +2306,7 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Underperformance (Clarification-Based Approach)</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Underperformance (Clarification-Based Approach)</span><span class="qv">▼</span></div><div class="qb">
 <table class="at">
 <thead><tr><th>Action</th><th>Description</th></tr></thead>
 <tbody>
@@ -2240,13 +2320,13 @@
 </table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Managing Non-Responsive or Non-Performing Team Members</span><span class="qv">▼</span></div><div class="qb"><p>Follow the 1:1 discovery and goal-setting process described in Q.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Managing Non-Responsive or Non-Performing Team Members</span><span class="qv">▼</span></div><div class="qb"><p>Follow the 1:1 discovery and goal-setting process described in Q.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Negative Impact on Team Efficiency</span><span class="qv">▼</span></div><div class="qb"><p>Requires immediate feedback and re-alignment of role expectations.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Negative Impact on Team Efficiency</span><span class="qv">▼</span></div><div class="qb"><p>Requires immediate feedback and re-alignment of role expectations.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Initial Approach to Underperformance</span><span class="qv">▼</span></div><div class="qb"><p>A private discussion to identify and remove any unknown technical or personal blockers.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Initial Approach to Underperformance</span><span class="qv">▼</span></div><div class="qb"><p>A private discussion to identify and remove any unknown technical or personal blockers.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Persistent Underperformance (Post-Intervention)</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Persistent Underperformance (Post-Intervention)</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Root cause validation</td><td>Recheck if issue is skill, motivation, workload, or clarity</td></tr>
 <tr><td>Formal feedback loop</td><td>Document concerns and structured feedback sessions</td></tr>
@@ -2259,11 +2339,11 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Managing Task Dependencies in Projects</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Managing Task Dependencies in Projects</span><span class="qv">▼</span></div><div class="qb"><p>Summary of domain expertise and key achievements in Agile roles.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Non-Cooperative Behavior in Scrum Events</span><span class="qv">▼</span></div><div class="qb"><p>Coach on the "Why" behind ceremonies and impact on the team flow.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Non-Cooperative Behavior in Scrum Events</span><span class="qv">▼</span></div><div class="qb"><p>Coach on the "Why" behind ceremonies and impact on the team flow.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Resolving Conflicts Between Two Developers</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Resolving Conflicts Between Two Developers</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Open communication</td><td>Encourage direct conversation instead of assumptions</td></tr>
 <tr><td>Active listening</td><td>Understand concerns from both sides, not just surface issues</td></tr>
@@ -2274,7 +2354,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Resolving Team Member Conflicts in Scrum</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Resolving Team Member Conflicts in Scrum</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Listen individually</td><td>Speak to each person separately to understand the real concern</td></tr>
 <tr><td>Stay neutral</td><td>Do not take sides or assume intent</td></tr>
@@ -2285,9 +2365,9 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Conflict Resolution Technique Used by Scrum Master</span><span class="qv">▼</span></div><div class="qb"><p>Neutral facilitation and separation of the person from the problem using a goal-aligned framework.</p></div></div>
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Conflict Resolution Technique Used by Scrum Master</span><span class="qv">▼</span></div><div class="qb"><p>Neutral facilitation and separation of the person from the problem using a goal-aligned framework.</p></div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Handling Senior Developer Avoiding Scrum Events</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Handling Senior Developer Avoiding Scrum Events</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Understand reason</td><td>Speak 1:1 to know why they are avoiding events (time, value, conflicts)</td></tr>
 <tr><td>Clarify expectations</td><td>Reinforce Scrum event purpose and why team participation matters</td></tr>
@@ -2298,7 +2378,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensuring Sustainable Pace and Avoiding Burnout</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Ensuring Sustainable Pace and Avoiding Burnout</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Respect capacity</td><td>Plan sprints based on realistic team capacity, not ideal maximum.</td></tr>
 <tr><td>Track workload</td><td>Monitor story points, tasks, and unplanned work to prevent overcommitment.</td></tr>
@@ -2310,7 +2390,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Ensuring Customer Expectations Are Met or Exceeded</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Ensuring Customer Expectations Are Met or Exceeded</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Clear requirements &amp; DoR</td><td>Ensure backlog items are well-defined, actionable, and prioritized.</td></tr>
 <tr><td>Sprint &amp; Capacity Planning</td><td>Commit realistically based on team capacity.</td></tr>
@@ -2323,7 +2403,7 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Building Strong Customer Relationships</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Topic</span><span class="qt">Building Strong Customer Relationships</span><span class="qv">▼</span></div><div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Frequent communication</td><td>Keep stakeholders informed with regular updates, demos, and progress reports.</td></tr>
 <tr><td>Active listening</td><td>Understand customer needs, pain points, and feedback carefully.</td></tr>
@@ -2336,7 +2416,12 @@
 </tbody></table>
 </div></div>
 
-<div class="qc"><div class="qh" onclick="tog(this)"><span class="qn">Q</span><span class="qt">Driving Continuous Team Improvement</span><span class="qv">▼</span></div><div class="qb">
+<div class="qc"><div class="qh" onclick="tog(this)">
+<span class="qn">Topic</span>
+<span class="qt">Driving Continuous Team Improvement</span>
+<span class="qv">▼</span>
+</div>
+<div class="qb">
 <table class="at"><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody>
 <tr><td>Regular Retrospectives</td><td>Use sprint retrospectives to identify what’s working and what needs improvement.</td></tr>
 <tr><td>Inspect &amp; Adapt</td><td>Use observations and metrics to refine processes and improve delivery.</td></tr>
@@ -2356,7 +2441,7 @@
 <div class="section-body collapsed">
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Agile Training & Project Setup</span>
+<span class="qn">Topic</span>
 <span class="qt">Training Sessions Conducted and Approach to Setting up a New Agile Project</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2379,7 +2464,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Scrum Master Challenge Handling</span>
+<span class="qn">Topic</span>
 <span class="qt">Major Challenge Faced as a Scrum Master and Resolution Approach</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2403,7 +2488,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Agile Adoption Strategy</span>
+<span class="qn">Topic</span>
 <span class="qt">Handling Resistance to Agile and Scrum</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2422,7 +2507,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Scrum of Scrums Coordination</span>
+<span class="qn">Topic</span>
 <span class="qt">Ownership of Scrum of Scrums and Coordination Responsibility</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2447,7 +2532,7 @@
 <div class="section-body collapsed"> 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Kanban Flow Metrics</span>
+<span class="qn">Topic</span>
 <span class="qt">Key Metrics Used in Kanban Systems</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2463,7 +2548,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Scrum vs Kanban Decision Factors</span>
+<span class="qn">Topic</span>
 <span class="qt">Choosing Between Scrum and Kanban for a Project</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2479,7 +2564,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Cycle Time Optimization Techniques</span>
+<span class="qn">Topic</span>
 <span class="qt">Reducing Cycle Time using Swarming and WIP Management</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2501,7 +2586,7 @@
 <div class="section-body collapsed">
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">SAFe Release Planning</span>
+<span class="qn">Topic</span>
 <span class="qt">Release Plan Estimation Approach and Roles of RTE & PI Planning Event</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2519,7 +2604,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">SAFe Framework Overview</span>
+<span class="qn">Topic</span>
 <span class="qt">Program Increment (PI) and SAFe Principles Explained</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2534,7 +2619,7 @@
 <div class="section-body collapsed">
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">DevOps & CI/CD Concepts</span>
+<span class="qn">Topic</span>
 <span class="qt">Continuous Integration, Continuous Delivery, and Continuous Deployment Explained</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2548,7 +2633,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Agile Team Technology Awareness</span>
+<span class="qn">Topic</span>
 <span class="qt">Understanding of Team Technology and Technical Context</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2564,7 +2649,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Agile Team Formation Strategy</span>
+<span class="qn">Topic</span>
 <span class="qt">Team Size Planning and New Team Formation Approach</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2580,7 +2665,7 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Agile Team Insights</span>
+<span class="qn">Topic</span>
 <span class="qt">Strengths, Motivation, and Professional Background Overview</span>
 <span class="qv">▼</span>
 </div><div class="qb">
@@ -2591,38 +2676,38 @@
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Project Delivery Lifecycle</span>
+<span class="qn">Topic</span>
 <span class="qt">Project Walkthrough from Initiation to Closure</span>
 <span class="qv">▼</span>
 </div><div class="qb">
-<p>Analysis of backlog creation, planning cycles, sprint execution, and release sign-off.</p>
+<p>----------</p>
 </div></div>
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Project Management & Financial Control</span>
+<span class="qn">Topic</span>
 <span class="qt">Budgeting and Cost Overrun Handling in Projects</span>
 <span class="qv">▼</span>
 </div><div class="qb">
-<p>Summary of domain expertise and key achievements in Agile roles.</p>
+<p>----------</p>
 </div></div>
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Professional Experience Overview</span>
+<span class="qn">Topic</span>
 <span class="qt">Detailed Background and Project Experience Summary</span>
 <span class="qv">▼</span>
 </div><div class="qb">
-<p>Summary of domain expertise and key achievements in Agile roles.</p>
+<p>----------</p>
 </div></div>
 
 
 <div class="qc"><div class="qh" onclick="tog(this)">
-<span class="qn">Project Execution Lifecycle</span>
+<span class="qn">Topic</span>
 <span class="qt">Planning and Execution Walkthrough of a Real Project</span>
 <span class="qv">▼</span>
 </div><div class="qb">
-<p>Summary of domain expertise and key achievements in Agile roles.</p>
+<p>----------</p>
 </div></div>
 
 </div>
